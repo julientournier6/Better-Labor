@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+	<head>	
+		<meta charset="UTF8"/>
+		<link rel = "stylesheet" href = "style.css"/>
+		<link rel = "stylesheet" href = "contact.css"/>
+		<title>Saith Seren</title>
+	</head>
+
+	<body>
+		<header class = "header">
+			<img src="max_logo.png" alt = "Our logo" title = "The logo of Saith Seren" class = "logo" href = "index.php">
+				<a href = "index.php" class = "home">HOME</a>
+				<a href = "events.php" class = "events">EVENTS</a>
+				<a href = "gallery.php" class = "discover">GALLERY</a>
+				<a href = "roomrequest.php" class = "rooms">ROOM HIRE</a>
+				<a href = "contact.html" class = "help">CONTACT</a>
+				<a href = "profile.php" class = "subs">PROFILE</a>
+		</header>
+
+		<div class="main"></div>
+
+		<div id = "map" class="map">
+			
+
+		<script>
+
+			function initMap() {
+				var location = {lat: 53.047055237644585, lng: -2.991794448898301};
+				var map = new google.maps.Map(document.getElementById("map"), {
+					zoom: 18,
+					center: location
+				});
+				var marker = new google.maps.Marker({
+					position: location,
+					map: map
+				});
+			}
+
+		</script>
+
+		<script async defer src = "https://maps.googleapis.Com/maps/api/js?key=AIzaSyCGJiwE93q0E4F-pTGFs7TolKea9G-kvNY&callback=initMap">
+
+		</script>
+		</div>
+
+		<div class="center">
+		<h3>Contact Information</h3>
+		<div class = "text">
+			<p class = "texten">
+				Meet us at the pub "The Seven Stars" <br>
+				Wrexham Welsh Center <br>
+				18 Chester Street <br>
+				Wrexham <br>
+				LL13 8BG <br>
+				01978 447006 <br>
+				7seren@gmail.com <br>
+				We are waiting for you ! 
+			</p>
+
+
+			<p class = "textgal">
+				Dewch i gwrdd a ni yn y dafarn "The Seven Stars" <br>
+				Y Saith Seren <br>
+				Canolfan Gymraeg Wrecsam <br>
+				18 Stryd Caer <br>
+				Wrecsam <br>
+				LL13 8BG <br>
+				01978 447006 <br>
+				7seren@@gmail.com
+			</p>
+		</div>
+		
+		<h3>Opening Times</h3>
+		<div class = "opening">
+		<p class = "texten">
+			Monday: 4:30 - 11:00<br>
+			Tuesday: 4:30 - 11:00<br>
+			Wednesday: 4:30 - 11:00<br>
+			Thursday: 4:30 - 11:00<br>
+			Friday: 4:30 - 11:00 <br>
+			Saturday: 12:00 - 12:00<br>
+			Sunday: Closed <br>
+		</p>
+		<p class = "textgal">
+		    Dydd Llun: 4:30 - 11:00<br>
+			Dydd Mawrth: 4:30 - 11:00<br>
+			Mercher: 4:30 - 11:00<br>
+			Dydd Iau: 4:30 - 11:00<br>
+			dydd Gwener: 4:30 - 11:00 <br>
+			dydd Sadwrn: 12:00 - 12:00<br>
+			Sul: Gau <br>
+		</p>
+		</div>
+	</div>
+<br>
+    <footer>
+            <a href = "acknowledgments.php" class = "footerbutton">Acknowledgments</a>
+            <a href = "support.php" class = "footerbutton">Support Us</a>
+    </footer>
+	</body>
+	</html>
+		

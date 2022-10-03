@@ -1,0 +1,48 @@
+*
+{
+	font-family: georgia, sans-serif;
+	/*background-color: rgb(249, 227, 220);*/
+}
+
+#map
+{
+height: 500px;
+width: 500px;
+float: left;
+margin: 2%;
+display: flex;
+}
+
+.text
+{
+display: flex;
+justify-content: space-between;
+margin-top: 0%;
+margin-right: 10%;
+margin-left: 46%;
+}
+
+.opening
+{
+display: flex;
+justify-content: space-between;
+margin-top: 0%;
+margin-right: 14%;
+margin-left: 50%;
+}
+
+.texten
+{
+	text-align: justify;
+	text-align: bottom;
+	border-right: solid black;
+	padding: 2%;
+}
+
+.textgal
+{
+	text-align: justify;
+	text-align: bottom;
+	border-left: solid black;
+	padding: 2%;
+}

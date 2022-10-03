@@ -1,0 +1,46 @@
+*
+{
+	font-family: georgia, sans-serif;
+}
+
+table
+{
+border: solid black;
+margin-top: 0%;
+font-size: 1.5em;
+}
+
+tr
+{
+border: solid black;
+}
+
+td
+{
+border: solid black;
+text-align: left;
+}
+
+.des
+{
+display: flex;
+justify-content: space-between;
+border: solid black;
+margin-right: 30%;
+margin-left: 30%;
+margin-top: 5%;
+}
+
+	.deseng
+	{
+	text-align: justify;
+	border-right: solid black;
+	padding: 2%;
+	}
+
+	.desgal
+	{
+	text-align: justify;
+	border-left: solid black;
+	padding: 2%;
+	}
