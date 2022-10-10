@@ -1,0 +1,38 @@
+
+.container{
+    width: 600px;
+    height: 520px;
+    background-color: #00000068;
+    padding: 40px;
+    border-radius: 25px;
+    box-sizing: border-box;
+    box-shadow: 14px 14px 20px grey, -14px -14px 30px white;
+    margin: 7% auto;
+}
+
+.body{
+    width: 100px;
+    min-width: 100vh;
+    background-image: url("背景.jpg");
+
+}
+
+
+
+.logo{
+    text-align: center;    
+}
+
+.title{
+    text-align: center;
+}
+
+.inputs{
+    text-align: center;
+    
+    
+
+}
+
+
+
