@@ -1,0 +1,54 @@
+<!doctype html>
+
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+
+  <title>FAQ Better Labor</title>
+  <meta name="description" content="A simple HTML5 Template for new projects.">
+  <meta name="author" content="SitePoint">
+
+  <meta property="og:title" content="A Basic HTML5 Template">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+  <meta property="og:description" content="A simple HTML5 Template for new projects.">
+  <meta property="og:image" content="image.png">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="faq.css">
+  <script src="faq.js"></script>
+</head>
+
+<body class="background">
+  <div class="faq">
+
+  <h1 class="title">Support Better Labor</h1>
+    <h2 class="category-title">Questions générales</h2>
+    <hr class="category-line">
+    <div class="question-box">
+      <button class="question-button">
+      <p class="question-title">• &nbsp&nbsp&nbspComment commander ces casques?</p>
+      <img class="img-defilement" src="images/defilement-bas.png" alt="ouvrir question" id="defilement">
+    </button>
+    <div class="question-content">
+      <p>Faites ça</p>
+      <br>
+      <p>Puis ça</p>
+    </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
+<script>
+  var coll = document.getElementsByClassName("question-button");
+  var i;
+  
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", questionClick);
+  }
+  </script>
