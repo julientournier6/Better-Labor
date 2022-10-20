@@ -1,0 +1,68 @@
+.Identité{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+}
+.Nom{
+    font-weight: bold;
+    font-size: 20px;
+    display: inline;
+    margin-bottom: 2px;
+}
+.Sub-info{
+    font-size: 16px;
+    margin-top: 2px;
+}
+.genre{
+    display: inline;
+    padding: 3px;
+    width: 1.4em;
+    height: 1.4em;
+    margin-top: 14px;
+}
+.Side-Buttons{
+    margin-right: 2%;
+    margin-left: 70%;
+    display: inline-block;
+}
+.Modify-Account{
+    box-sizing: border-box;
+    color: #333;
+    font-family: Inter;
+    font-weight: Bold;
+    font-size: 17px;
+    opacity: 1;
+    background: #A697E8;
+    border-radius: 25px;
+    padding: 4px;
+    width: 170px;
+    height: 37px;
+    position: absolute;
+    top: 5.2%;
+    left: 65%;
+}
+.Delete-Account{
+    box-sizing: border-box;
+    color: #333;
+    font-family: Inter;
+    font-weight: Bold;
+    font-size: 17px;
+    opacity: 1;
+    background: #ED7474;
+    border-radius: 25px;
+    padding: 4px;
+    width: 183px;
+    height: 37px;
+    margin-left: 1.5%;
+    position: absolute;
+    top: 5.2%;
+    left: 80%;
+}
+.Duration-Buttons{
+    margin: auto;
+    width: 15%;
+}
+.Duration-Button{
+    margin: 0;
+    padding: 0;
+}

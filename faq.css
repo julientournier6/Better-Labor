@@ -58,3 +58,16 @@
     background-color: #f0f0f6;
     opacity: 95%;
 }
+.side-info{
+    position: absolute;
+    left: 80%;
+    top: 10%;
+    display: flex;  
+    align-items: top;
+}
+img.help{
+    width: 3em;
+    height: 3em;
+    display: block;
+    margin-top: 3%;
+}
