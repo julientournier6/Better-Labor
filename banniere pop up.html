@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    
+        html,
+        body {
+            margin : 0;
+            background-color : #E8E8EA;
+        }
+    
+    
+        .banner {
+            background-color : #A697E8;
+        }
+    
+        .banner__content {
+            padding : 15px;
+            max-width : 850px;
+            margin : 0 auto;
+            display : flex;
+            align-items : center;
+            flex-grow: 1;
+            line-height : 1.4;
+            font-family : 'Arial';
+            padding-top : 1.5%;
+        }
+    
+        .banner__text {
+            flex-grow: 1;
+            line-height : 1.4;
+            font-family : 'Arial';
+        }
+    
+        .banner__close {
+            background : none;
+            border : none;
+            cursor: pointer;
+        }
+    
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel = "stylesheet" href = "barre acceuil.css"/>
+    <title>BetterLabor</title>
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="logo">
+            <img src="logo.jpg" width="300px" height="100px">
+        </div>
+        <nav>
+            <ul>
+                <li>Decouvrir</li>
+                <li>Devenir partenaire</li>
+                <li>Nous</li>
+                <li>Sign up</li>
+                <li>Sign in</li>
+            </ul>
+        </nav>
+    </div>
+    <section class = "section-1">
+        <div class = "move-me"></div>
+
+    </section>
+
+    <div class = "banner">
+        <div class = "banner__content">
+            <div clas = "banner__text">
+                <strong> Rappel : </strong> Votre abonnement va bientôt expirer. Renouveler afin d'éviter la suspension de votre compte.
+            </div>
+            <button class = "banner__close" type = "button">
+                <span class = "material-icons">
+                    close
+                </span>
+            </button>
+        </div>     
+    </div>
+
+    <script>
+        document.querySelector(".banner__close").addEventListener("click",function() {
+            this.closest(".banner").style.display = "none";
+        })
+    </script>
+</body>
+</html>
