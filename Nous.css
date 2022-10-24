@@ -1,0 +1,61 @@
+ 
+
+.body
+{
+    background-color: #E8E8EA;
+}
+img
+{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+
+.Image
+{
+    margin: 5%;
+    margin-right: 5%;
+    text-align: center;
+    float: left;
+    height: 500px;
+    width: 500px;
+}
+
+
+.Nous
+{
+    position : absolute ;
+    top: 20%;
+    left: 50%;
+    text-align: justify;
+    line-height: 150%;
+    font-size: 25px;    
+    width: 500px;
+    height: 300px;
+}
+
+.Nous2
+{
+    position : absolute ;
+    top: 70%;
+    left: 5%;
+    font-size: 25px;
+    text-align: justify;
+    width: 600px;
+    height: 400px;
+}
+
+.Contact
+{
+    position : absolute;
+    top : 75%;
+    left: 80%;
+    text-align: justify;
+} 
+
+
+
+
+
+
+https://github.com/julientournier6/Better-Labor/blob/main/images/linkedin.png?raw=true
