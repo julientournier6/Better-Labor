@@ -60,14 +60,43 @@
 }
 .side-info{
     position: absolute;
-    left: 80%;
+    left: 75%;
     top: 10%;
-    display: flex;  
+    right: 4%;
+    display: flex;
     align-items: top;
 }
 img.help{
-    width: 3em;
-    height: 3em;
+    width: 2.4em;
+    height: 2.4em;
     display: block;
-    margin-top: 3%;
+    margin-top: 6%;
+    padding-right: 3px;
+}
+.help-question{
+    font-weight: 600;
+    font-size: 1.2em;
+    margin-bottom: 0px;
+}
+.help-contact{
+    font-weight: lighter;   
+    font-size: 1em;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+    padding: 0%;
+}
+.help-button{
+    box-sizing: border-box;
+    color: #333;
+    font-family: Inter;
+    font-weight: Bold;
+    font-size: 17px;
+    opacity: 1;
+    background: #bbb0e9;
+    border-radius: 25px;
+    padding: 4px;
+    width: 183px;
+    height: 37px;
+    margin-top: 0.3em;
+    width: 100%;
 }

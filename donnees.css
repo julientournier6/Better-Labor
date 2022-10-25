@@ -1,68 +1,145 @@
-.Identité{
+
+.Page{
+    width: 98%;
+    margin-left: auto;
+    margin-bottom: 2%;
+    margin-right: auto;
+    padding: 6px;
+}
+
+.top{
     display: flex;
+    flex-direction: row;
+}
+.Identité{
     align-items: center;
+    justify-content: center;
     margin-bottom: 2px;
+    width: 20%;
 }
 .Nom{
     font-weight: bold;
     font-size: 20px;
-    display: inline;
     margin-bottom: 2px;
+    width: 80%;
+    display: inline;
 }
 .Sub-info{
+    display: block;
     font-size: 16px;
     margin-top: 2px;
+    margin-bottom: 0px;
 }
 .genre{
     display: inline;
-    padding: 3px;
+    padding: 1px;
     width: 1.4em;
     height: 1.4em;
-    margin-top: 14px;
+    vertical-align: middle;
 }
-.Side-Buttons{
-    margin-right: 2%;
-    margin-left: 70%;
-    display: inline-block;
+
+.Data-title{
+    display: inline;
+    margin-left: 20%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    width: 40%;
 }
 .Modify-Account{
     box-sizing: border-box;
     color: #333;
     font-family: Inter;
     font-weight: Bold;
-    font-size: 17px;
+    font-size: 1.1em;
     opacity: 1;
     background: #A697E8;
     border-radius: 25px;
     padding: 4px;
-    width: 170px;
-    height: 37px;
-    position: absolute;
-    top: 5.2%;
-    left: 65%;
+    width: 11em;
+    height: 2.2em;
+    display: inline;
+    margin-left: 5%;
 }
 .Delete-Account{
     box-sizing: border-box;
     color: #333;
     font-family: Inter;
     font-weight: Bold;
-    font-size: 17px;
+    font-size: 1.1em;;
     opacity: 1;
     background: #ED7474;
     border-radius: 25px;
     padding: 4px;
-    width: 183px;
-    height: 37px;
+    width: 12em;
+    height: 2.2em;
+    margin-right: 1%;
     margin-left: 1.5%;
-    position: absolute;
-    top: 5.2%;
-    left: 80%;
 }
+
+
+.stats{
+    width: 17%;
+    background: #f2f2f4;
+    margin-top: 0px;
+}
+.stats-title{
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+.stats-content{
+    display: grid;
+    column-gap: 3px;
+    grid-template-columns: auto auto auto;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+.stat-value{
+    font-size: 2.6em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 6px;
+}
+.stat-title{
+    font-size: 1.2em;
+    color: #9f9d9d;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.stat-img{
+    width: 2.8em;
+    height: 2.8em;
+    vertical-align: middle;
+    align-self: center;
+    margin-bottom: 0px;
+}
+
+
 .Duration-Buttons{
     margin: auto;
     width: 15%;
+    display: flex;
+    height: 4%;
 }
 .Duration-Button{
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 5%;
+    padding-right: 5%;
+    background: #e7e7ec;
+    box-sizing: border-box;
+    border: 1px solid #CEC3FB;
+}
+.Right-Button{
+    border-right: 2px solid #CEC3FB;
+}
+.Left-Button{
+    border-left: 2px solid #CEC3FB;
 }
