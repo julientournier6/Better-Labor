@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+
+  <title>Tableau de bord FAQ</title>
+
+  <link rel="stylesheet" href="faq.css">
+  <script src="gestion_faq.js"></script>
+  <script src="tools.js"></script>
+
+</head>
+
+<body class="background">
+  <div class="faq">
+
+  <h1 class="title">Gestion de la FAQ</h1>
+  <button class="add-category">Nouvelle catégorie</button>
+  <button class="add-question">Nouvelle question</button>
+    <div class="category-header">
+      <h2 class="category-title">
+        Questions générales
+      </h2>
+      <div class="side-buttons">
+        <a class="side-button edit">
+          <img src="images/edit.svg">
+        </a>
+        <a class="side-button delete">
+          <img src="images/delete.svg">
+        </a>
+        <a class="side-button move-up">
+          <img src="images/move-up.svg">
+        </a>
+        <a class="side-button move-down">
+          <img src="images/move-down.svg">
+        </a>
+      </div>
+    </div>
+
+    <hr class="category-line">
+    <div class="question-box">
+    <button class="question-button">
+      <p class="question-title" id="question-title-1">Comment commander ces casques?</p>
+      <div class="side-buttons">
+        <a class="side-button edit" onclick="editQuestion()">
+          <img class="smaller" id="edit-1" src="images/edit.svg">
+        </a>
+        <a class="side-button delete">
+          <img class="smaller" src="images/delete.svg">
+        </a>
+        <a class="side-button move-up">
+          <img class="smaller" src="images/move-up.svg">
+        </a>
+        <a class="side-button move-down">
+          <img class="smaller" src="images/move-down.svg">
+        </a>
+      </div>
+    </button>
+    <textarea class="question-content-input" id="question-content-input-1" rows="11">Faites ça</textarea>
+  </div>
+
+  </div>
+
+</body>
+</html>

@@ -6,39 +6,44 @@ class CMS {
     $this->conn = $conn;
   }
 
-  public function display_public($categ) {
-    $q1 = "SELECT * FROM categorie ORDER BY position DESC";
-    $q = "SELECT * FROM question ORDER BY position DESC";
-    $r = $this->conn->query($q);
+  public function display_public() {
+    $q_categorie = "SELECT * FROM categorie ORDER BY position ASC";
+    $r_categorie = $this->conn->query($q_categorie);
     $entry_display = "";
-    if ( $r != false && $r->num_rows > 0 ) {
-      while ( $a = mysqli_fetch_assoc($r) ) {
-        $category = stripslashes($a['category']);
-        if ($categ == $category) {
-        $sujet = stripslashes($a['sujet']);
-        $reponse = stripslashes($a['reponse']);
-        $entry_display .= <<<ENTRY_DISPLAY
-    <div class="post">
-    	<h2>
-    		$title
-    	</h2>
-	    <p>
-	      $bodytext
-	    </p>
-	</div>
-ENTRY_DISPLAY;
+    if ( $r_categorie != false && $r_categorie->num_rows > 0 ) {
+      while ( $a_categorie = mysqli_fetch_assoc($r_categorie) ) {
+        $categorie = stripslashes($a_categorie['nom']);
+        $categorie_id = stripslashes($a_categorie['ID']);
+        $q_question = "SELECT * FROM question WHERE ID_categorie = $categorie_id ORDER BY position ASC";
+        $r_question = $this->conn->query($q_question);
+        if ( $r_categorie != false && $r_categorie->num_rows > 0 ) {
+        while ( $a_question = mysqli_fetch_assoc($r_question) ) {
+          $sujet = stripslashes($a_question['sujet']);
+          $reponse = stripslashes($a_question['reponse']);
+          $entry_display .= <<<ENTRY_DISPLAY
+      <div class="post">
+        <h2>
+          $title
+        </h2>
+        <p>
+          $bodytext
+        </p>
+    </div>
+  ENTRY_DISPLAY;
         }
       }
-    } else {
+    } 
+  }
+    else {
       $entry_display = <<<ENTRY_DISPLAY
-    <h2> Aucune question n'a été trouvée</h2>
+    <h2> Nous sommes désolés, aucune question n'a été trouvée</h2>
     <p>
-      Soit il y a une erreur, soit aucune question n'a été ajoutée.
+      Soit il y a un problème de connexion avec la base de données, soit aucune question n'a été ajoutée.
     </p>
-ENTRY_DISPLAY;
+    ENTRY_DISPLAY;
     }
     return $entry_display;
-  }
+    }
 
   public function display_admin($categ) {
     $q = "SELECT * FROM question ORDER BY position DESC";
