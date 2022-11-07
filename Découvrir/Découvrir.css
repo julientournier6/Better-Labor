@@ -10,10 +10,11 @@ body{
 
 .banner__content{
     padding : 1.5%;
-    max-width : 60%;
+    max-width : 90%;
     font-size : 115%;
     margin : 0 auto;
     text-align : center;
+    justify-content : center;
     display : flex;
     flex-grow: 1;
     line-height : 1.4;
@@ -28,6 +29,7 @@ body{
 .title{
     margin : 0 auto;
     text-align : center;
+    justify-content : center;
     max-width: 80%;
     font-size: 150%;
 }
