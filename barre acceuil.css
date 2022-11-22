@@ -1,8 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+   
 
 }
 
@@ -16,74 +15,72 @@ body{
     display: flex;
 }
 
-    
 
 
-
-.nav{
-    margin-left: 30px;
-    align-items: center;
-    
-
+nav ul li a{
+    display: block;
+    color:#A697E8;
+    text-decoration: none;
+    display:block;
+    padding: 33.25px 45px;
+    color: #A697E8;
+    text-decoration: none;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
 }
 
 nav ul li{
     list-style: none;
-    display: inline-block;
-    margin: 30px;
-    padding: 5px 20px;
-    color: #A697E8;
-    font-size: 25px;
-    font-weight: 600;
+    display: inline-block; 
     cursor: pointer;
     position: relative;
     transition: .5s;
 }
 
-nav ul li:before{
+nav ul li a:before{
     content:'';
     position:absolute;
     bottom:6px;
     left:15px;
     width: 12px;
     height:12px;
-    border: 3px solid #A697E8;
+    border: 3px solid #E8E8EA;
     border-width: 0 0 3px 3px;
     transition: .5s;
     opacity: 0;
 }
 
-nav ul li:hover{
+nav ul li a:hover{
 color:#E8E8EA;
 background: #A697E8;
 }
 
-nav ul li:hover:before
+nav ul li a:hover:before
 {
-    bottom: -7px;
-    left: -7px;
+    bottom: 15px;
+    left: 20px;
     opacity: 1;
 }
 
 
-nav ul li:after{
+nav ul li a:after{
     content: '';
     position: absolute;
     top:12px;
     right:15px;
     width: 12px;
     height:12px;
-    border: 3px solid #A697E8;
+    border: 3px solid #E8E8EA;
     border-width: 3px 3px 0 0;
     transition: .5s;
     opacity: 0;
     
 }
 
-nav ul li:hover:after 
+nav ul li a:hover:after 
 {
-    top: -7px;
-    right: -7px;
+    top: 20px;
+    right: 20px;
     opacity: 1;
 }
-
