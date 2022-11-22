@@ -42,3 +42,8 @@ body{
     border: none;
     background-color: #A697E8;
 }
+
+.container a {
+    text-decoration: none;
+    color: black;
+}
