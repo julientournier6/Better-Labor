@@ -1,56 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+
+  <title>Tableau de bord FAQ</title>
+
+  <link rel="stylesheet" href="faq.css">
+  <script src="gestion_faq.js"></script>
+  <script src="tools.js"></script>
+
+</head>
+
+<body class="background">
+  <div class="faq">
+
+  <h1 class="title">Gestion de la FAQ</h1>
 <?php
 session_start();
-include('database/CMS.php');
-$obj = new simpleCMS();
+include('database/FAQManager.php');
+$obj = new FAQManager();
 $obj->connect();
+echo $obj->display_admin();
 
-if (isset($_POST["add"]))
-{$obj->write($_POST, $categ);}
-if (isset($_POST["update"])) 
-{$obj->update($_POST, $_POST["contentid"]);}
+// if (isset($_POST["save-category"])) 
+// {$obj->saveCategory($_POST);}
+// if (isset($_POST["save-question"])) 
+// {$obj->saveQuestion($_POST);}
 
 if (isset($_SESSION['admin']) AND $_SESSION['admin'] == 1) {
-    echo $obj->display_admin($categ);
+    echo $obj->display_admin();
 } 
 else {
-    echo $obj->display_public($categ);
-}
-
-include("gestion_faq.html");
-function saveCategory() {
-    include('config.php');
-    $id = $_POST["id"];
-    $name = $_POST["name"];
-    $messages = array();
-    $sql = "SELECT * FROM category WHERE ID = '$id'";
-    $query_check_datetime = $conn->query($sql);
-    $sql = "UPDATE category SET name = '$name' WHERE ID = '$id'";
-    $query_update = $conn->query($sql);
-    if ($query_update) {
-      $messages[] = "La catégorie a bien été modifiée";
-    }
-    else {
-      $messages[] = "Désolé, la catégorie n'a pas pu être modifiée";
-    }
-  }
-function saveQuestion() {
-  $id = $_POST["id"];
-  $sujet = $_POST["name"];
-  $reponse = $_POST["reponse"];
-  $messages = array();
-}
-function deleteCategory() {
-  $id = $_POST["id"];
-  $q = "DELETE FROM categorie WHERE id = '$id'";
-}
-function deleteQuestion() {
-  $id = $_POST["id"];
-  $q = "DELETE FROM question WHERE id = '$id";
-}
-function moveupClick() {
-
-}
-function movedown() {
-
+    //echo "Cette page n'est pas accessible.";
 }
 ?>
+<script>
+const el = document.getElementsByClassName("side-button");
+
+for (var i=0; i<el.length; i++) {
+  el[i].addEventListener('mouseover', handleMouseOver);
+  el[i].addEventListener('mouseout', handleMouseOut);
+}
+</script>

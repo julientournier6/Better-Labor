@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="faq.css">
   <link rel="stylesheet" href="donnees.css">
   <script src="donnees.js"></script>
+  <script src="tools.js"></script>
 </head>
 
 <body class="background">
@@ -28,40 +29,34 @@
                 </p>
             </div>
 
+            <div class="Account-buttons">
+                <button class="Modify-Account">
+                    Modifier le compte
+                </button>
+                <button class="Delete-Account">
+                    Supprimer le compte
+                </button>
+            </div>
+        </div>
+
+        <div class="Data-header">
             <h2 class="Data-title">
                 Données du BetterSet
             </h2>
+            <div class="Duration-buttons">
+                <button class="Duration-button Left-Button">Jour</button>
+                <button class="Duration-button">Semaine</button>
+                <button class="Duration-button">Mois</button>
+                <button class="Duration-button Right-Button">Année</button>
+            </div>
 
-            <button class="Modify-Account">
-                Modifier le compte
-            </button>
-            <button class="Delete-Account">
-                Supprimer le compte
-            </button>
+            <div class="Calendar">
+                <img class="Calendar-image" src="images/calendrier.png" alt="calendrier">
+            </div>
         </div>
 
-
-        <div class="Duration-Buttons">
-            <button class="Duration-Button" class="Left-Button">
-                Jour
-            </button>
-            <button class="Duration-Button">
-                Semaine
-            </button>
-            <button class="Duration-Button">
-                Mois
-            </button>
-            <button class="Duration-Button" class="Right-Button">
-                Année
-            </button>
-        </div>
-
-        <img class="Calendar" src="images/calendrier.png" alt="calendrier">
-
-        <div class="Data">
-
-            <div class="stats">
-                <p class="stats-title">Average</p>
+            <!-- <div class="stats">
+                <p class="stats-title">Moyenne</p>
                 <div class="stats-content">
 
                     <div class="stat">
@@ -70,7 +65,7 @@
                             56
                         </p>
                         <p class="stat-title">
-                            Heart Rate
+                            BPM
                         </p>
                     </div>
 
@@ -80,7 +75,7 @@
                             5
                         </p>
                         <p class="stat-title">
-                            Sweat
+                            Effort
                         </p>
                     </div>
 
@@ -90,20 +85,47 @@
                             23
                         </p>
                         <p class="stat-title">
-                            Sound Power
+                            Son
                         </p>
                     </div>
                 </div>
+            </div> -->
+        <div class="Data">
+            <div class="Data-section">
+                <h2 class="Section-title">
+                Fréquence cardiaque
+                </h2>
+                <img src="images/information.png" alt="[Info]" class="image-info">
+                <div>
+                    <canvas id="Frequence"></canvas>
+                </div>
+            </div>
+            <div class="Data-section">
+                <h2 class="Section-title">
+                Résultats des capteurs de sueur
+                </h2>
+                <img src="images/information.png" alt="[Info]" class="image-info">       
+            </div>
+            <div class="Data-section">
+                <h2 class="Section-title">
+                Résultats des capteurs de gaz
+                </h2>
+                <img src="images/information.png" alt="[Info]" class="image-info">            
+            </div>
+            <div class="Data-section">
+                <h2 class="Section-title">
+                Résultats des sonomètres
+                </h2>
+                <img src="images/information.png" alt="[Info]" class="image-info">            
             </div>
         </div>
     </div>
 </body>
 
 <script>
-var button = document.getElementsByClassName("Duration-Button");
-var i;
-
-for (i = 0; i < button.length; i++) {
-  button[i].addEventListener("click", buttonClick);
-}
+addEvent("Duration-button", buttonClick)
+addEvent("Modify-Account", modifyAccount)
+addEvent("Delete-Account", deleteAccount)
 </script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="chart.js"></script>
