@@ -1,51 +1,78 @@
 <?php
-//on inclue un fichier contenant nom_de_serveur, nom_bdd, login et password d'accès à la bdd mysql
-include("connect.php");
-//on vérifie que le visiteur a correctement saisi puis envoyé le formulaire
-if (isset($_POST['connexion']) && $_POST['connexion'] == 'Connexion') {
-    if ((isset($_POST['login']) && !empty($_POST['login'])) && (isset($_POST['pwd']) && !empty($_POST['pwd']))) {
-        //on se connecte à la bdd
-        $connexion = mysql_connect(HOST, USER, PASS);
-        if (!$connexion) {
-            echo "LA CONNEXION AU SERVEUR MYSQL A ECHOUE\n";
-            exit;
-        }
-        mysql_select_db(DB_NAME);
-        print "Connexion BDD reussie puis";
-        echo "<br/>";
-        //on parcourt la bdd pour chercher l'existence du login mot et du mot de passe saisis par l'internaute
-        //et on range le résultat dans le tableau $data
-        $sql = 'SELECT count(*) FROM membres WHERE id="' . mysql_escape_string($_POST['login']) . '"AND md5="' . mysql_escape_string(md5($_POST['pwd'])) . '"';
-        $req = mysql_query($sql) or die('Erreur SQL !<br />' . $sql . '<br />' . mysql_error());
-        $data = mysql_fetch_array($req);
-        mysql_free_result($req);
-        mysql_close();
-        // si on obtient une réponse, alors l'utilisateur est un membre
-        //on ouvre une session pour cet utilisateur et on le connecte à l'espace membre
-        if ($data[0] == 1) {
-            session_start();
-            $_SESSION['login'] = $_POST['login'];
-            header('Location: espace-membre.php');
-            exit();
-        }
-        //si le visiteur a saisi un mauvais login ou mot de passe, on ne trouve aucune réponse
-        elseif ($data[0] == 0) {
-            $erreur = 'Login ou mot de passe non reconnu !';
-            echo $erreur;
-            echo "<br/><a href=\"accueil.php\">Accueil</a>";
-            exit();
-        }
-        // sinon, il existe un problème dans la base de données
-        else {
-            $erreur = 'Plusieurs membres ont<br/>les memes login et mot de passe !';
-            echo $erreur;
-            echo "<br/><a href=\"accueil.php\">Accueil</a>";
-            exit();
-        }
-    } else {
-        $erreur = 'Errreur de saisie !<br/>Au moins un des champs est vide !';
-        echo $erreur;
-        echo "<br/><a href=\"accueil.php\">Accueil</a>";
-        exit();
-    }
+session_start();
+$errors = array();
+//on inclue le fichier qui contient nom_de_serveur, nom_bdd, login et password d'accès à la bdd mysql
+include("../database/config.php");
+//on vérifie que le visiteur a correctement envoyé le formulaire
+if (isset($_POST['connexion'])) {
+   if ((isset($_POST['email']) && !empty($_POST['email'])) && (isset($_POST['password']) && !empty($_POST['password']))) {
+       //on se connecte à la bdd
+       if (!$conn->connect_errno) {
+           $email = $conn->real_escape_string($_POST['email']);
+           $sql = "SELECT * FROM chef WHERE email = '" . $email . "';";
+           $result_of_login_check = $conn->query($sql);
+           if ($result_of_login_check->num_rows == 1) {
+               $result_row = $result_of_login_check->fetch_object();
+               if (password_verify($_POST['password'], $result_row->password)) {
+                    include("tools.php");
+                    connect($result_row);
+                    redirect("espace-membre.php");
+               } 
+               else {
+                   $errors[] = "Mauvais mot de passe. Veuillez réessayer.";
+               }
+           } 
+           else if ($result_of_login_check->num_rows == 0){
+                $errors[] = "Ce mail ne correspond à aucun compte.";
+           }
+           else {
+            $errors[] = "Il y a un problème dans la base de données, votre compte existe en double. Veuillez contacter notre support.";
+           }
+       } 
+       else {
+           $errors[] = "Il y a un problème de connexion à notre base de données. Veuillez réessayer.";
+       }
+   }
 }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" href = "connexion.css"/>
+    <link rel = "stylesheet" href = "../general.css"/>
+    <title>BetterLabor</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img class="better" src="../logo.jpg">
+        </div>
+
+        <div class="title"><b>Vos identifiants de connexion </b></div>
+
+        <?php
+        if ($errors) {
+            foreach ($errors as $error) {
+                echo('<div class="bar error">
+                <i class="ico">&#9747;</i>' . $error . '</div>');
+            }
+        }
+        ?>
+
+        <div class="inputs">
+            <form action="" method="post">
+                <input type="text" placeholder="Adresse e-mail " name="email">
+                <br> 
+                <input type="password" placeholder="Votre mot de passe" name="password">
+                <br>
+                <button type="submit" name="connexion"><b>Se connecter </b></button>
+            </form>
+            <a class="link" href="reinitialisation_mdp.php">Mot de passe oublié?</a>
+            <a class="link" href="inscription.php">S'inscrire</a>
+            <br class="big-margin">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION['login'])) {
-    header('Location: index.php');
+if (!isset($_SESSION['loggedin'])) {
+    header('Location: connexion.php');
     exit();
 }
 ?>
@@ -11,12 +11,22 @@ if (!isset($_SESSION['login'])) {
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Espace membre</title>
     <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet"  href="../general.css">
 </head>
 
 <body>
+    <?php
+    if (isset($_GET["message"]) && $_GET["message"] == "activated") {
+        echo('<div class="bar success">
+        <i class="ico">&#9747;</i>' . "Votre compte a bien été activé! " . '</div>');
+    }
+    ?>
     <p><strong>ESPACE MEMBRES</strong><br />
-        Bienvenue <?php echo htmlentities(trim($_SESSION['login'])); ?> !<br />
+        Bienvenue <?php echo htmlentities(trim($_SESSION['prenom']) . " " .  $_SESSION['nom']); ?> !<br />
         <a href="deconnexion.php">Déconnexion</a>
+        <a href="modification_profil.php">Mes informations personnelles</a>
+        <a href="changement_mdp.php">Changer de mot de passe</a>
+        <a href="../donnees.php">Mes données</a>
     </p>
 </body>
 
