@@ -16,7 +16,7 @@ if (isset($_POST['connexion'])) {
                if (password_verify($_POST['password'], $result_row->password)) {
                     include("tools.php");
                     connect($result_row);
-                    redirect("espace-membre.php");
+                    redirect("index.php");
                } 
                else {
                    $errors[] = "Mauvais mot de passe. Veuillez réessayer.";

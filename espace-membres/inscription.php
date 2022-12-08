@@ -74,7 +74,7 @@ if (isset($_POST['inscription'])) {
         if ($messages) {
             foreach ($messages as $message) {
             echo('<div class="bar success">
-            <i class="ico">&#9747;</i>' . $message . '</div>');
+            <i class="ico">&#10004;</i>' . $message . '</div>');
             }
         }
         if ($errors) {
@@ -84,8 +84,16 @@ if (isset($_POST['inscription'])) {
             }
         }
         if (isset($_GET["message"]) && $_GET["message"] == "expired") {
-            echo('<div class="bar success">
+            echo('<div class="bar error">
             <i class="ico">&#9747;</i>' . "Ce lien d'activation a expiré! Veuillez vous inscrire à nouveau. " . '</div>');
+        }
+        if (isset($_GET["message"]) && $_GET["message"] == "invalid") {
+            echo('<div class="bar error">
+            <i class="ico">&#9747;</i>' . "Erreur : le lien saisi est invalide" . '</div>');
+        }
+        if (isset($_GET["message"]) && $_GET["message"] == "error") {
+            echo('<div class="bar error">
+            <i class="ico">&#9747;</i>' . "Il y a un problème de communication avec la base de données, veuillez réessayer plus tard." . '</div>');
         }
 
         ?>

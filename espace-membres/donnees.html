@@ -1,0 +1,131 @@
+<!doctype html>
+
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+
+  <title>Mes données BetterSet</title>
+
+  <link rel="stylesheet" href="faq.css">
+  <link rel="stylesheet" href="donnees.css">
+  <script src="donnees.js"></script>
+  <script src="tools.js"></script>
+</head>
+
+<body class="background">
+
+    <div class="Page">
+
+        <div class="top">
+
+            <div class="Identité">
+                <p class="Nom">
+                    Nom/Prénom Employé
+                </p>
+                <!--Vérifier le genre de la personne, afficher l'icone correspondante-->
+                <img class="genre" src="images/female_icon.png" alt="Femme">
+                <p class="Sub-info">
+                    Age
+                </p>
+            </div>
+
+            <div class="Account-buttons">
+                <button class="Modify-Account">
+                    Modifier le compte
+                </button>
+                <button class="Delete-Account">
+                    Supprimer le compte
+                </button>
+            </div>
+        </div>
+
+        <div class="Data-header">
+            <h2 class="Data-title">
+                Données du BetterSet
+            </h2>
+            <div class="Duration-buttons">
+                <button class="Duration-button Left-Button">Jour</button>
+                <button class="Duration-button">Semaine</button>
+                <button class="Duration-button">Mois</button>
+                <button class="Duration-button Right-Button">Année</button>
+            </div>
+
+            <div class="Calendar">
+                <img class="Calendar-image" src="images/calendrier.png" alt="calendrier">
+            </div>
+        </div>
+
+            <!-- <div class="stats">
+                <p class="stats-title">Moyenne</p>
+                <div class="stats-content">
+
+                    <div class="stat">
+                        <img class="stat-img" src="images/heart-rate.png" alt="Heart">
+                        <p class="stat-value">
+                            56
+                        </p>
+                        <p class="stat-title">
+                            BPM
+                        </p>
+                    </div>
+
+                    <div class="stat">
+                        <img class="stat-img" src="images/effort.png" alt="Effort">
+                        <p class="stat-value">
+                            5
+                        </p>
+                        <p class="stat-title">
+                            Effort
+                        </p>
+                    </div>
+
+                    <div class="stat">
+                        <img class="stat-img" src="images/sound-power.png" alt="Sound">
+                        <p class="stat-value">
+                            23
+                        </p>
+                        <p class="stat-title">
+                            Son
+                        </p>
+                    </div>
+                </div>
+            </div> -->
+        <div class="Data">
+            <div class="Data-section">
+                <h2 class="Section-title">
+                Fréquence cardiaque
+                </h2>
+                <img src="images/information.png" alt="[Info]" class="image-info">
+                <div>
+                    <canvas id="Frequence"></canvas>
+                </div>
+            </div>
+            <div class="Data-section">
+                <h2 class="Section-title">
+                Résultats des capteurs de sueur
+                </h2>
+                <img src="images/information.png" alt="[Info]" class="image-info">       
+            </div>
+            <div class="Data-section">
+                <h2 class="Section-title">
+                Résultats des capteurs de gaz
+                </h2>
+                <img src="images/information.png" alt="[Info]" class="image-info">            
+            </div>
+            <div class="Data-section">
+                <h2 class="Section-title">
+                Résultats des sonomètres
+                </h2>
+                <img src="images/information.png" alt="[Info]" class="image-info">            
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+addEvent("Duration-button", buttonClick)
+addEvent("Modify-Account", modifyAccount)
+addEvent("Delete-Account", deleteAccount)
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="chart.js"></script>

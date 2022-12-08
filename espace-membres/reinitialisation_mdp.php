@@ -7,27 +7,39 @@ $email = "";
 $errors = array();
 $messages = array();
  
-if(isset($_POST["email"])) {
+if (isset($_POST["reinitialisation_mdp"])) {
+  if(isset($_POST["email"])) {
     if(empty(trim($_POST["email"]))) {
         $errors[] = "Veuillez entrer un mail";     
     } else {
         $email = trim($_POST["email"]);
-        $sql = "SELECT * FROM user WHERE email = '" . $email . "';";
+        $sql = "SELECT * FROM chef WHERE email = '" . $email . "';";
         $query_check_email = $conn->query($sql);
         if ($sql && $query_check_email->num_rows == 1) {
-            while ($user = mysqli_fetch_assoc($query_check_email)) {
-                $mail_sent = sendmail($conn, $user, "Demande de reinitialisation de mot de passe", 'Vous avez demandé de reinitialiser votre mot de passe. <br>Si la demande vient bien de vous, veuillez cliquer sur ce <a href="nouveau_mdp.php">lien</a>.<br>Sinon, nous vous conseillons de vérifier la sécurité de votre compte.');
-                if ($mail_sent) {
-                    $messages = "Un mail avec le lien de reinitialisation de mot de passe vous a été envoyé.";
-                } else {
-                    $errors = "Une erreur d'envoi de mail est survenue. Veuillez réessayez.";
-                }
+          $row = $query_check_email->fetch_object();
+          include("../send_mail.php");
+          $code_verification = substr(md5(uniqid(rand(), true)), 16, 16);
+          $sql = "UPDATE chef SET code_verification = '$code_verification' WHERE email = '$email'";
+          $query_update_code = $conn->query($sql);
+          if ($query_update_code) {
+          $lien_activation = "127.0.0.1/Better-Labor/espace-membres/activate.php?code_verification=$code_verification&email=$email&reinitialisation_mdp=1";
+            $mail_sent = sendmail($conn, $row, "Demande de reinitialisation de mot de passe", 'Vous avez demandé de reinitialiser votre mot de passe. <br>Si la demande vient bien de vous, veuillez cliquer sur ce <a href="' . $lien_activation . '">lien</a>.<br>Sinon, nous vous conseillons de vérifier la sécurité de votre compte.');
+            if ($mail_sent) {
+                $messages[] = "Un mail avec le lien de reinitialisation de mot de passe vous a été envoyé.";
+            } 
+            else {
+                $errors[] = "Une erreur d'envoi de mail est survenue. Veuillez réessayer.";
             }
+          }
+          else {
+              $errors[] = "La requête a echoué. Veuillez réessayer.";
+          }
         }
         else {
-            $errors = "Aucun compte n'a été créé avec cette adresse e-mail.";
+            $errors[] = "Aucun compte n'a été créé avec cette adresse e-mail.";
         }
     }
+  }
 }
 ?>
 
@@ -55,7 +67,7 @@ if(isset($_POST["email"])) {
         if ($messages) {
             foreach ($messages as $message) {
             echo('<div class="bar success">
-            <i class="ico">&#9747;</i>' . $message . '</div>');
+            <i class="ico">&#10004;</i>' . $message . '</div>');
             }
         }
         if ($errors) {
@@ -73,11 +85,11 @@ if(isset($_POST["email"])) {
     
       
       <div class="buttonWrapper">
-        <button type="submit" id="submitButton" onclick="validateSignupForm()" class="submitButton pure-button pure-button-primary">
+        <button name="reinitialisation_mdp" type="submit" id="submitButton" onclick="validateSignupForm()" class="submitButton pure-button pure-button-primary">
           <span>Envoyer</span>
         </button>
       </div>
-      <a class="link" href="donnees.html">Se connecter</a>
+      <a class="link" href="connexion.php">Se connecter</a>
         
     </form>
     </div>
