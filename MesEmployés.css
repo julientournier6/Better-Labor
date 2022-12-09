@@ -1,0 +1,101 @@
+
+.tableau
+{
+    width: 60%;
+    margin : auto;
+    margin: 5%;
+    
+}
+
+
+html  
+{
+    font-family: sans-serif;
+}
+
+ 
+  
+table 
+{
+    border-collapse: collapse;
+    border: 2px solid rgb(200,200,200);
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+}
+
+  td, th 
+{
+    border: 1px solid rgb(190,190,190);
+    padding: 1px 100px;
+    height: 5em;
+    white-space: nowrap;
+}
+  
+  th 
+{
+    background-color: rgb(235,235,235);
+}
+
+  
+  td 
+{
+    text-align: center;
+}
+
+.tailleCercle
+{
+    width: 3em;
+    height: 3em;
+}
+  
+.nombreEmploye
+{
+    margin-left: 86%;
+}
+
+.bouttons_employes
+{
+    display: flex;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+
+.AjoutEmployés
+{
+    box-sizing: border-box;
+    color: #333;
+    font-family: Inter;
+    font-size: 1em;
+    opacity: 1;
+    background: #A697E8;
+    border-radius: 25px;
+    padding: 4px;
+    width: 10em;
+    height: 3em;
+    display: inline;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+
+}
+
+.AjoutSlot2
+{
+    box-sizing: border-box;
+    color: #333;
+    font-family: Inter;
+    font-size: 1em;
+    opacity: 1;
+    background: #A697E8;
+    border-radius: 25px;
+    padding: 2px;
+    width: 10em;
+    height: 3em;
+    display: inline;
+    cursor: pointer;
+   position : absolute;
+   left: 83%;
+
+
+}
