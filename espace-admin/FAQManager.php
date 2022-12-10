@@ -35,9 +35,7 @@ ENTRY_DISPLAY;
               <p class="question-title">$sujet</p>
               <img class="img-defilement" src="images/defilement-bas.png" alt="ouvrir question" id="defilement-$question_id">
             </button>
-            <div class="question-content">
-            $reponse
-            </div>
+            <div class="question-content"><p class="question-content-text">$reponse</p></div>
           </div>
 ENTRY_DISPLAY;
           }
@@ -257,6 +255,14 @@ ADMIN_FORM;
       $categorie = $result->fetch_object();
       $position = $categorie->position;
       $newposition = $position + $step;
+      $sql = "SELECT MAX(position) AS max_position FROM categorie";
+      $result = $this->conn->query($sql);
+      $result_row = $result->fetch_array();
+      $max_position = $result_row["max_position"];
+      if ($newposition == 0 || $newposition > $max_position) {
+        return;
+        //annuler si position n'a pas de sens
+      }
       echo $position;
       echo $newposition;
       //On déplace d'abord la catégorie que l'utilisateur veut déplacer
@@ -285,6 +291,14 @@ public function moveQuestion($id, $step)
     $position = $categorie->position;
     $id_categorie = $categorie->ID_categorie;
     $newposition = $position + $step;
+    $sql = "SELECT MAX(position) AS max_position FROM categorie WHERE ID_categorie = '$id_categorie'";
+    $result = $this->conn->query($sql);
+    $result_row = $result->fetch_array();
+    $max_position = $result_row["max_position"];
+    if ($newposition == 0 || $newposition > $max_position) {
+      return;
+      //annuler si position n'a pas de sens
+    }
     echo $position;
     echo $newposition;
     //On déplace d'abord la catégorie que l'utilisateur veut déplacer
