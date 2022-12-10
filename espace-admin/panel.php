@@ -194,14 +194,14 @@ if ($messages) {
       foreach($fetchData as $data){
     ?>
       <tr>
-      <td><?php echo $sn; ?></td>
+      <td><?php echo $data['id']; ?></td>
       <td><?php echo $data['firstname']??''; ?></td>
       <td><?php echo $data['lastname']??''; ?></td>
       <td><?php echo $data['email']??''; ?></td>
       <td><?php echo $data['subscribed']??''; ?></td>
      </tr>
      <?php
-      $sn++;}}else{ ?>
+}}else{ ?>
       <tr>
         <td colspan="8">
     <?php echo $fetchData; ?>

@@ -1,0 +1,88 @@
+body{
+    background-color: #E8E8EA;
+}
+
+.conteneur
+{
+    width: 80%;
+    height: 70%;
+    margin: 0 auto;
+}
+.conteneur-tableau{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow-x: auto;
+}
+
+html  
+{
+    font-family: sans-serif;
+}
+
+ 
+  
+table 
+{
+    border-collapse: collapse;
+    border: 2px solid rgb(200,200,200);
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    margin-bottom: 1%;
+    align-self: center;
+    width: 100%;
+}
+  td, th 
+{
+    border: 1px solid rgb(190,190,190);
+    padding: 1px 15px;
+    height: 5em;
+    white-space: nowrap;
+}
+  
+  th 
+{
+    background-color: rgb(235,235,235);
+}
+
+  
+  td 
+{
+    text-align: center;
+}
+
+.tailleCercle
+{
+    width: 3em;
+    height: 3em;
+}
+  
+.nombreEmploye
+{
+    margin-right: 0px;
+    margin-left: auto;
+    width: 20%;
+    display: block;
+    position: relative;
+    text-align: right;
+}
+
+.boutons_employes
+{
+    display: flex;
+    margin-right: 0px;
+    margin-left: auto;
+    width: 60%;
+    flex-direction: row-reverse;
+}
+
+
+.AjoutEmployés
+{
+    margin-right: 0px;
+}
+
+.AjoutSlot2
+{
+    margin-right: 3%;
+}
