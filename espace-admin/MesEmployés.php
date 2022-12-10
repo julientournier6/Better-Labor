@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "barre acceuil.css"/>
+    <title>BetterLabor</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="logo">
+            <img src="https://github.com/julientournier6/Better-Labor/blob/main/images/Logo.png?raw=true" width="300px" height="100px">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Decouvrir</a></li>
+                <li><a href="#">Devenir partenaire</a></li>
+                <li><a href="#">Nous</a></li>
+                <li><a href="#">Sign up</a></li>
+                <li><a href="#">Sign in</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+ 
+ 
+ 
+ 
+ <html>
+
+
+    <head>
+        <link rel ="stylesheet" href = "MesEmployés.css"/>
+    </head>
+
+
+  <body>
+
+    <div class ="tableau">
+      <table>
+        
+          <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Adresse mail</th>
+            <th>Age</th>
+            <th>Conditions de travail</th>
+        </tr>
+
+          <td>Nom</td>
+            <td>Prénom</td>
+            <td>Adresse mail</td>
+            <td>Age</td>
+            <td><img class ="tailleCercle" src = "https://raw.githubusercontent.com/julientournier6/Better-Labor/main/images/r%C3%A9sultat-jaune.png"></td> 
+        </tr>
+        
+          <td>Nom</td>
+            <td>Prénom</td>
+            <td>Adresse mail</td>
+            <td>Age</td>
+            <td><img class ="tailleCercle" src = "https://raw.githubusercontent.com/julientournier6/Better-Labor/main/images/r%C3%A9sultat-orange.png"></td>
+        </tr>
+          <td>Nom</td>
+          <td>Prénom</td>
+          <td>Adresse mail</td>
+          <td>Age</td>
+          <td><img class ="tailleCercle" src = "https://github.com/julientournier6/Better-Labor/blob/main/images/r%C3%A9sultat-rouge.png?raw=true"></td>
+        </tr>
+                  
+       
+        <td>Nom</td>
+        <td>Prénom</td>
+        <td>Adresse mail</td>
+        <td>Age</td>
+        <td><img class = "tailleCercle" src = "https://raw.githubusercontent.com/julientournier6/Better-Labor/main/images/r%C3%A9sultat-vert.png"></td>
+    </tr>
+
+</table>
+    </div>
+ 
+<div class = "nombreEmploye">   
+<p>
+xx/50 employés
+</p>
+<br>
+
+</div> 
+
+    <button class="AjoutEmployés">
+        <B>Ajouter des employés</B>
+    </button>
+ 
+    <button class="AjoutSlot2">
+        <B>Ajouter des slots </B>
+    </button>
+
+
+  </body>
+</html>
