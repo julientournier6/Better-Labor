@@ -65,6 +65,7 @@ table
     display: block;
     position: relative;
     text-align: right;
+    margin-top: 0%;
 }
 
 .boutons_employes
@@ -85,4 +86,10 @@ table
 .AjoutSlot2
 {
     margin-right: 3%;
+}
+.row{
+    cursor: pointer;
+}
+.row:hover{
+    /* background: somecolor */
 }

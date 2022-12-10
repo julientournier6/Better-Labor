@@ -37,7 +37,8 @@ if(isset($_POST["changement_mdp"])) {
         } else {
             $password = password_hash($new_password, PASSWORD_DEFAULT);
             $id = $_SESSION["id"];
-            $sql = "UPDATE chef SET password = '$password' WHERE ID = '$id'";
+            $role = $_SESSION["role"];
+            $sql = "UPDATE $role SET password = '$password' WHERE ID = '$id'";
             $query_update_password = $conn->query($sql);
             if ($query_update_password) {
                 $messages[] = "Le mot de passe a bien été mis à jour!";

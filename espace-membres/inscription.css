@@ -3,44 +3,60 @@ body{
 }
 
 .container{
-    width: 460px;
-    height: 700px;
+    width: max(30%, 500px);
     background-color: #ffffff;
     margin: 0px auto;
     margin-top: 100px;
+    height: auto;
 }
 
 
 .logo{
-    text-align: center;    
+    text-align: center;
+    width: 100%;
+    height: auto;    
+}
+.better{
+    width: 100%;
 }
 
 .title{
     margin-top: 15px;
-    margin-left: 55px;
+    text-align: center;
 }
 
-.container input{
-    align-items: center;
-    text-align: left;
+inputs{
+    width: 70%;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+}
+form{
+    width: 100%;
+    text-align: center;
+}
+input{
     outline: none;
-    width: 350px;
+    text-align: left;
     height: 3rem;
-    margin-top: 35px;
-    margin-left: 55px;
     border: none;
     background-color: #E8E8EA;
-}
-
-.container button{
+    width: 70%;
+    margin: 0px auto;
     margin-top: 35px;
-    margin-left: 90px;
-    width: 290px;
+}
+.container button{
+    margin: 0px auto;
+    margin-top: 45px;
+    margin-bottom: 10px;
+    width: 55%;
     height: 40px;
     border-radius: 30px;
     outline: none;
     border: none;
     background-color: #A697E8;
+    cursor: pointer;
 }
+  
 
 

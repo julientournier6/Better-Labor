@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel ="stylesheet" href = "../tableau.css"/>
     <link rel ="stylesheet" href = "../general.css"/>
+    <script src="../tools.js"></script>
     <title>BetterLabor</title>
 </head>
 
@@ -15,8 +16,9 @@
 $messages = array();
 include("../database/fetch_data.php");
 include("../database/config.php");
+include("../database/tools.php");
 $tableName="chef";
-$columns= ['email','nom','prenom','statut'];
+$columns= ['id', 'email','nom','prenom','statut'];
 $fetchData = fetch_data($conn, $tableName, $columns);
 ?>
     <div class ="conteneur">
@@ -36,7 +38,7 @@ $fetchData = fetch_data($conn, $tableName, $columns);
             if(is_array($fetchData)){      
             foreach($fetchData as $data){
         ?>
-                    <tr>
+                    <tr class="row" id="$data['id']">
                         <td><?php echo $data['nom']; ?></td>
                         <td><?php echo $data['prenom']; ?></td>
                         <td><?php echo $data['email']; ?></td>
@@ -63,17 +65,21 @@ $fetchData = fetch_data($conn, $tableName, $columns);
                 </table>
             </div>
    
-            <p class = "nombreEmploye">xx/50 employés</p>
+            <p class = "nombreEmploye">
+                <?php
+                echo count_rows($conn, "chef");
+                ?>
+            </p>
             <div class="boutons_employes">
                 <button class="AjoutEmployés bouton-important">
-                    Ajouter des employés
-                </button>
-            
-                <button class="AjoutSlot2 bouton-important">
-                    Ajouter des slots 
+                    Ajouter un chef
                 </button>
             </div>
     </div>
 
   </body>
 </html>
+<script src="gestion_chefs.js"></script>
+<script>
+addEvent('row', rowClick)
+</script>

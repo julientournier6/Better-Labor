@@ -24,7 +24,7 @@ else if (isset($_SESSION['role'])) {
 		header('Location:: ../espace-admin');
 	}
 	else if ($_SESSION['role'] == "utilisateur") {
-		header('Location:: ../');
+		header('Location:: ../yo.php');
 	}
 } 
 ?>
