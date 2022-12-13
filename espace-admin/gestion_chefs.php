@@ -25,12 +25,12 @@ $fetchData = fetch_data($conn, $tableName, $columns);
         <div class="conteneur-tableau">
             <table class="tableau">
                 <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Email</th>
-                    <th>Statut</th>
-                </tr>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Email</th>
+                        <th>Statut</th>
+                    </tr>
                 </thead>
                 
                 <tbody>

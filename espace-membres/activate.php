@@ -11,6 +11,7 @@ if (isset($_GET["code_verification"]) && isset($_GET["email"])) {
                     if ($result_row->activation_expiry > date('Y-m-d H:i:s')) {
                         $id = $result_row->id;
                         $sql = "UPDATE chef SET activated = 1 WHERE ID = '$id'";
+                        //1 = activé
                         $query_activate = $conn->query($sql);
                         if ($query_activate) {
                             include("tools.php");

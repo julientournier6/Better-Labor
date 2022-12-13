@@ -73,6 +73,7 @@ function sign_up($conn, $role) {
                     $errors[] = "Erreur : votre rôle n'a pas été défini. Essayez de vous déconnecter puis de vous reconnecter.";
                     return array($errors, $messages);
                 }
+                //activated = 0 par défaut dans la BDD
                 if ($stmt->execute()) {
                     include("../send_mail.php");
                     $stmt = $conn->prepare("SELECT * FROM $role WHERE email = ?");
@@ -81,7 +82,7 @@ function sign_up($conn, $role) {
                     $result = $stmt->get_result();
                     if ($result->num_rows == 1) {
                         $result_row = $result->fetch_object();
-                        $lien_activation = "127.0.0.1/Better-Labor/espace-membres/activate.php?code_verification=$code_verification&email=$email";
+                        $lien_activation = "127.0.0.1/BetterLabor/Better-Labor/espace-membres/activate.php?code_verification=$code_verification&email=$email";
                         $messages[] = 'Votre compte a bien été créé';
                         if (sendmail($conn, $result_row, 'Confirmez votre email', 'Veuillez cliquer <a href="' . $lien_activation . '">ici</a> pour confirmer votre email et activer votre compte.')) {
                             $messages[] ='Nous vous avons envoyé un mail de confirmation pour confirmer votre compte.';
