@@ -24,12 +24,10 @@ else if (isset($_SESSION['role'])) {
 	else if ($_SESSION['role'] == "utilisateur") {
 		header('Location:: ../yo.php');
 	}
-} 
+}
 ?>
 <html>
 <body>
-
-
 <div class="wrapper hover_collapse">
 	<!-- <div class="top_navbar">
 		<div class="logo">Foolish Dev</div>
@@ -72,11 +70,9 @@ else if (isset($_SESSION['role'])) {
 		</ul>
 		</div>
 	</div>
-
-
-
 </div>
 <?php
+	include('sidebar.php');
     if (isset($_GET["message"]) && $_GET["message"] == "activated") {
         echo('<div class="bar success">
         <i class="ico">&#9747;</i>' . "Votre compte a bien été activé! " . '</div>');

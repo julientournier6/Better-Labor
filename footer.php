@@ -9,16 +9,16 @@
     </div>
     <div class = "help">
         <div class = "a1">
-            <a href = "cgu.php">Conditions d'utilisation</a>
+            <a class="footer-link" href = "cgu.php">Conditions d'utilisation</a>
         </div>
         <div class = "a2">
-            <a href = "contact.php">Contact</a>
+            <a class="footer-link" href = "contact.php">Contact</a>
         </div>
         <div class = "a3">
-            <a href = "faq.php">FAQ</a>
+            <a class="footer-link" href = "faq.php">FAQ</a>
         </div>
         <div class = "a4">
-            <a href = "mentions_legales.php">Mentions légales</a>
+            <a class="footer-link" href = "mentions_legales.php">Mentions légales</a>
         </div>
     </div>
 </div>

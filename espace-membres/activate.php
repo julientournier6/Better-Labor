@@ -14,7 +14,7 @@ if (isset($_GET["code_verification"]) && isset($_GET["email"])) {
                         //1 = activé
                         $query_activate = $conn->query($sql);
                         if ($query_activate) {
-                            include("tools.php");
+                            include("../database/tools.php");
                             connect($result_row, 'chef');
                             redirect("index.php?message=activated");
                         } else {

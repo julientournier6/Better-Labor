@@ -120,7 +120,6 @@ function sign_in($conn, $role) {
                 if ($result->num_rows == 1) {
                     $result_row = $result->fetch_object();
                     if (password_verify($_POST['password'], $result_row->password)) {
-                         include("../database/tools.php");
                          connect($result_row, "chef");
                          redirect("index.php");
                     } 

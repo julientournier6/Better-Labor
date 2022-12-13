@@ -20,7 +20,7 @@ include("nav.php");
 
     <div class = "banner">
         <div class = "banner__content">
-            <div clas = "banner__text">
+            <div class = "banner__text message">
                 <strong> Rappel : </strong> Votre abonnement va bientôt expirer. Renouvelez afin d'éviter la suspension de votre compte.
             </div>
             <button class = "banner__close" type = "button">
@@ -40,7 +40,7 @@ include("nav.php");
     <div class = "texte1">
         <p2 class="text">
             Le quotidien difficile des ouvriers n'est pas assez mis en avant et leur bien-être est souvent négligé. 
-            En effet, les accidents du travail et les maladies professionnelles, étant fréquents dans le BTP, peuvent engendrer des conséquences financières importantes.
+            En effet, les accidents du travail et les maladies professionnelles, étant fréquents dans le BTP, peuvent engendrer des conséquences financières&nbsp;importantes.
         </p2c>
     </div>
 
@@ -50,9 +50,9 @@ include("nav.php");
                 <p1 class="text">
                     Exerçant généralement des activités très physiques, les travailleurs du secteur du BTP sont particulièrement exposés aux TMS. Sur le chantier, les ouvriers doivent porter de grosses charges 15 à 20 fois supérieures à ce qu'ils peuvent supporter comme poids. 
                     Ils sont ainsi exposés à de multiples maladies telles que les TMS (troubles musculo-squelettiques). Dans le pire des cas, ces maladies peuvent entrainer un arrêt de travail.
-                    De plus, les vibrations générées par les différentes machines dans le BTP causent des affections chroniques touchant la colonne vertébrale ainsi que le bassin.
+                    De plus, les vibrations générées par les différentes machines dans le BTP causent des affections chroniques touchant la colonne vertébrale ainsi que le&nbsp;bassin.
                     <br>
-                    Les journées et le travail sont également très rudes. Cela entraine donc de la fatigue, une déshydratation. 
+                    Les journées et le travail sont également très rudes. Cela entraine donc de la fatigue, une&nbsp;déshydratation. 
                 </p1>
             </div>
             <div class = "image_sueur">
@@ -68,9 +68,8 @@ include("nav.php");
                         La surdité professionnelle est aussi l'une des maladies professionnelles reconnues. Les employeurs doivent ainsi protéger leurs salariés des volumes sonores trop importants en organisant les lieux de travail et en fournissant à leurs salariés des protections auditives adaptées telles que des casques anti-bruit, des bouchons d'oreilles ou des bouchons sur mesure. 
                         Les ouvriers sont constamment confrontés aux nuisances pouvant causer des problèmes de santé comme le stress ainsi que des troubles auditfs comme la perte d'audition, la surdité ou encore des acouphènes. 
                         Il faut rappeler que le bruit commence à devenir nocif pour la santé quand il atteint 80 dB et qu'ils doivent utiliser quotidiennement différents outils de travail qui affectent l'ouïe. 
-                        Par exemple, une bétonnière émet environ 85 dB et un marteau piqueur peut aller jusqu'à 100 dB. </br>                    
-                        Les bruits sonores représentent donc un grand danger pour les ouvriers. Cependant, il existe aussi des risques chimiques dans le secteur du
-                        BTP.
+                        Par exemple, une bétonnière émet environ 85 dB et un marteau piqueur peut aller jusqu'à 100&nbsp;dB. </br>                    
+                        Les bruits sonores représentent donc un grand danger pour les ouvriers. Cependant, il existe aussi des risques chimiques dans le secteur du&nbsp;BTP.
                     </p1>
                 </div>
             </div>
@@ -80,9 +79,10 @@ include("nav.php");
                         Les produits chimiques, étant souvent présents sur les lieux de travail des professionnels du BTP, sont malheureusement sous-estimés quant à leur dangerosité. 
                         Il est alors essentiel de connaître les risques pour l’homme et son environnement liés à certains mélanges et réactions chimiques, afin de mettre en place une démarche de prévention adaptée.
                         Des émanations de produits chimiques peuvent apparaître par exemple au cours d'un projet dans le BTP. Les produits chimiques sont très néfastes pour les ouvriers. 
-                        Ces risques chimiques peuvent entrainer des dégâts à court voire à long terme sur leur santé si ces derniers sont exposés plus ou moins longtemps à ces produits.
+                        Ces risques chimiques peuvent entrainer des dégâts à court voire à long terme sur leur santé si ces derniers sont exposés plus ou moins longtemps à ces&nbsp;produits.
                     </p1>
                 </div>
+
                 <div class = "image_intoxication">
                     <img src = "images/Tête de mort tout détouré.png" alt = "Intoxication">
                 </div>
@@ -90,7 +90,7 @@ include("nav.php");
             <div class = "texte_fin">
                 <p1 class="text">
                     Tous ces éléments participent au mal-être des ouvriers. Il faudrait donc vérifier si les ouvriers sont bien hydratés tout au long de la journée, les prémunir d'une protection auditive de qualité ainsi que les avertir d'un danger aux émanations de produits chimiques.
-                    C'est pour cela que nous sommes là. Nous avons la solutions à tout vos soucis dans le BTP.
+                    C'est pour cela que nous sommes là. Nous avons la solutions à tout vos soucis dans le&nbsp;BTP.
                 </p1>
             </div>
     </div>
@@ -100,7 +100,7 @@ include("nav.php");
             <p class="display"> Découvrez à présent notre produit révolutionnaire ! </p>
         </div>
         <div class = "section_3_p1">
-            <p1> Pour plus d'informations, nous vous invitons à cliquer sur l'onglet Découvrir. </p1>
+            <p1 class="text"> Pour plus d'informations, nous vous invitons à cliquer sur l'onglet Découvrir. </p1>
         </div>
     </div>
 <?php

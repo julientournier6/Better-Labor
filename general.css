@@ -73,9 +73,12 @@ i.ico {
 .text{
   line-height: 1.6;
   font-size: 15px;
-  font-family: Roboto, 'Open Sans', 'Times New Roman';
+  font-family: Roboto, 'Open Sans';
 }
 .display{
-  font-family: 'Noto Sans Display', 'Times New Roman';
-  font-size: 22px;
+  font-family: 'Noto Sans Display', 'Open Sans';
+  font-size: 32px;  
+}
+.message{
+  font-size: 18px;
 }
