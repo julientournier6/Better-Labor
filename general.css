@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display&family=Roboto:wght@300&display=swap');
 .error{
 text-align: center;
 font-size: 1.1em;
@@ -70,7 +71,11 @@ i.ico {
   cursor: pointer;
 }
 .text{
-  line-height: 3;
-  font-size: 16px;
+  line-height: 1.6;
+  font-size: 15px;
   font-family: Roboto, 'Open Sans', 'Times New Roman';
+}
+.display{
+  font-family: 'Noto Sans Display', 'Times New Roman';
+  font-size: 22px;
 }

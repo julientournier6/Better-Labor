@@ -113,7 +113,6 @@ body{
 
 p{
     color : #000000;
-    font-size: 105%;
     width : 78%;
     margin: auto;
     justify-content: center;
@@ -148,36 +147,4 @@ p1{
 
 .section_3 p1{
     margin-top: 5%;
-}
-
-.footer{
-    padding : 1%;
-    padding-top: 2%;
-    background: linear-gradient(200deg, black,grey);
-    margin-top: 3%;
-
-}
-
-.help{
-    display: flex;
-    padding-bottom: 1%;
-    font-size: 150%;
-    justify-content: center;
-}
-
-.a1{
-    margin-right : 8%;
-}
-
-.a2{
-    margin-right : 8%;
-}
-
-.a3{
-    margin-right : 8%;
-}
-
-a{ 
-    text-decoration : none ;
-    color: #A697E8;
 }

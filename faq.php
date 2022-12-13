@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="faq.css">
   <script src="faq.js"></script>
 </head>
-
 <body class="background">
+
   <div class="faq">
     <h1 class="title">Support Better Labor</h1>
     <?php
@@ -33,7 +33,9 @@ echo $obj->display_public();
         </button>
         </div>
     </div>
-
+<?php
+include("footer.php");
+?>
 </body>
 </html>
 <script>
