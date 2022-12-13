@@ -18,25 +18,6 @@
 include("nav.php");
 ?>
 
-    <div class = "banner">
-        <div class = "banner__content">
-            <div class = "banner__text message">
-                <strong> Rappel : </strong> Votre abonnement va bientôt expirer. Renouvelez afin d'éviter la suspension de votre compte.
-            </div>
-            <button class = "banner__close" type = "button">
-                <span class = "material-icons">
-                    close
-                </span>
-            </button>
-        </div>     
-    </div>
-
-    <script>
-        document.querySelector(".banner__close").addEventListener("click",function() {
-            this.closest(".banner").style.display = "none";
-        })
-    </script>
-
     <div class = "texte1">
         <p2 class="text">
             Le quotidien difficile des ouvriers n'est pas assez mis en avant et leur bien-être est souvent négligé. 
