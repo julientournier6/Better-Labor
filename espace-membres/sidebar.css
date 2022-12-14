@@ -71,14 +71,14 @@ body{
 	left: 0;
 	width: 240px;
 	height: 100%;
-	background: #042331;
+	background: #4e277b;
 }
 
 .sidebar ul li a{
 	display: block;
 	padding: 16px 25px;
 	border-bottom: 1px solid #03374e;
-	color: #0e94d4;
+	color: #3c0ed4;
 
 
 }
@@ -99,7 +99,7 @@ body{
 }
 
 .sidebar ul li a:hover{
-	background: #0e94d4;
+	background: #412560;
 	color: #fff;
 }
 

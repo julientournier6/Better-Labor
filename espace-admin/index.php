@@ -7,7 +7,7 @@
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet"  href="../general.css">
   	<title>Espace Membre</title>
-  	<link rel="stylesheet" href="../espace-membres/espace-membre.css" media="screen">
+  	<link rel="stylesheet" href="../espace-membres/sidebar.css" media="screen">
 	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </head>
 

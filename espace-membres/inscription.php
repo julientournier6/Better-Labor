@@ -50,15 +50,15 @@ list($errors, $messages) = sign_up($conn, "chef");
 
         ?>
             <form action="" method="post" id="inscription">
-                <input type="text" placeholder="Votre nom" name="nom" required>
+                <input type="text" placeholder="Votre nom" name="nom" id="nom" required>
                 <br> 
-                <input type="text" placeholder="Votre prenom" name="prenom" required>
+                <input type="text" placeholder="Votre prenom" name="prenom" id="prenom" required>
                 <br>
-                <input type="text" placeholder="Adresse e-mail" name="email" required>
+                <input type="text" placeholder="Adresse e-mail" name="email" id="email" required>
                 <br>
-                <input type="password" placeholder="Saisir votre mot de passe" name="mdp1" required>
+                <input type="password" placeholder="Saisir votre mot de passe" name="mdp1" id="mdp1" required>
                 <br>
-                <input type="password" placeholder="Entrez à nouveau le mot de passe" name="mdp2" required>
+                <input type="password" placeholder="Entrez à nouveau le mot de passe" name="mdp2" id="mdp2" required>
                 <br>
                 <button type="submit" name="inscription"><b>S'inscrire</b></button>
             </form>

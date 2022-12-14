@@ -42,6 +42,7 @@ function sign_up($conn, $role) {
                 $password_hash = password_hash($password, PASSWORD_DEFAULT);
                 $code_verification = substr(md5(uniqid(rand(), true)), 16, 16);
                 $activation_expiry = date('Y-m-d H:i:s', time() + $expiry);
+                mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                 if (count_rows_where($conn, $role, "email", $email) > 0) {
                     $errors[] = "Nous sommes désolés, cette adresse email est déjà utilisée.";
                     return array($errors, $messages);
