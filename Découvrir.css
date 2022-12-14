@@ -4,28 +4,6 @@ body{
 }
 
 
-.banner{
-    background-color : #A697E8;
-}
-
-.banner__content{
-    padding : 1.5%;
-    max-width : 60%;
-    font-size : 115%;
-    margin : 0 auto;
-    text-align : center;
-    justify-content: center;
-    display : flex;
-    flex-grow: 1;
-    line-height : 1.4;
-}
-
-.banner__close{
-    background : none;
-    border : none;
-    cursor: pointer;
-}
-
 .title{
     margin : 0 auto;
     text-align : center;
