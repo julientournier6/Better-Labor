@@ -181,13 +181,13 @@
     justify-items: center;
     align-items: start;
     text-align: center;
-    width: 100%;
+    width: 30%;
     box-sizing: border-box;
 }
 .Data-section{
     background: white;
-    width: 100%;
-    height: 100%;
+    width: 5%;
+    height: 5%;
     margin: 3%;
     box-sizing: border-box;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -204,4 +204,8 @@
     display: inline;
     width: 1.3em;
     height: 1.3em;
+}
+
+.chartBox{
+    width: 100px;
 }
