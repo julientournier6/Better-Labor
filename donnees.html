@@ -55,68 +55,189 @@
             </div>
         </div>
 
-            <!-- <div class="stats">
-                <p class="stats-title">Moyenne</p>
-                <div class="stats-content">
 
-                    <div class="stat">
-                        <img class="stat-img" src="images/heart-rate.png" alt="Heart">
-                        <p class="stat-value">
-                            56
-                        </p>
-                        <p class="stat-title">
-                            BPM
-                        </p>
-                    </div>
-
-                    <div class="stat">
-                        <img class="stat-img" src="images/effort.png" alt="Effort">
-                        <p class="stat-value">
-                            5
-                        </p>
-                        <p class="stat-title">
-                            Effort
-                        </p>
-                    </div>
-
-                    <div class="stat">
-                        <img class="stat-img" src="images/sound-power.png" alt="Sound">
-                        <p class="stat-value">
-                            23
-                        </p>
-                        <p class="stat-title">
-                            Son
-                        </p>
-                    </div>
-                </div>
-            </div> -->
         <div class="Data">
+
+            <!--Fréquence Cardiaque-->
             <div class="Data-section">
                 <h2 class="Section-title">
-                Fréquence cardiaque
+                Fréquence cardiaque (BPM)
                 </h2>
                 <img src="images/information.png" alt="[Info]" class="image-info">
-                <div>
-                    <canvas id="Frequence"></canvas>
+                <style>
+                  .chartBox{
+                    width: 800px;
+                  }
+                </style>
+                <div class="chartBox">
+                  <canvas id="myChart"></canvas>
                 </div>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                  <script>
+
+                    // Fréquence Cardiaque
+                    const data = {
+                      labels: ['8 heures', '10 heures', 'Midi', '14 heures', '16 heures', '18 heures'],
+                        datasets: [{
+                          label: 'Fréquence Cardiaque',
+                          data: [70, 94, 75, 86, 105, 85],
+                          borderWidth: 4
+                        }]
+                    };
+
+                    const config = {
+                      type: 'line',
+                      data,
+                      options: {
+                        scales: {
+                          y: {
+                            suggestedMin: 60,
+                            suggestedMax: 120
+                          }
+                        }
+                      }
+                    };
+
+                    const myChart = new Chart(
+                      document.getElementById('myChart'),
+                      config
+                    );
+
+                  </script>
             </div>
+
+
+            <!--Détecteur de sueur-->
             <div class="Data-section">
                 <h2 class="Section-title">
-                Résultats des capteurs de sueur
+                Résultats des capteur de sueur
                 </h2>
-                <img src="images/information.png" alt="[Info]" class="image-info">       
+                <img src="images/information.png" alt="[Info]" class="image-info">
+                <div class="chartBox">
+                  <canvas id="sueurChart"></canvas>
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                  <script>
+
+
+                    const sueurdata = {
+                      labels: ['8 heures', '10 heures', 'Midi', '14 heures', '16 heures', '18 heures'],
+                        datasets: [{
+                          label: 'Eau estimée perdue (Litre)',
+                          data: [0.2, 0.6, 0.5, 0.7, 0.5, 0.3],
+                          borderWidth: 4
+                        }]
+                    };
+
+                    const sueurconfig = {
+                      type: 'bar',
+                      data : sueurdata,
+                      options: {
+                        scales: {
+                          y: {
+                            suggestedMin: 0,
+                            suggestedMax: 1
+                          }
+                        }
+                      }
+                    };
+
+                    const sueurChart = new Chart(
+                      document.getElementById('sueurChart'),
+                      sueurconfig
+                    );
+
+                  </script>
+
             </div>
+
+
+            <!--Détecteur de gaz-->
             <div class="Data-section">
                 <h2 class="Section-title">
-                Résultats des capteurs de gaz
+                Résultats du capteur de monoxyde de carbone
                 </h2>
-                <img src="images/information.png" alt="[Info]" class="image-info">            
+                <img src="images/information.png" alt="[Info]" class="image-info">
+                <div class="chartBox">
+                  <canvas id="gazChart"></canvas>
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                  <script>
+
+                    const gazdata = {
+                      labels: ['8 heures', '10 heures', 'Midi', '14 heures', '16 heures', '18 heures'],
+                        datasets: [{
+                          label: 'Monoxyde de Carbone (PPM)',
+                          data: [40, 130, 200, 110, 50, 30],
+                          borderWidth: 4
+                        }]
+                    };
+
+                    const gazconfig = {
+                      type: 'line',
+                      data : gazdata,
+                      options: {
+                        scales: {
+                          y: {
+                            suggestedMin: 30,
+                            suggestedMax: 230
+                          }
+                        }
+                      }
+                    };
+
+                    const gazChart = new Chart(
+                      document.getElementById('gazChart'),
+                      gazconfig
+                    );
+
+                  </script>
+
             </div>
+
+            <!--Sonomètre-->
             <div class="Data-section">
                 <h2 class="Section-title">
                 Résultats des sonomètres
                 </h2>
-                <img src="images/information.png" alt="[Info]" class="image-info">            
+                <img src="images/information.png" alt="[Info]" class="image-info">
+                <div class="chartBox">
+                  <canvas id="sonChart"></canvas>
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                  <script>
+
+
+                    const sondata = {
+                      labels: ['8 heures', '10 heures', 'Midi', '14 heures', '16 heures', '18 heures'],
+                        datasets: [{
+                          label: 'Décibel sonore (dB)',
+                          data: [50, 75, 85, 80, 135, 65],
+                          borderWidth: 4
+                        }]
+                    };
+
+                    const sonconfig = {
+                      type: 'line',
+                      data : sondata,
+                      options: {
+                        scales: {
+                          y: {
+                            suggestedMin: 30,
+                            suggestedMax: 130
+                          }
+                        }
+                      }
+                    };
+
+                    const sonChart = new Chart(
+                      document.getElementById('sonChart'),
+                      sonconfig
+                    );
+
+                  </script>
+
             </div>
         </div>
     </div>
