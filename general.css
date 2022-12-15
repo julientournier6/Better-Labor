@@ -4,6 +4,9 @@
 text-align: center;
 font-size: 1.1em;
 }
+body{
+  background: #E8E8EA
+}
 i.ico {
     display: inline-block;
     width: 20px;
@@ -50,6 +53,15 @@ i.ico {
     color: black;
     margin-top: 1.5%;
     margin-bottom: 1.5%;
+}
+.link{
+	padding: 4px 4px;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	color: black;
+  margin-top: 4%;
+  margin-bottom: 0%;
 }
 .big-margin{
   margin-bottom: 5%;

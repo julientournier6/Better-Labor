@@ -2,7 +2,7 @@
 session_start();
 include("../database/config.php");
 include("../database/tools.php");
-list($errors, $messages) = sign_in($conn, true);
+list($errors, $messages) = sign_in($conn, false);
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@ list($errors, $messages) = sign_in($conn, true);
     <meta charset="UTF-8">
     <link rel = "stylesheet" href = "../espace-membre/inscription.css"/>
     <link rel = "stylesheet" href = "../general.css"/>
-    <title>Better Labor</title>
+    <title>BetterLabor</title>
 </head>
 <body>
     <div class="container">
@@ -19,7 +19,7 @@ list($errors, $messages) = sign_in($conn, true);
             <img class="better" src="../logo.jpg">
         </div>
 
-        <div class="title"><b>Connexion au portail administrateur </b></div>
+        <div class="title"><b>Vos identifiants de connexion </b></div>
 
         <?php
         if ($errors) {
@@ -39,7 +39,7 @@ list($errors, $messages) = sign_in($conn, true);
                 <button type="submit" name="connexion"><b>Se connecter </b></button>
             </form>
             <a class="link" href="reinitialisation_mdp.php">Mot de passe oublié?</a>
-            <a class="link" href="inscription.php">S'inscrire</a>
+            <a class="link" href="../espace-chef/inscription.php">S'inscrire</a>
             <br class="big-margin">
         </div>
     </div>

@@ -3,7 +3,7 @@ session_start();
 //on inclue le fichier qui contient nom_de_serveur, nom_bdd, login et password d'accès à la bdd mysql
 include("../database/config.php");
 include("../database/tools.php");
-list($errors, $messages) = sign_up($conn, "admin");
+list($errors, $messages) = sign_up($conn, "chef");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@ list($errors, $messages) = sign_up($conn, "admin");
     <meta charset="UTF-8">
     <link rel = "stylesheet" href = "../espace-membre/inscription.css"/>
     <link rel = "stylesheet" href = "../general.css"/>
-    <title>Better Labor</title>
+    <title>BetterLabor</title>
 </head>
 <body>
     <div class="container">
@@ -19,7 +19,7 @@ list($errors, $messages) = sign_up($conn, "admin");
             <img class="better" src="../logo.jpg">
         </div>
 
-        <div class="title"><b>Vos informations personnelles</b></div>
+        <div class="title"><b>Inscription chef de chantier</b></div>
 
         <div class="inputs">
         <?php
@@ -50,8 +50,6 @@ list($errors, $messages) = sign_up($conn, "admin");
 
         ?>
             <form action="" method="post" id="inscription">
-                <input type="text" placeholder="Code d'activation" name="code" id="code" required>
-                <br>
                 <input type="text" placeholder="Votre nom" name="nom" id="nom" required>
                 <br> 
                 <input type="text" placeholder="Votre prenom" name="prenom" id="prenom" required>
@@ -64,10 +62,11 @@ list($errors, $messages) = sign_up($conn, "admin");
                 <br>
                 <button type="submit" name="inscription" onclick="return validateSignupForm();"><b>S'inscrire</b></button>
             </form>
-            <a class="link" href="connexion.php">Se connecter</a>
+            <a class="link" href="../espace-membre/connexion.php">Se connecter</a>
             <br>
         </div>
     </div>
+
 <script src="inscription.js"></script>
 </body>
 </html>

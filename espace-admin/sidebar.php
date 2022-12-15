@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Better Labor</title>
-    <link rel="stylesheet" href="../espace-membres/sidebar.css" type="text/css">
+    <link rel="stylesheet" href="../espace-membre/sidebar.css" type="text/css">
 </head>
 <div class="sidebar">
 		<div class="sidebar_inner">

@@ -8,6 +8,21 @@ function connect($row, $role) {
     $_SESSION['role'] = $role;
 }
 
+function redirect_role($role, $page) {
+    $root = dirname(dirname($_SERVER['PHP_SELF']));
+    if ($role == "utilisateur") {
+
+        $lien =  $root . '/espace-utilisateur/';
+    }
+    else if ($role == "admin") {
+        $lien = $root . '/espace-admin/';
+    }
+    else if ($role == 'chef') {
+        $lien = $root . '/espace-chef/';
+    }
+    redirect($lien . $page);
+}
+
 function count_rows($conn, $table) {
     $sql = "SELECT COUNT(*) AS count FROM $table";
     $result = $conn->query($sql);
@@ -83,7 +98,7 @@ function sign_up($conn, $role) {
                     $result = $stmt->get_result();
                     if ($result->num_rows == 1) {
                         $result_row = $result->fetch_object();
-                        $lien_activation = "127.0.0.1/BetterLabor/Better-Labor/espace-membres/activate.php?code_verification=$code_verification&email=$email";
+                        $lien_activation = "127.0.0.1/BetterLabor/Better-Labor/espace-membre/activate.php?code_verification=$code_verification&email=$email&role=$role";
                         $messages[] = 'Votre compte a bien été créé';
                         if (sendmail($conn, $result_row, 'Confirmez votre email', 'Veuillez cliquer <a href="' . $lien_activation . '">ici</a> pour confirmer votre email et activer votre compte.')) {
                             $messages[] ='Nous vous avons envoyé un mail de confirmation pour confirmer votre compte.';
@@ -107,7 +122,18 @@ function sign_up($conn, $role) {
     return array($errors, $messages);
 }
 
-function sign_in($conn, $role) {
+function sign_in($conn, $admin) {
+    if ($admin) {
+        return specific_sign_in($conn, "administrateur");
+    }
+    else {
+        list($errors, $messages) = specific_sign_in($conn, "chef");
+        if (in_array("Ce mail ne correspond à aucun compte.", $errors)) {
+            return specific_sign_in($conn, "utilisateur");
+        }
+    }
+}
+function specific_sign_in($conn, $role) {
     $errors = array();
     $messages = array();
     if (isset($_POST['connexion'])) {
@@ -121,18 +147,18 @@ function sign_in($conn, $role) {
                 if ($result->num_rows == 1) {
                     $result_row = $result->fetch_object();
                     if (password_verify($_POST['password'], $result_row->password)) {
-                         connect($result_row, "chef");
-                         redirect("index.php");
+                        connect($result_row, $role);
+                        redirect_role($role, 'index.php');
                     } 
                     else {
                         $errors[] = "Mauvais mot de passe. Veuillez réessayer.";
                     }
                 } 
                 else if ($result->num_rows == 0){
-                     $errors[] = "Ce mail ne correspond à aucun compte.";
+                    $errors[] = "Ce mail ne correspond à aucun compte.";
                 }
                 else {
-                 $errors[] = "Il y a un problème dans la base de données, votre compte existe en double. Veuillez contacter notre support.";
+                    $errors[] = "Il y a un problème dans la base de données, votre compte existe en double. Veuillez contacter notre support.";
                 }
             } 
             else {
@@ -144,5 +170,9 @@ function sign_in($conn, $role) {
         }
      }
     return array($errors, $messages);
+}
+
+function show_sidebar($role) {
+    include('../espace-' . $role . '/sidebar.php');
 }
 ?>

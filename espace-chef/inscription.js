@@ -2,8 +2,7 @@ var password = document.getElementById("mdp1")
   , confirm_password = document.getElementById("mdp2")
   , email = document.getElementById("email")
   , nom = document.getElementById("nom")
-  , prenom = document.getElementById("prenom")
-  , code = document.getElementById("code");
+  , prenom = document.getElementById("prenom"); 
 
 function validatePassword() {
     if(password.value != confirm_password.value) {
@@ -17,11 +16,6 @@ function validatePassword() {
 }
 
 function validateSignupForm() {
-  if (code.value.length != 20) {
-    code.setCustomValidity("Le code d'activation doit faire 20 caractères");
-    code.reportValidity();
-    return false;
-  }
   if (nom.value == '') {
       nom.setCustomValidity("Veuillez entrer votre nom");
       nom.reportValidity();
@@ -51,8 +45,6 @@ function validateSignupForm() {
   confirm_password.setCustomValidity('');
   nom.setCustomValidity('');
   prenom.setCustomValidity('');
-  code.setCustomValidity('');
   return true;
-  
   
 }
