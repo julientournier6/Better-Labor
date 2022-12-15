@@ -15,7 +15,7 @@ if($result== true){
     $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
     $msg= $row;
  } else {
-    $msg= "No Data Found"; 
+    $msg= "Aucune donnée trouvée."; 
  }
 }else{
   $msg= mysqli_error($conn);

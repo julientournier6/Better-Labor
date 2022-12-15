@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   	<meta charset="UTF-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,37 +13,23 @@
 
 <?php
 session_start();
+include('../database/config.php');
+include('../database/tools.php');
 if (!isset($_SESSION['loggedin'])) {
     header('Location: connexion.php');
     exit();
 }
 else if (isset($_SESSION['role'])) {
-	if ($_SESSION['role'] == "utilisateur") {
-		header('Location:: ../espace-membres');
-	}
-	else if ($_SESSION['role'] == "chef") {
-		header('Location:: ../espace-chef.php');
+	if ($_SESSION['role'] != "admin") {
+		redirect_role($_SESSION['role'], 'index.php');
 	}
 } 
 ?>
 <html>
 <body>
 
-
-<div class="wrapper hover_collapse">
-	<!-- <div class="top_navbar">
-		<div class="logo">Foolish Dev</div>
-		<div class="menu">
-			<div class="hamburger">
-				<i class="fas fa-bars"></i>
-			</div>
-
-		</div>
-	</div> -->
-
-
-</div>
 <?php
+include('sidebar.php');
     if (isset($_GET["message"]) && $_GET["message"] == "activated") {
         echo('<div class="bar success">
         <i class="ico">&#9747;</i>' . "Votre compte a bien été activé! " . '</div>');
@@ -52,33 +38,5 @@ else if (isset($_SESSION['role'])) {
 
     <p><strong>ESPACE MEMBRES</strong><br />
     Bienvenue <?php echo htmlentities(trim($_SESSION['prenom']) . " " .  $_SESSION['nom']); ?> !<br />
-
-<script type="text/javascript">
-var li_items = document.querySelectorAll(".sidebar ul li");
-var hamburger = document.querySelector(".hamburger");
-var wrapper = document.querySelector(".wrapper");
-
-//Quand on met la souris sur la sidebar, on enleve la classe hover collapse
-
-li_items.forEach((li_item)=>{
-	li_item.addEventListener("mouseenter", ()=>{
-
-
-			li_item.closest(".wrapper").classList.remove("hover_collapse");
-
-	})
-})
-
-//Quand on enleve la souris de la sidebar, on enleve la classe hover collapse
-
-li_items.forEach((li_item)=>{
-	li_item.addEventListener("mouseleave", ()=>{
-
-			li_item.closest(".wrapper").classList.add("hover_collapse");
-
-	})
-})
-
-</script>
 </body>
 </html>

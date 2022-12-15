@@ -94,3 +94,6 @@ i.ico {
 .message{
   font-size: 18px;
 }
+*{
+  font-family: Roboto, 'Open Sans';
+}

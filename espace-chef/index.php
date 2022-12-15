@@ -6,8 +6,8 @@
   	<meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet"  href="../general.css">
+	<link rel ="stylesheet" href = "../tableau.css"/>
   	<title>Espace Membre</title>
-  	<link rel="stylesheet" href="../espace-membre/sidebar.css" media="screen">
 	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </head>
 
@@ -38,33 +38,62 @@ if (isset($_GET["message"]) && $_GET["message"] == "activated") {
 
     <p><strong>ESPACE MEMBRES</strong><br />
     Bienvenue <?php echo htmlentities(trim($_SESSION['prenom']) . " " .  $_SESSION['nom']); ?> !<br />
-
-<script type="text/javascript">
-var li_items = document.querySelectorAll(".sidebar ul li");
-var hamburger = document.querySelector(".hamburger");
-var wrapper = document.querySelector(".wrapper");
-
-//Quand on met la souris sur la sidebar, on enleve la classe hover collapse
-
-li_items.forEach((li_item)=>{
-	li_item.addEventListener("mouseenter", ()=>{
-
-
-			li_item.closest(".wrapper").classList.remove("hover_collapse");
-
-	})
-})
-
-//Quand on enleve la souris de la sidebar, on enleve la classe hover collapse
-
-li_items.forEach((li_item)=>{
-	li_item.addEventListener("mouseleave", ()=>{
-
-			li_item.closest(".wrapper").classList.add("hover_collapse");
-
-	})
-})
-
-</script>
+	<?php
+$messages = array();
+include("../database/fetch_data.php");
+include("../database/config.php");
+$tableName="utilisateur";
+$columns= ['email','nom','prenom','date_naissance'];
+$fetchData = fetch_data($conn, $tableName, $columns);
+?>
+    <div class ="conteneur">
+        <div class="conteneur-tableau">
+            <table class="tableau">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Date de naissance</th>
+                    <th>Conditions de travail</th>
+                </tr>
+                </thead>
+                
+                <tbody>
+        <?php
+            if(is_array($fetchData)){      
+            foreach($fetchData as $data){
+        ?>
+                    <tr>
+                        <td><?php echo $data['nom']; ?></td>
+                        <td><?php echo $data['prenom']; ?></td>
+                        <td><?php echo $data['email']; ?></td>
+                        <td><?php echo $data['date_naissance']; ?></td>
+                        <td><img class ="tailleCercle" src = "../images/résultat-vert.png"></td> 
+                    </tr>
+        <?php
+        }}else{ ?>
+                    <tr>
+                        <td colspan="8">
+                            <?php echo $fetchData; ?>
+                        </td>
+                    </tr>
+        <?php
+        }?>
+                    </tbody>
+                </table>
+            </div>
+   
+            <p class = "nombreEmploye">xx/50 employés</p>
+            <div class="boutons_employes">
+                <button class="AjoutEmployés bouton-important">
+                    Ajouter des employés
+                </button>
+            
+                <button class="AjoutSlot2 bouton-important">
+                    Ajouter des slots 
+                </button>
+            </div>
+    </div>
 </body>
 </html>

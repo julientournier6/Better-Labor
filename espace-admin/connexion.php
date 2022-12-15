@@ -6,7 +6,7 @@ list($errors, $messages) = sign_in($conn, true);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <link rel = "stylesheet" href = "../espace-membre/inscription.css"/>
@@ -32,7 +32,7 @@ list($errors, $messages) = sign_in($conn, true);
 
         <div class="inputs">
             <form action="" method="post">
-                <input type="text" placeholder="Adresse e-mail " name="email">
+                <input type="email" placeholder="Adresse e-mail " name="email">
                 <br> 
                 <input type="password" placeholder="Votre mot de passe" name="password">
                 <br>

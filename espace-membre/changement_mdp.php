@@ -8,17 +8,18 @@
 
   <link rel="stylesheet" href="changement_mdp.css">
   <link rel="stylesheet" href="../general.css">
+  
 </head>
 <body class="background">
 <?php
 session_start();
+if (!isset($_SESSION['loggedin'])) {
+  header('Location: ../espace-membre/connexion.php');
+  exit();
+}
 include('../database/config.php');
 include('../database/tools.php');
-include('../espace-chef/sidebar.php');
-
-if(!isset($_SESSION["loggedin"])){
-    redirect("profile.php");
-}
+include('../espace-' . $_SESSION['role'] . '/sidebar.php');
 
 $new_password = $confirmpassword = "";
 $messages = array();

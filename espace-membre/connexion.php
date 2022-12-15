@@ -32,7 +32,7 @@ list($errors, $messages) = sign_in($conn, false);
 
         <div class="inputs">
             <form action="" method="post">
-                <input type="text" placeholder="Adresse e-mail " name="email">
+                <input type="email" placeholder="Adresse e-mail " name="email">
                 <br> 
                 <input type="password" placeholder="Votre mot de passe" name="password">
                 <br>

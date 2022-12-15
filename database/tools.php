@@ -11,7 +11,6 @@ function connect($row, $role) {
 function redirect_role($role, $page) {
     $root = dirname(dirname($_SERVER['PHP_SELF']));
     if ($role == "utilisateur") {
-
         $lien =  $root . '/espace-utilisateur/';
     }
     else if ($role == "admin") {
@@ -124,7 +123,7 @@ function sign_up($conn, $role) {
 
 function sign_in($conn, $admin) {
     if ($admin) {
-        return specific_sign_in($conn, "administrateur");
+        return specific_sign_in($conn, "admin");
     }
     else {
         list($errors, $messages) = specific_sign_in($conn, "chef");

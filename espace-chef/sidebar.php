@@ -6,7 +6,7 @@
   	<meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet"  href="../general.css">
-    <link rel="stylesheet"  href="sidebar.css" media="screen">
+    <link rel="stylesheet"  href="../espace-membre/sidebar.css" media="screen">
   	<title>Espace Membre</title>
 	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </head>
@@ -45,3 +45,30 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+var li_items = document.querySelectorAll(".sidebar ul li");
+var hamburger = document.querySelector(".hamburger");
+var wrapper = document.querySelector(".wrapper");
+
+//Quand on met la souris sur la sidebar, on enleve la classe hover collapse
+
+li_items.forEach((li_item)=>{
+	li_item.addEventListener("mouseenter", ()=>{
+
+
+			li_item.closest(".wrapper").classList.remove("hover_collapse");
+
+	})
+})
+
+//Quand on enleve la souris de la sidebar, on enleve la classe hover collapse
+
+li_items.forEach((li_item)=>{
+	li_item.addEventListener("mouseleave", ()=>{
+
+			li_item.closest(".wrapper").classList.add("hover_collapse");
+
+	})
+})
+
+</script>
