@@ -14,7 +14,10 @@ list($errors, $messages) = sign_up($conn, "admin");
     <title>Better Labor</title>
 </head>
 <body>
-    <div class="container">
+<?php
+include('../nav-from-parent/nav.php');
+?>
+    <div class="log-container">
         <div class="logo">
             <img class="better" src="../logo.jpg">
         </div>
@@ -69,5 +72,8 @@ list($errors, $messages) = sign_up($conn, "admin");
         </div>
     </div>
 <script src="inscription.js"></script>
+<?php
+make_footer(false);
+?>
 </body>
 </html>

@@ -85,7 +85,7 @@ include("nav.php");
         </div>
     </div>
 <?php
-include("footer.php");
+make_footer(false);
 ?>
 </body>
 

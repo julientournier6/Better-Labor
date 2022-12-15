@@ -25,7 +25,7 @@
 			<li>
 				<a href="../espace-chef/modification_profil.php">
 					<span class="icon"><img src="../images/profile-page.png" class="img"></span>
-					<span class="text">Mon profil</span>
+					<span class="text">Mon compte</span>
 				</a>
 			</li>
 			<li>

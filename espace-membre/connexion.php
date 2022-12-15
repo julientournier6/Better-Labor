@@ -1,20 +1,23 @@
-<?php
-session_start();
-include("../database/config.php");
-include("../database/tools.php");
-list($errors, $messages) = sign_in($conn, false);
-?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <link rel = "stylesheet" href = "../espace-membre/inscription.css"/>
     <link rel = "stylesheet" href = "../general.css"/>
-    <title>BetterLabor</title>
+    <title>Better Labor</title>
 </head>
+<?php
+session_start();
+include("../database/config.php");
+include("../database/tools.php");
+
+list($errors, $messages) = sign_in($conn, false);
+?>
 <body>
-    <div class="container">
+<?php
+include('../nav-from-parent/nav.php');
+?>
+    <div class="log-container">
         <div class="logo">
             <img class="better" src="../logo.jpg">
         </div>
@@ -43,5 +46,8 @@ list($errors, $messages) = sign_in($conn, false);
             <br class="big-margin">
         </div>
     </div>
+<?php
+make_footer(false);
+?>
 </body>
 </html>

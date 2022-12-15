@@ -13,7 +13,7 @@ if (isset($_POST["reinitialisation_mdp"])) {
         $errors[] = "Veuillez entrer un mail";     
     } else {
         $email = trim($_POST["email"]);
-        $role = $_SESSION['role'];
+        $role = $_POST['role'];
         $sql = "SELECT * FROM $role WHERE email = '" . $email . "';";
         $query_check_email = $conn->query($sql);
         if ($sql && $query_check_email->num_rows == 1) {
@@ -23,7 +23,7 @@ if (isset($_POST["reinitialisation_mdp"])) {
           $sql = "UPDATE $role SET code_verification = '$code_verification' WHERE email = '$email'";
           $query_update_code = $conn->query($sql);
           if ($query_update_code) {
-          $lien_activation = "127.0.0.1/Better-Labor/espace-membre/activate.php?code_verification=$code_verification&email=$email&reinitialisation_mdp=1&role=$role";
+          $lien_activation = "127.0.0.1/BetterLabor/Better-Labor/espace-membre/activate.php?code_verification=$code_verification&email=$email&reinitialisation_mdp=1&role=$role";
             $mail_sent = sendmail($conn, $row, "Demande de reinitialisation de mot de passe", 'Vous avez demandé de reinitialiser votre mot de passe. <br>Si la demande vient bien de vous, veuillez cliquer sur ce <a href="' . $lien_activation . '">lien</a>.<br>Sinon, nous vous conseillons de vérifier la sécurité de votre compte.');
             if ($mail_sent) {
                 $messages[] = "Un mail avec le lien de reinitialisation de mot de passe vous a été envoyé.";
@@ -54,7 +54,10 @@ if (isset($_POST["reinitialisation_mdp"])) {
   <link rel="stylesheet" href="../general.css">
 
 </head>
-<body class="background">
+<body>
+<?php
+include('../nav-from-parent/nav.php');
+?>
 <div class="mainDiv">
     <div class="cardStyle">
       <form action="" method="post" name="resetpassword" id="signupForm">
@@ -80,6 +83,13 @@ if (isset($_POST["reinitialisation_mdp"])) {
         ?>
         
       <div class="inputDiv">
+      <label for="type_compte" class="inputLabel">Type de compte</label>
+      <select name="role" id="type_compte">
+        <option value="">-- Choisissez une option --</option>
+        <option value="utilisateur">Utilisateur</option>
+        <option value="chef">Chef de chantier</option>
+        <option value="admin">Administrateur</option>
+      </select>
         <label class="inputLabel" for="email">Adresse mail</label>
         <input type="text" id="email" name="email" required>
       </div>
@@ -96,5 +106,8 @@ if (isset($_POST["reinitialisation_mdp"])) {
     </div>
   </div>
   <script src="reinitialisation_mdp.js"></script>
+<?php
+make_footer(false);
+?>
 </body>
 </html>

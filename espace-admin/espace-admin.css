@@ -1,0 +1,18 @@
+.espace-admin{
+    width: 80%;
+    margin-left: 18%;
+    margin-top: 2%;
+}
+.espace-admin-title{
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    display: block;
+}
+espace-admin-subtitle{
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 0;
+    display: block;
+    padding: 0px;
+}

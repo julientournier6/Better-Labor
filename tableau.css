@@ -4,9 +4,9 @@ body{
 
 .conteneur
 {
-    width: 80%;
+    width: 90%;
     height: 70%;
-    margin: 0 auto;
+    margin-left: 0%;
 }
 .conteneur-tableau{
     display: flex;

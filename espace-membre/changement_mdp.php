@@ -10,13 +10,14 @@
   <link rel="stylesheet" href="../general.css">
   
 </head>
-<body class="background">
+<body>
 <?php
 session_start();
 if (!isset($_SESSION['loggedin'])) {
   header('Location: ../espace-membre/connexion.php');
   exit();
 }
+include('../nav-from-parent/nav.php');
 include('../database/config.php');
 include('../database/tools.php');
 include('../espace-' . $_SESSION['role'] . '/sidebar.php');
@@ -107,5 +108,8 @@ if(isset($_POST["changement_mdp"])) {
     </div>
   </div>
   <script src="changement_mdp.js"></script>
+<?php
+make_footer(false);
+?>
 </body>
 </html>

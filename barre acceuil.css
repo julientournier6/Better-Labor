@@ -1,12 +1,8 @@
-*{
-    margin: 0;
-    padding: 0;
-   
-
-}
-
 body{
     background-color: #E8E8EA;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .container{
@@ -14,10 +10,16 @@ body{
     height: 100px;
     width: 100%;
 }
+.logo-nav{
+    display: inline;
+    padding: 0 0;
+    text-decoration: none;
+    font-size: 0px;
+    font-weight: 400;
+}
 
 
-
-ul{
+nav ul{
     padding: 0;
     margin: 0;
     float: right;
@@ -26,14 +28,14 @@ ul{
 
 }
 
-li{
+nav li{
     position: relative;
     list-style: none;
     display: inline-block;
 
 }
 
-a{
+nav a{
     display: block;
     padding: 0 30px;
     color: #A697E8;
@@ -41,7 +43,6 @@ a{
     line-height: 100px;
     font-size: 20px;
     font-weight: 600;
-
 }
 
 nav ul li a:hover{
@@ -66,11 +67,11 @@ nav ul li a:hover{
         font-size: 20px;
         padding: 0 20px;  
     }
-    ul{
+    nav ul{
         margin-right: 50px;
     }
 
-    img{
+    nav img{
         width: 250px;
     }
 }
@@ -95,11 +96,11 @@ nav ul li a:hover{
 
     }
 
-    img{
+    nav img{
         width: 300px;
     }
 
-    ul{
+    nav ul{
        position: fixed;
        width:100%;
        height:100%;
@@ -117,12 +118,12 @@ nav ul li a:hover{
         left: 0;
     }
 
-    li{
+    nav li{
         display: block;
         
     }
 
-    a{
+    nav a{
         
         line-height: 100px;
         

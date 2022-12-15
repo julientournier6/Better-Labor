@@ -3,9 +3,8 @@ class FAQManager
 {
   public $conn = null;
 
-  public function connect($url)
+  public function connect($conn)
   {
-    require($url);
     $this->conn = $conn;
   }
 
@@ -71,19 +70,19 @@ ENTRY_DISPLAY;
   <div class="side-buttons">
     <a class="side-button edit editCategory">
       <img src="../images/edit.svg" id="edit-category-$categorie_id">
-      <p class="info">Edit</p>
+      <p class="info-hover">Edit</p>
     </a>
     <a class="side-button delete deleteCategory">
       <img src="../images/delete.svg" id="delete-category-$categorie_id">
-      <p class="info">Delete</p>
+      <p class="info-hover">Delete</p>
     </a>
     <a class="side-button move-up moveupCategory" id="moveup-category-$categorie_id">
       <img src="../images/move-up.svg">
-      <p class="info">Move</p>
+      <p class="info-hover">Move</p>
     </a>
     <a class="side-button move-down movedownCategory" id="moveup-category-$categorie_id">
       <img src="../images/move-down.svg">
-      <p class="info">Move</p>
+      <p class="info-hover">Move</p>
     </a>
   </div>
 </div>
@@ -106,19 +105,19 @@ ADMIN_FORM;
     <div class="side-buttons">
       <a href="#" class="side-button edit editQuestion">
         <img class="smaller" id="edit-question-$question_id" src="../images/edit.svg">
-        <p class="info">Edit</p>
+        <p class="info-hover">Edit</p>
       </a>
       <a href="#" class="side-button delete deleteQuestion">
         <img class="smaller" id="delete-question-$question_id" src="../images/delete.svg">
-        <p class="info">Delete</p>
+        <p class="info-hover">Delete</p>
       </a>
       <a href="#" class="side-button move-up moveupQuestion" id="moveup-question-$question_id">
         <img class="smaller" src="../images/move-up.svg">
-        <p class="info">Move</p>
+        <p class="info-hover">Move</p>
       </a>
       <a href="#" class="side-button move-down movedownQuestion" id="movedown-question-$question_id">
         <img class="smaller" src="../images/move-down.svg">
-        <p class="info">Move</p>
+        <p class="info-hover">Move</p>
       </a>
     </div>
   </button>
@@ -291,7 +290,7 @@ public function moveQuestion($id, $step)
     $position = $categorie->position;
     $id_categorie = $categorie->ID_categorie;
     $newposition = $position + $step;
-    $sql = "SELECT MAX(position) AS max_position FROM categorie WHERE ID_categorie = '$id_categorie'";
+    $sql = "SELECT MAX(position) AS max_position FROM question WHERE ID_categorie = '$id_categorie'";
     $result = $this->conn->query($sql);
     $result_row = $result->fetch_array();
     $max_position = $result_row["max_position"];

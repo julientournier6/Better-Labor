@@ -13,20 +13,14 @@
 
 <?php
 session_start();
+include("../database/config.php");
+include("../database/tools.php");
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: ../espace-membre/connexion.php');
+    header('Location: connexion.php');
     exit();
 }
 else if (isset($_SESSION['role'])) {
-	if ($_SESSION['role'] == "admin") {
-		header('Location:: ../espace-admin');
-	}
-	else if ($_SESSION['role'] == "utilisateur") {
-		header('Location:: ../espace-utilisateur');
-	}
-    if ($_SESSION['role'] == "chef") {
-        header('Location:: ../espace-chef');
-    }
+	redirect_role($_SESSION["role"], 'index.php');
 }
 ?>
 <html>

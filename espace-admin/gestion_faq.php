@@ -6,20 +6,39 @@
   <title>Tableau de bord FAQ</title>
 
   <link rel="stylesheet" href="../faq.css">
+  <link rel="stylesheet" href="../general.css">
+
   <script src="gestion_faq.js"></script>
   <script src="../tools.js"></script>
 
+
 </head>
 
-<body class="background">
+<body>
+<?php
+session_start();
+include('../nav-from-parent/nav.php');
+include('sidebar.php');
+?>
   <div class="faq">
 
   <h1 class="title">Gestion de la FAQ</h1>
 <?php
-session_start();
+include('../database/config.php');
+include('../database/tools.php');
+if (!isset($_SESSION['loggedin'])) {
+    header('Location: connexion.php');
+    exit();
+}
+else if (isset($_SESSION['role'])) {
+	if ($_SESSION['role'] != "admin") {
+		redirect_role($_SESSION['role'], 'index.php');
+	}
+}
+
 include('FAQManager.php');
 $obj = new FAQManager();
-$obj->connect("../database/config.php");
+$obj->connect($conn);
 
 if (isset($_POST["nom"])) {
   $obj->saveCategory($_POST);
@@ -78,3 +97,9 @@ addEvent("movedownCategory", movedownCategory);
 addEvent("moveupQuestion", moveupQuestion);
 addEvent("movedownQuestion", movedownQuestion);
 </script>
+</div>
+<?php
+make_footer(false);
+?>
+</body>
+</html>

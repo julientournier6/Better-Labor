@@ -2,8 +2,9 @@
 <html>
     <head>
         <title>Better Labor</title>
-        <link rel="stylesheet" href="footer.css" type="text/css">
+        
     </head>
+
 <div class = "footer">
     <div class = "section_help">   
     </div>

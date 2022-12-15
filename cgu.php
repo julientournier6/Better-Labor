@@ -13,7 +13,7 @@
 include("nav.php");
 ?>
 <body class="background">
-<iframe src="CGU.pdf" style="position: absolute; height: 100%; border: none; width: 100%;"></iframe>
+<iframe title="Conditions générales d'utilisation" src="CGU.pdf" style="position: absolute; height: 100%; border: none; width: 100%;"></iframe>
 </body>
 <?php
 include("footer.php");

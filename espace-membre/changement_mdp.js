@@ -4,14 +4,19 @@ var password = document.getElementById("password")
 enableSubmitButton();
 
 function validatePassword() {
-  if (password.value != confirm_password.value) {
-    confirm_password.setCustomValidity("Les mots de passe ne correspondent pas!");
-    return false;
-  } else if (password.value == null || password.value.length < 6) {
+  if (password.value == null || password.value.length < 6) {
     password.setCustomValidity("Veuillez entrer un mot de passe de plus de 6 caractères");
+    password.reportValidity();
     return false;
-  } else {
+  }
+  else if (password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Les mots de passe ne correspondent pas!");
+    confirm_password.reportValidity();
+    return false; 
+  }
+  else {
     confirm_password.setCustomValidity('');
+    password.setCustomValidity('');
     return true;
   }
 }

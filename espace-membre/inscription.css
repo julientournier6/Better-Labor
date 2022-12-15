@@ -1,15 +1,10 @@
-body{
-    background: #E8E8EA;
-}
-
-.container{
+.log-container{
     width: max(30%, 500px);
     background-color: #ffffff;
     margin: 0px auto;
-    margin-top: 100px;
+    margin-top: 15px;
     height: auto;
 }
-
 
 .logo{
     text-align: center;
@@ -25,12 +20,12 @@ body{
     text-align: center;
 }
 
-inputs{
+/* .inputs{
     width: 70%;
     margin: 0px auto;
     display: flex;
     flex-direction: column;
-}
+} */
 form{
     width: 100%;
     text-align: center;
@@ -45,7 +40,7 @@ input{
     margin: 0px auto;
     margin-top: 35px;
 }
-.container button{
+.log-container button{
     margin: 0px auto;
     margin-top: 45px;
     margin-bottom: 10px;

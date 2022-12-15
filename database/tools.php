@@ -27,7 +27,7 @@ function count_rows($conn, $table) {
     $result = $conn->query($sql);
     $result_row = $result->fetch_array();
     $count = $result_row['count'];
-    return "$count chefs";
+    return $count;
 }
 
 function count_rows_where($conn, $table, $column, $value) {

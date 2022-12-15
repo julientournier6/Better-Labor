@@ -7,6 +7,7 @@
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet"  href="../general.css">
 	<link rel ="stylesheet" href = "../tableau.css"/>
+	<link rel="stylesheet"  href="../espace-admin/espace-admin.css">
   	<title>Espace Membre</title>
 	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </head>
@@ -29,23 +30,25 @@ else if (isset($_SESSION['role'])) {
 <html>
 <body>
 <?php
+include('../nav-from-parent/nav.php');
 include('sidebar.php');
 if (isset($_GET["message"]) && $_GET["message"] == "activated") {
 	echo('<div class="bar success">
 	<i class="ico">&#9747;</i>' . "Votre compte a bien été activé! " . '</div>');
 }
 ?>
-
-    <p><strong>ESPACE MEMBRES</strong><br />
-    Bienvenue <?php echo htmlentities(trim($_SESSION['prenom']) . " " .  $_SESSION['nom']); ?> !<br />
 	<?php
 $messages = array();
 include("../database/fetch_data.php");
+include('../database/tools.php');
 include("../database/config.php");
 $tableName="utilisateur";
 $columns= ['email','nom','prenom','date_naissance'];
 $fetchData = fetch_data($conn, $tableName, $columns);
 ?>
+<div class="espace-admin">
+	<p class="espace-admin-title">Espace Administrateur</p>
+	<p class="espace-admin-subtitle">Bienvenue <?php echo htmlentities(trim($_SESSION['prenom']) . " " .  $_SESSION['nom']); ?> !</p>
     <div class ="conteneur">
         <div class="conteneur-tableau">
             <table class="tableau">
@@ -84,7 +87,7 @@ $fetchData = fetch_data($conn, $tableName, $columns);
                 </table>
             </div>
    
-            <p class = "nombreEmploye">xx/50 employés</p>
+            <p class = "nombreEmploye"><?php echo count_rows($conn, 'utilisateur');?>/50 employés</p>
             <div class="boutons_employes">
                 <button class="AjoutEmployés bouton-important">
                     Ajouter des employés
@@ -95,5 +98,9 @@ $fetchData = fetch_data($conn, $tableName, $columns);
                 </button>
             </div>
     </div>
+</div>
+<?php
+make_footer(true);
+?>
 </body>
 </html>

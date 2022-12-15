@@ -3,8 +3,8 @@
     min-height: 100%;
     align-items: center;
     justify-content: center;
-    background-color: #f9f9f9;
     font-family: 'Open Sans', sans-serif;
+    margin-top: 15px;
   }
  .cardStyle {
     width: 500px;
@@ -91,13 +91,4 @@ button[disabled] {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-}
-.link{
-	padding: 4px 4px;
-	text-align: center;
-	text-decoration: none;
-	display: block;
-	color: black;
-  margin-top: 4%;
-  margin-bottom: 0%;
 }

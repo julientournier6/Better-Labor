@@ -14,7 +14,10 @@ list($errors, $messages) = sign_in($conn, true);
     <title>Better Labor</title>
 </head>
 <body>
-    <div class="container">
+<?php
+include('../nav-from-parent/nav.php');
+?>
+    <div class="log-container">
         <div class="logo">
             <img class="better" src="../logo.jpg">
         </div>
@@ -43,5 +46,8 @@ list($errors, $messages) = sign_in($conn, true);
             <br class="big-margin">
         </div>
     </div>
+<?php
+make_footer(false);
+?>
 </body>
 </html>
