@@ -59,7 +59,7 @@ include("nav.php");
                 </div> 
                 <div class = "icon_electro_text">
                     <p2> 
-                        1) Electrocardiogramme :
+                        Electrocardiogramme :
                     </p2>
                     <p3>
                         - Positionné sur la tempe</br>
@@ -73,10 +73,10 @@ include("nav.php");
                 </div>
                 <div class = "icon_sueur_text">
                     <p4>
-                        2) Détecteur de sueur :
+                        Détecteur de sueur :
                     </p4>
                     <p5>
-                        - Positionné sur la tempe
+                        Positionné sur la tempe
                     </p5>
                 </div>
             </div>
@@ -86,7 +86,7 @@ include("nav.php");
                 </div>
                 <div class = "icon_co2_text">
                     <p6>
-                        3) Détecteur de monoxyde de carbone
+                        Détecteur de monoxyde de carbone
                     </p6>
                 </div>    
             </div>
@@ -96,7 +96,7 @@ include("nav.php");
                 </div>
                 <div class = "icon_sono_text">
                     <p7>
-                        4) Sonomètre :</br>
+                        Sonomètre :</br>
                     </p7>
                     <p8>
                         - Mesure la puissance sonore

@@ -17,6 +17,13 @@
 <?php
 include("nav.php");
 ?>
+<div class="headline">
+    <div class="headline-text display">
+        <h1 class="display headline-title">Pour le bien-être des ouvriers</h1>
+         <p class="display headline-subtitle">Better Labor vous propose une plateforme permettant de surveiller les conditions de travail des travailleurs de chantier à l'aide d'un casque unique accompagné de capteurs divers.</p>
+        <button onclick="location.href='Découvrir.php'" type="button" class="headline-button" href="Découvrir.php">Découvrir le produit</button>
+    </div>
+</div>
 
     <div class = "texte1">
         <p2 class="text">
