@@ -17,7 +17,7 @@
             <label for="check" class="checkbtn">
                 <i class="fas fa-bars"></i>
             </label>
-            <a class="logo-nav" href="index.php">
+            <a class="logo-nav" href="../index.php">
             <img src="../logo.jpg" width="300px" height="100px">
             </a>
             <ul class="all">

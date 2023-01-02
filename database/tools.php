@@ -71,7 +71,11 @@ function sign_up($conn, $role) {
                 }
                 else if ($role == 'admin') {
                     $code_admin = $conn->real_escape_string(strip_tags($_POST['code'], ENT_QUOTES));
-                    if (count_rows_where($conn, "code_admin", "code", $code_admin) == 0) {
+                    $stmt = $conn->prepare("SELECT * FROM admin WHERE code = ? AND valide = 1");
+                    $stmt->bind_param('s', $code_admin);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    if (!$result->num_rows) {
                         $errors[] = "Ce code est invalide";
                         return array($errors, $messages);
                     }
@@ -99,6 +103,11 @@ function sign_up($conn, $role) {
                         $result_row = $result->fetch_object();
                         $lien_activation = "127.0.0.1/BetterLabor/Better-Labor/espace-membre/activate.php?code_verification=$code_verification&email=$email&role=$role";
                         $messages[] = 'Votre compte a bien été créé';
+                        if ($role == 'admin') {
+                            $stmt = $conn->prepare("UPDATE code_admin SET valide = 0 WHERE code = ?");
+                            $stmt->bind_param('s', $code_admin);
+                            $stmt->execute();
+                        }
                         if (sendmail($conn, $result_row, 'Confirmez votre email', 'Veuillez cliquer <a href="' . $lien_activation . '">ici</a> pour confirmer votre email et activer votre compte.')) {
                             $messages[] ='Nous vous avons envoyé un mail de confirmation pour confirmer votre compte.';
                         }
