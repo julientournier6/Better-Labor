@@ -1,0 +1,24 @@
+input[type=radio]{
+  width : 7%;
+  border : 14%;
+  margin: auto;
+  margin-right: 0;
+}
+
+.inputs p{
+  font-size : 90%;
+}
+
+.radio{
+  padding-top : 5%;
+  width : 50%;
+  display : flex;
+  align-items: center;
+  padding-left: 15%;
+}
+
+.radio p{
+  font-size: 90%;
+  margin-left: 2%;
+}
+
