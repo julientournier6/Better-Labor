@@ -17,7 +17,7 @@ list($errors, $messages) = sign_in($conn, true);
 <?php
 include('../nav-from-parent/nav.php');
 ?>
-    <div class="log-container">
+    <div class="main-content log-container">
         <div class="logo">
             <img class="better" src="../logo.jpg">
         </div>
@@ -41,7 +41,7 @@ include('../nav-from-parent/nav.php');
                 <br>
                 <button type="submit" name="connexion"><b>Se connecter </b></button>
             </form>
-            <a class="link" href="reinitialisation_mdp.php">Mot de passe oublié?</a>
+            <a class="link" href="../espace-membre/reinitialisation_mdp.php">Mot de passe oublié?</a>
             <a class="link" href="inscription.php">S'inscrire</a>
             <br class="big-margin">
         </div>

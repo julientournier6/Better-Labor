@@ -2,6 +2,7 @@
 <head>
     <title>Better Labor</title>
     <link rel="stylesheet" href="footer.css" type="text/css">
+    <meta charset="utf-8">
 </head>
 <?php
 if (session_status() == PHP_SESSION_NONE) {

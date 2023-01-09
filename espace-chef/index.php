@@ -46,8 +46,8 @@ $tableName="utilisateur";
 $columns= ['email','nom','prenom','date_naissance'];
 $fetchData = fetch_data($conn, $tableName, $columns);
 ?>
-<div class="espace-admin">
-	<p class="espace-admin-title">Espace Administrateur</p>
+<div class="main-content espace-admin">
+	<p class="espace-admin-title">Espace Chef de chantier</p>
 	<p class="espace-admin-subtitle">Bienvenue <?php echo htmlentities(trim($_SESSION['prenom']) . " " .  $_SESSION['nom']); ?> !</p>
     <div class ="conteneur">
         <div class="conteneur-tableau">
@@ -99,8 +99,11 @@ $fetchData = fetch_data($conn, $tableName, $columns);
             </div>
     </div>
 </div>
+</div>
+</div>
 <?php
 make_footer(true);
 ?>
+</div>  
 </body>
 </html>

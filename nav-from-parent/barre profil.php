@@ -40,7 +40,7 @@
                             <li><a href="../index.php">Mes employés</a></li>
                             <li><a href="../modification_profil.php">Mon compte</a></li>
                             <li><a href="../espace-membre/modification_mdp.php#">Mot de passe</a></li>
-                            <li><a href="../#">Se déconnecter</a></li>
+                            <li><a href="../espace-membre/deconnexion.php">Se déconnecter</a></li>
                             ';
                         }
                         else {
