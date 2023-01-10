@@ -42,7 +42,7 @@
         <hr/>
         <div class="column">
             <div class="inputbox">
-                <label>Prenom</label>
+                <label>Prénom</label>
                 <input type="text" placeholder="adam">
             </div>      
         
