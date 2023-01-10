@@ -48,7 +48,7 @@ nav ul ul{
     top: 100px;
     display: none;
     background: black;
-    
+    z-index: 999;
 }
 
 nav ul li:hover> ul{
@@ -127,6 +127,7 @@ nav ul ul li a{
        margin-left: 0;
        transition: all .5s;
        max-width: 300px;
+       z-index: 999;
       
        
     }
