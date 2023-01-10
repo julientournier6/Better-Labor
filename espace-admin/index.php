@@ -102,9 +102,12 @@ $fetchData = fetch_data($conn, $tableName, $columns);
             </div>
     </div>
 </div>
+<!--Les 2 </div> qui suivent servent à fermer les div écrites dans sidebar.php  -->
+</div>
 <?php
 make_footer(true);
 ?>
+</div>
 </body>
 </html>
 <script src="gestion_chefs.js"></script>

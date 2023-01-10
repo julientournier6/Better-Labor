@@ -53,7 +53,7 @@ if(isset($_POST["changement_mdp"])) {
     }
 }
 ?>
-<div class="mainDiv">
+<div class="main-content mainDiv">
     <div class="cardStyle">
       <form action="" method="post" id="changement_mdp">
         
@@ -107,9 +107,13 @@ if(isset($_POST["changement_mdp"])) {
     </form>
     </div>
   </div>
+
+<!--Les 2 </div> qui suivent servent à fermer les div écrites dans sidebar.php  -->
+</div>
   <script src="changement_mdp.js"></script>
 <?php
 make_footer(false);
 ?>
+</div>
 </body>
 </html>

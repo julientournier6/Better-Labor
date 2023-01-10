@@ -20,7 +20,7 @@ session_start();
 include('../nav-from-parent/nav.php');
 include('sidebar.php');
 ?>
-  <div class="faq">
+  <div class="main-content faq">
 
   <h1 class="title">Gestion de la FAQ</h1>
 <?php
@@ -98,8 +98,11 @@ addEvent("moveupQuestion", moveupQuestion);
 addEvent("movedownQuestion", movedownQuestion);
 </script>
 </div>
+<!--Les 2 </div> qui suivent servent à fermer les div écrites dans sidebar.php  -->
+</div>
 <?php
 make_footer(false);
 ?>
+</div>
 </body>
 </html>

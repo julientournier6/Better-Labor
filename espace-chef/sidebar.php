@@ -11,6 +11,8 @@
 	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </head>
 </html>
+<div class="main-container">
+<div class="content">
 <div class="wrapper hover_collapse">
 
 	<div class="sidebar">
@@ -47,7 +49,6 @@
 </div>
 <script type="text/javascript">
 var li_items = document.querySelectorAll(".sidebar ul li");
-var hamburger = document.querySelector(".hamburger");
 var wrapper = document.querySelector(".wrapper");
 
 //Quand on met la souris sur la sidebar, on enleve la classe hover collapse
