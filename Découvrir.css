@@ -64,114 +64,17 @@ p{
 }
 
 
-p1{
-    color : #000000;
-    width : 45%;
+table {
+    width : 50%;
+    margin-left : 7%;
 }
 
-.icons_text{
-    max-width: 80%;
-    margin-top: -5%;
-}
-
-.icons{
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 100%;
-}
-
-.electro{
-    display : flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 7%;
+table td{
+    width : 1%;
 }
 
 .icon_electro{
-    display : flex;
-    max-width: 15%;
-    padding : 10%;
-}
-
-.icon_electro_text{
-    display : flex;
-    flex-direction: column;
-    padding-top : 4%;
-}
-
-p2{
-    font-size: 110%;
-}
-
-.sueur{
-    max-width: 39%;
-    display : flex;
-    align-items: center;
-}
-
-.icon_sueur{
-    display : flex;
-    max-width: 10%;
-    padding-left: 12%;
-}
-
-.icon_sueur_text{
-    display : flex;
-    flex-direction: column;
-    margin: auto;
-    padding-right: 35%;
-}
-
-p4{
-    font-size: 110%;
-}
-
-.co2{
-    max-width: 32%;
-    display : flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10.5%;
-}
-
-.icon_co2{
-    display : flex;
-    max-width: 18%;
-    margin: auto;
-}
-
-.icon_co2_text{
-    display : flex;
-    flex-direction: column;
-    margin: auto;
-}
-
-p6{
-    font-size: 110%;
-}
-
-.sono{
-    display : flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 20%;
-}
-
-.icon_sono{
-    display : flex;
-    max-width: 15%;
-}
-
-.icon_sono_text{
-    display : flex;
-    flex-direction: column;
-    margin: auto;
-    margin-right : 25%;
-    margin-top: 7%;
-}
-
-p7{
-    font-size: 110%;
+    max-width : 200%;
 }
 
 .section_3 p{
