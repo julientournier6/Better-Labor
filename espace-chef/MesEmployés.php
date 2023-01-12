@@ -1,3 +1,32 @@
+<!-- 
+
+
+
+
+
+
+
+
+
+
+
+Ancien fichier, ne pas utiliser
+Le tableau des employés est dans index.php
+
+
+
+
+
+
+
+
+
+
+
+
+ -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 

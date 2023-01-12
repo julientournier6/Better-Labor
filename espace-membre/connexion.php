@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel = "stylesheet" href = "../espace-membre/inscription.css"/>
     <link rel = "stylesheet" href = "../general.css"/>
-    <title>Better Labor</title>
+    <title>Connexion Better Labor</title>
 </head>
 <?php
 session_start();

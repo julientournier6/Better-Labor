@@ -6,12 +6,12 @@ include("../database/tools.php");
 list($errors, $messages) = sign_up($conn, "chef");
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <link rel = "stylesheet" href = "../espace-membre/inscription.css"/>
     <link rel = "stylesheet" href = "../general.css"/>
-    <title>BetterLabor</title>
+    <title>Inscription à l'espace chef Better Labor</title>
 </head>
 <body>
 <?php

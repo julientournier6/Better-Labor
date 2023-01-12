@@ -63,7 +63,7 @@ table
     margin-left: auto;
     width: 20%;
     display: block;
-    position: relative;
+    /* position: relative; */
     text-align: right;
     margin-top: 0%;
 }
@@ -74,6 +74,7 @@ table
     margin-right: 0px;
     margin-left: auto;
     width: 60%;
+    margin-bottom: 20px;
     flex-direction: row-reverse;
 }
 

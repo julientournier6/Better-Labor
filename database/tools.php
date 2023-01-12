@@ -45,14 +45,20 @@ function sign_up($conn, $role) {
     if (isset($_POST['inscription'])) {
         //on teste l'existence des variables et on vérifie qu'elle ne sont pas vides
         if (
-            (isset($_POST['email']) && !empty($_POST['email'])) && (isset($_POST['mdp1']) && !empty($_POST['mdp1']))
-            && (isset($_POST['mdp2']) && !empty($_POST['mdp2']))
-        ) {
+            isset($_POST['email']) && !empty($_POST['email']) &&
+            !($role != "utilisateur" && (!isset($_POST['mdp1']) || empty($_POST['mdp1'])
+            || !isset($_POST['mdp2']) || empty($_POST['mdp2']))))
+            {
             if (!$conn->connect_errno) {
                 $email = $conn->real_escape_string(strip_tags($_POST['email'], ENT_QUOTES));
                 $prenom = $conn->real_escape_string(strip_tags($_POST['prenom'], ENT_QUOTES));
                 $nom = $conn->real_escape_string(strip_tags($_POST['nom'], ENT_QUOTES));
-                $password = $conn->real_escape_string(strip_tags($_POST['mdp1'], ENT_QUOTES));
+                if ($role != 'utilisateur') {
+                    $password = $conn->real_escape_string(strip_tags($_POST['mdp1'], ENT_QUOTES));
+                }
+                else {
+                    $password = substr(md5(uniqid(rand(), true)), 12, 12);
+                }
                 $password_hash = password_hash($password, PASSWORD_DEFAULT);
                 $code_verification = substr(md5(uniqid(rand(), true)), 16, 16);
                 $activation_expiry = date('Y-m-d H:i:s', time() + $expiry);
@@ -63,15 +69,22 @@ function sign_up($conn, $role) {
                 }
                 if ($role == 'utilisateur') {
                     $telephone = $conn->real_escape_string(strip_tags($_POST['telephone'], ENT_QUOTES));
-                    $date_naissance = $conn->real_escape_string(strip_tags($_POST['telephone'], ENT_QUOTES));
+                    $date_naissance = $conn->real_escape_string(strip_tags($_POST['date_naissance'], ENT_QUOTES));
+                    $date_today = new DateTime();
+                    $interval = date_create_from_format("Y-m-d", $date_naissance)->diff($date_today);
+                    $years = $interval->y;
+                    if ($years < 18) {
+                        $errors[] = "Votre employé doit avoir plus de 18 ans";
+                        return array($errors, $messages);       
+                    }
                     $genre = $_POST['genre'];
-                    $stmt = $conn->prepare("INSERT INTO $role (email, password, prenom, nom, code_verification, activation_expiry, telephone, date_naissance, genre)
-                    VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                    $stmt->bind_param('ssssss', $email, $password_hash, $prenom, $nom, $code_verification, $activation_expiry, $telephone, $date_naissance, $genre);
+                    $stmt = $conn->prepare("INSERT INTO $role (email, id_chef, password, prenom, nom, telephone, date_naissance, genre)
+                    VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+                    $stmt->bind_param('ssssssss', $email, $_SESSION['id'], $password_hash, $prenom, $nom, $telephone, $date_naissance, $genre);
                 }
                 else if ($role == 'admin') {
                     $code_admin = $conn->real_escape_string(strip_tags($_POST['code'], ENT_QUOTES));
-                    $stmt = $conn->prepare("SELECT * FROM admin WHERE code = ? AND valide = 1");
+                    $stmt = $conn->prepare("SELECT * FROM code_admin WHERE code = ? AND valide = 1");
                     $stmt->bind_param('s', $code_admin);
                     $stmt->execute();
                     $result = $stmt->get_result();
@@ -101,18 +114,35 @@ function sign_up($conn, $role) {
                     $result = $stmt->get_result();
                     if ($result->num_rows == 1) {
                         $result_row = $result->fetch_object();
-                        $lien_activation = "127.0.0.1/BetterLabor/Better-Labor/espace-membre/activate.php?code_verification=$code_verification&email=$email&role=$role";
-                        $messages[] = 'Votre compte a bien été créé';
-                        if ($role == 'admin') {
-                            $stmt = $conn->prepare("UPDATE code_admin SET valide = 0 WHERE code = ?");
-                            $stmt->bind_param('s', $code_admin);
-                            $stmt->execute();
-                        }
-                        if (sendmail($conn, $result_row, 'Confirmez votre email', 'Veuillez cliquer <a href="' . $lien_activation . '">ici</a> pour confirmer votre email et activer votre compte.')) {
-                            $messages[] ='Nous vous avons envoyé un mail de confirmation pour confirmer votre compte.';
+                        if ($role == 'admin' || $role == 'chef') {
+                            // echo "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+                            $email = str_replace("+", "%2B", $email);
+                            $lien_activation = "127.0.0.1/BetterLabor/Better-Labor/espace-membre/activate.php?code_verification=$code_verification&email=$email&role=$role";
+                            $messages[] = 'Votre compte a bien été créé';
+                            if ($role == 'admin') {
+                                $stmt = $conn->prepare("UPDATE code_admin SET valide = 0 WHERE code = ?");
+                                $stmt->bind_param('s', $code_admin);
+                                $stmt->execute();
+                            }
+                            if (sendmail($conn, $result_row, 'Confirmez votre email', 'Veuillez cliquer <a href="' . $lien_activation . '">ici</a> pour confirmer votre email et activer votre compte.')) {
+                                $messages[] ='Nous vous avons envoyé un mail de confirmation pour confirmer votre compte.';
+                            }
+                            else {
+                                $errors[] = "Le mail d'activation de compte n'a pas pu être envoyé.";
+                            }
                         }
                         else {
-                            $errors[] = "Le mail d'activation de compte n'a pas pu être envoyé.";
+                            $messages[] = "L'employé a bien été ajouté";
+                            $lien = "127.0.0.1/BetterLabor/Better-Labor/espace-membre/connexion.php";
+                            if (sendmail($conn, $result_row, 'Votre compte Better Labor', 'Vous êtes inscrit à notre plateforme. Voici vos identifiants:
+                                <br>Email : ' . $email . 
+                                '<br>Mot de passe : ' . $password . 
+                                '<br><br>Veuillez cliquer <a href="' . $lien . '">ici</a> pour vous connecter. 
+                                <br>Vous pouvez ensuite changer votre mot de passe.')) {
+                            }
+                            else {
+                                $errors[] = "Le mail de création de compte n'a pas pu être envoyé à votre employé.";
+                            }
                         }
                     } else {
                         $errors[] = "Nous sommes désolés, votre inscription a echoué. Veuillez réessayer.";

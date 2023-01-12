@@ -32,13 +32,15 @@ else if (isset($_SESSION['role'])) {
 <?php
 include('../nav-from-parent/nav.php');
 include('sidebar.php');
-    if (isset($_GET["message"]) && $_GET["message"] == "activated") {
-        echo('<div class="bar success">
-        <i class="ico">&#9747;</i>' . "Votre compte a bien été activé! " . '</div>');
-    }
 ?>
 
 <div class="espace-admin">
+<?php
+if (isset($_GET["message"]) && $_GET["message"] == "activated") {
+    echo('<div class="bar success">
+    <i class="ico">&#9747;</i>' . "Votre compte a bien été activé! " . '</div>');
+}
+?>
 <p class="espace-admin-title">Espace Administrateur</p>
 <p class="espace-admin-subtitle">Bienvenue <?php echo htmlentities(trim($_SESSION['prenom']) . " " .  $_SESSION['nom']); ?> !</p>
 <?php
@@ -49,6 +51,12 @@ $columns= ['id', 'email','nom','prenom','statut'];
 $fetchData = fetch_data($conn, $tableName, $columns);
 ?>
     <div class ="conteneur">
+    <form method = "GET" action="" name="recherche" class="recherche-form" id="recherche-form">
+            <a class="recherche-submit recherche-element" id="recherche-submit">
+                <img src="../images/search.svg">
+            </a>
+            <input class="recherche-element" type = "text" name = "text" id="recherche-text" placeholder = "Nom, prénom, email ou téléphone" value="<?php if (isset($_GET['text'])) {echo $_GET['text'];}?>">
+        </form>
         <div class="conteneur-tableau">
             <table class="tableau">
                 <thead>
@@ -104,14 +112,21 @@ $fetchData = fetch_data($conn, $tableName, $columns);
 </div>
 <!--Les 2 </div> qui suivent servent à fermer les div écrites dans sidebar.php  -->
 </div>
+
 <?php
 make_footer(true);
 ?>
+
 </div>
 </body>
 </html>
 <script src="gestion_chefs.js"></script>
+<script src="../espace-admin/espace-admin.js"></script>
 <script>
+const el = document.getElementById('recherche-submit');
+el.onclick = function(){ 
+    document.getElementById("recherche-form").submit();
+}
 addEvent('row', rowClick)
 </script>
 </body>

@@ -21,4 +21,6 @@ input[type=radio]{
   font-size: 90%;
   margin-left: 2%;
 }
-
+.log-container{
+  width: max(35%, 400px);
+}

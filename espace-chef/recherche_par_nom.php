@@ -12,7 +12,7 @@ $allusers3 = $bdd->query("SELECT * FROM personne");
     <head>
         <meta charset = "utf-8">
         <meta name = "viewport" content="width=device-width">
-        <link rel = "stylesheet" href = "recherche_par_nom.css">
+        <link rel = "stylesheet" href = "espace-chef.css">
     </head>
 
     <body>
