@@ -3,6 +3,7 @@
     <title>Better Labor</title>
     <link rel="stylesheet" href="footer.css" type="text/css">
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="images\favicon.ico" type="image/x-icon">
 </head>
 <?php
 if (session_status() == PHP_SESSION_NONE) {

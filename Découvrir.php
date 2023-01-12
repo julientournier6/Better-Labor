@@ -49,62 +49,70 @@ include("nav.php");
                 <h2> Better Set 1 </h2>
             </div>
         </div>
-    </div>    
-
-    <div class = "icons_text">
-        <div class = "icons">
-            <div class = "electro">
-                <div class = "icon_electro">
-                    <img class="image-decouvrir" src = "images/Dec_Electro.png" alt = "Electrocardiogramme">
-                </div> 
-                <div class = "icon_electro_text">
-                    <p2> 
-                        Electrocardiogramme :
-                    </p2>
-                    <p3>
-                        - Positionné sur la tempe</br>
-                        - Mesure la fréquence cardiaque
-                    </p3>   
-                </div>     
-            </div>
-            <div class = "sueur">
-                <div class = "icon_sueur">
-                    <img class="image-decouvrir" src = "images/Dec_sueur.png" alt = "Détecteur de sueur">
-                </div>
-                <div class = "icon_sueur_text">
-                    <p4>
-                        Détecteur de sueur :
-                    </p4>
-                    <p5>
-                        Positionné sur la tempe
-                    </p5>
-                </div>
-            </div>
-            <div class = "co2">
-                <div class = "icon_co2">
-                    <img class="image-decouvrir" src = "images/Dec_CO.png" alt = "Détecteur de monoxyde de carbone">
-                </div>
-                <div class = "icon_co2_text">
-                    <p6>
-                        Détecteur de monoxyde de carbone
-                    </p6>
-                </div>    
-            </div>
-            <div class = "sono">
-                <div class = "icon_sono">
-                    <img class="image-decouvrir" src = "images/Dec_Sono.png" alt = "Sonomètre">
-                </div>
-                <div class = "icon_sono_text">
-                    <p7>
-                        Sonomètre :</br>
-                    </p7>
-                    <p8>
-                        - Mesure la puissance sonore
-                    </p8>
-                </div>    
-            </div>
-        </div>
     </div>
+
+    <table>
+        <tr>
+            <div class = "icons_text">
+                <div class = "icons">
+                    <td>
+                        <div class = "electro">
+                            <div class = "icon_electro">
+                                <img class="image-decouvrir" src = "images/Dec_Electro.png" alt = "Electrocardiogramme">
+                            </div>
+                    </td>
+                    <td>
+                            <div class = "icon_electro_text">
+                                <p2>Electrocardiogramme :</p2>
+                                <p2>- Positionné sur la tempe</br>
+                                    - Mesure la fréquence cardiaque</p2>   
+                            </div>     
+                        </div>
+                    </td>
+                    <td>
+                        <div class = "sueur">
+                            <div class = "icon_sueur">
+                                <img class="image-decouvrir" src = "images/Dec_sueur.png" alt = "Détecteur de sueur">
+                            </div>
+                    </td>
+                    <td>
+                            <div class = "icon_sueur_text">
+                                <p2>Détecteur de sueur :</p2>
+                                <p2>Positionné sur la tempe</p2>
+                            </div>
+                        </div>
+                    </td>
+        </tr>
+        <tr>
+                    <td>
+                    <div class = "co2">
+                            <div class = "icon_co2">
+                                <img class="image-decouvrir" src = "images/Dec_CO.png" alt = "Détecteur de monoxyde de carbone">
+                            </div>
+                    </td>
+                    <td>
+                            <div class = "icon_co2_text">
+                                <p2>Détecteur de monoxyde de carbone</p2>
+                            </div>
+                    </div>
+                    </td>  
+                    <td>
+                        <div class = "sono">
+                            <div class = "icon_sono">
+                                <img class="image-decouvrir" src = "images/Dec_Sono.png" alt = "Sonomètre">
+                            </div>
+                    </td>
+                    <td>
+                            <div class = "icon_sono_text">
+                                    <p2>Sonomètre :</br></p2>
+                                    <p2>- Mesure la puissance sonore</p2>
+                            </div> 
+                        </div>
+                    </td>
+                </div>
+            </div>
+        </tr>
+    </table>
 
     <div class = "section_3">
         <p> Commandez dès maintenant ! </p>
