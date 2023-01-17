@@ -1,12 +1,8 @@
-body{
-    background-color: #E8E8EA;
-}
-
 .conteneur
 {
     width: 90%;
-    height: 70%;
     margin-left: 0%;
+    max-height: 800px;
 }
 .conteneur-tableau{
     display: flex;
@@ -15,14 +11,8 @@ body{
     overflow-x: auto;
 }
 
-html  
-{
-    font-family: sans-serif;
-}
-
- 
   
-table 
+table
 {
     border-collapse: collapse;
     border: 2px solid rgb(200,200,200);
@@ -32,7 +22,7 @@ table
     align-self: center;
     width: 100%;
 }
-  td, th 
+td, th 
 {
     border: 1px solid rgb(190,190,190);
     padding: 1px 15px;
@@ -92,5 +82,11 @@ table
     cursor: pointer;
 }
 .row:hover{
-    /* background: somecolor */
+    background: rgb(235,235,235);
+}
+.row-chef{
+    cursor: pointer;
+}
+.row-chef:hover{
+    background: rgb(235,235,235);
 }

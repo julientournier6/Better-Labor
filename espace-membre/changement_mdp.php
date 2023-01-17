@@ -53,8 +53,8 @@ if(isset($_POST["changement_mdp"])) {
     }
 }
 ?>
-<div class="main-content mainDiv">
-    <div class="cardStyle">
+<div class="main-content maindiv-formulaire">
+    <div class="div-formulaire">
       <form action="" method="post" id="changement_mdp">
         
         <img src="../images/Logo.png" id="signupLogo"/>
@@ -99,7 +99,6 @@ if(isset($_POST["changement_mdp"])) {
       <div class="buttonWrapper">
         <button name="changement_mdp" type="submit" id="submitButton" onclick="return validateSignupForm();" class="submitButton pure-button pure-button-primary">
           <span>Continuer</span>
-          <span id="loader"></span>
         </button>
       </div>
       <a class="link" href="index.php">Retour au profil</a>

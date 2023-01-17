@@ -1,0 +1,71 @@
+.modification{
+    background: white;
+    width: 70%;
+    position: relative;
+    margin: 0px auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding: 30px 70px;   
+}
+
+.modification *{
+    margin: 0;
+    padding: 0;
+}
+
+
+.modification button{ 
+    width: 40%;
+    height: 50px;
+    border-radius: 50px;
+    margin-left: 30%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: #A697E8;
+    margin-top: 30px;
+    
+}
+
+.modification a {
+    margin-bottom: 400px;
+    text-decoration: none;
+    color: black;
+    
+}
+
+.modification .inputbox{
+    margin-top: 40px;
+    width: 100%;
+ 
+}
+
+.modification .inputbox input{
+    position:relative;
+    height: 50px;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding:0 15px;
+    background-color: #E8E8EA;
+    margin-top: 8px;
+}
+
+.modification .column{
+    display: flex;
+    column-gap: 50px;
+}
+
+
+
+@media  screen and (max-width: 791px){
+    .modification .column{
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 515px){
+    .modification h1{
+        font-size: 30px;
+    }
+}

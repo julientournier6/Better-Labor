@@ -34,20 +34,28 @@ include('../nav-from-parent/nav.php');
 include('sidebar.php');
 ?>
 
-	<?php
+<?php
 $messages = array();
 include("../database/fetch_data.php");
 include('../database/tools.php');
 include("../database/config.php");
 $tableName="utilisateur";
-$columns= ['email','nom','prenom','date_naissance'];
+$columns= ['ID', 'email','nom','prenom','date_naissance'];
 $fetchData = fetch_data($conn, $tableName, $columns);
 ?>
 <div class="main-content espace-admin">
 <?php
 if (isset($_GET["message"]) && $_GET["message"] == "activated") {
     echo('<div class="bar success">
-    <i class="ico">&#9747;</i>' . "Votre compte a bien été activé! " . '</div>');
+    <i class="ico">&#10004;</i>' . "Votre compte a bien été activé! " . '</div>');
+}
+if (isset($_GET["error"]) && $_GET["error"] == "notfound") {
+    echo('<div class="bar error">
+    <i class="ico">&#9747;</i>' . "Le compte n'a pas été trouvé, nous sommes désolés. " . '</div>');
+}
+if (isset($_GET["error"]) && $_GET["error"] == "communication") {
+    echo('<div class="bar error">
+    <i class="ico">&#9747;</i>' . "Problème de communication avec le serveur. Veuillez réessayer" . '</div>');
 }
 ?>    
 	<p class="espace-admin-title">Espace Chef de chantier</p>
@@ -57,7 +65,7 @@ if (isset($_GET["message"]) && $_GET["message"] == "activated") {
             <a class="recherche-submit recherche-element" id="recherche-submit">
                 <img src="../images/search.svg">
             </a>
-            <input class="recherche-element" type = "text" name = "text" id="recherche-text" placeholder = "Nom, prénom, email ou téléphone" value="<?php if (isset($_GET['text'])) {echo $_GET['text'];}?>">
+            <input class="recherche-element recherche-text" type = "text" name = "text" placeholder = "Nom, prénom, email ou téléphone" value="<?php if (isset($_GET['text'])) {echo $_GET['text'];}?>">
             <div class="recherche-select">
                 <select name="genre" id="auto-submit">
                     <option value="none">Genre</option>
@@ -90,7 +98,7 @@ if (isset($_GET["message"]) && $_GET["message"] == "activated") {
             if(is_array($fetchData)){      
             foreach($fetchData as $data){
         ?>
-                    <tr class="row">
+                    <tr class="row" id="<?php echo $data['ID']; ?>">
                         <td><?php echo $data['nom']; ?></td>
                         <td><?php echo $data['prenom']; ?></td>
                         <td><?php echo $data['email']; ?></td>
@@ -110,7 +118,7 @@ if (isset($_GET["message"]) && $_GET["message"] == "activated") {
                 </table>
             </div>
    
-            <p class = "nombreEmploye"><?php echo count_rows_where($conn, 'utilisateur', 'id_chef', $_SESSION['id']);?>/50 employés</p>
+            <p class = "nombreEmploye"><?php echo count_rows_where($conn, 'utilisateur', 'id_chef', $_SESSION['ID']);?>/50 employés</p>
             <div class="boutons_employes">
                 <button class="AjoutEmployés bouton-important" onclick="location.href='ajout_employés.php'" type="button">
                     Ajouter des employés
@@ -124,7 +132,8 @@ if (isset($_GET["message"]) && $_GET["message"] == "activated") {
 </div>
 </div>
 <script src="../libraries/nouislider.js"></script>
-<script src="../espace-admin/espace-admin.js"></script>
+<script src="../espace-admin/gestion_utilisateurs.js"></script>
+<script src="../tools.js"></script>
 <script>
 var slider = document.getElementById('slider');
 var input_agemin = document.getElementById('agemin');
@@ -170,6 +179,7 @@ el_genre.onclick = function() {
 }
 ;
 
+addEvent('row', rowClick);
 </script>
 
 <?php

@@ -2,6 +2,9 @@
 session_start();
 include("../database/config.php");
 include("../database/tools.php");
+
+//Page vers laquelle redirigent les liens d'activation de compte
+//Le lien d'activation est accompagné d'attributs GET qui donnent les informations nécessaires à l'activation
 if (isset($_GET["code_verification"]) && isset($_GET["email"]) && isset($_GET["role"])) {
     $role = $_GET["role"];
     $sql = "SELECT * FROM $role WHERE email = '" . $_GET["email"] . "';";
@@ -12,8 +15,8 @@ if (isset($_GET["code_verification"]) && isset($_GET["email"]) && isset($_GET["r
             if (!isset($_GET["reinitialisation_mdp"])) {
                 if ($result_row->activation_expiry > date('Y-m-d H:i:s')) {
                     $id = $result_row->id;
+                    //On active le compte:
                     $sql = "UPDATE $role SET activated = 1 WHERE ID = '$id'";
-                    //1 = activé
                     $query_activate = $conn->query($sql);
                     if ($query_activate) {
                         connect($result_row, $role);

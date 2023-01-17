@@ -25,7 +25,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="../espace-chef/modification_profil.php">
+				<a href="../espace-membre/modification_profil_gestionnaire.php?own=1">
 					<span class="icon"><img src="../images/profile-page.png" class="img"></span>
 					<span class="text">Mon compte</span>
 				</a>

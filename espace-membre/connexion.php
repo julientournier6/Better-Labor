@@ -19,7 +19,7 @@ include('../nav-from-parent/nav.php');
 ?>
     <div class="log-container">
         <div class="logo">
-            <img class="better" src="../logo.jpg">
+            <img class="better" src="../images/logo.jpg">
         </div>
 
         <div class="title"><b>Vos identifiants de connexion </b></div>

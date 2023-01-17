@@ -6,7 +6,7 @@ include("../database/tools.php");
 list($errors, $messages) = sign_up($conn, "admin");
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <link rel = "stylesheet" href = "../espace-membre/inscription.css"/>
@@ -19,7 +19,7 @@ include('../nav-from-parent/nav.php');
 ?>
     <div class="log-container">
         <div class="logo">
-            <img class="better" src="../logo.jpg">
+            <img class="better" src="../images/logo.jpg">
         </div>
 
         <div class="title"><b>Vos informations personnelles</b></div>

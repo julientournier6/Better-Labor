@@ -10,7 +10,7 @@
   	<title>Espace Membre</title>
 	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </head>
-</html>
+<body>
 <div class="main-container">
 <div class="content">
 <div class="wrapper hover_collapse">
@@ -21,7 +21,7 @@
 			<li>
 				<a href="../espace-admin/index.php">
 					<span class="icon"><img src="../images/manage_users.png" class="img"></span>
-					<span class="text">Dashboard</span>
+					<span class="text">Utilisateurs</span>
 				</a>
 			</li>
 			<li>
@@ -31,9 +31,9 @@
 				</a>
 			</li>
 			<li>
-				<a href="../espace-admin/modification_profil.php">
+				<a href="../espace-membre/modification_profil_gestionnaire.php?own=1">
 					<span class="icon"><img src="../images/profile-page.png" class="img"></span>
-					<span class="text">Mon profil</span>
+					<span class="text">Mon compte</span>
 				</a>
 			</li>
 			<li>
@@ -80,3 +80,4 @@ li_items.forEach((li_item)=>{
 })
 
 </script>
+</html>

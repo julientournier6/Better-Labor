@@ -1,7 +1,8 @@
 <?php
 function connect($row, $role) {
+    //Fonction qui doit être appelée à la fin du processus du connexion (définit les variables de session)
     $_SESSION['loggedin'] = 1;
-    $_SESSION['id'] = $row->ID;
+    $_SESSION['ID'] = $row->ID;
     $_SESSION['email'] = $row->email;
     $_SESSION['prenom'] = $row->prenom;
     $_SESSION['nom'] = $row->nom;
@@ -9,6 +10,7 @@ function connect($row, $role) {
 }
 
 function redirect_role($role, $page) {
+    //Fonction outil qui permet de générer un lien vers l'espace correspondant au rôle de l'utilisateur
     $root = dirname(dirname($_SERVER['PHP_SELF']));
     if ($role == "utilisateur") {
         $lien =  $root . '/espace-utilisateur/';
@@ -38,6 +40,7 @@ function count_rows_where($conn, $table, $column, $value) {
     return ($result->num_rows);
 }
 function sign_up($conn, $role) {
+    //Fonction d'inscription
     $errors = array();
     $messages = array();
     $expiry = 1 * 24 * 60 * 60;
@@ -63,10 +66,12 @@ function sign_up($conn, $role) {
                 $code_verification = substr(md5(uniqid(rand(), true)), 16, 16);
                 $activation_expiry = date('Y-m-d H:i:s', time() + $expiry);
                 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+                //On vérifie que le compte n'est pas déjà utilisé:
                 if (count_rows_where($conn, $role, "email", $email) > 0) {
                     $errors[] = "Nous sommes désolés, cette adresse email est déjà utilisée.";
                     return array($errors, $messages);
                 }
+                //On prépare les statements SQL en fonction du rôle et donc des inputs donnés:
                 if ($role == 'utilisateur') {
                     $telephone = $conn->real_escape_string(strip_tags($_POST['telephone'], ENT_QUOTES));
                     $date_naissance = $conn->real_escape_string(strip_tags($_POST['date_naissance'], ENT_QUOTES));
@@ -105,9 +110,10 @@ function sign_up($conn, $role) {
                     $errors[] = "Erreur : votre rôle n'a pas été défini. Essayez de vous déconnecter puis de vous reconnecter.";
                     return array($errors, $messages);
                 }
-                //activated = 0 par défaut dans la BDD
+                //On exécute le code càd on inscrit le compte
                 if ($stmt->execute()) {
                     include("../send_mail.php");
+                    //On sélectionne le compte pour pouvoir envoyer un mail de confirmation
                     $stmt = $conn->prepare("SELECT * FROM $role WHERE email = ?");
                     $stmt->bind_param('s', $email);
                     $stmt->execute();
@@ -115,9 +121,13 @@ function sign_up($conn, $role) {
                     if ($result->num_rows == 1) {
                         $result_row = $result->fetch_object();
                         if ($role == 'admin' || $role == 'chef') {
-                            // echo "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+                            //On veut déterminer l'adresse de base du serveur pour pouvoir envoyer un lien d'activation
+                            //car l'adresse n'est pas la même pour tout le monde
+                            $url = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];//on prend d'abord l'adresse actuelle
+                            $url = explode("espace", $url)[0];//on enlève la partie en trop"
+                            //On remplace le + par son équivalent pour les requêtes GET
                             $email = str_replace("+", "%2B", $email);
-                            $lien_activation = "127.0.0.1/BetterLabor/Better-Labor/espace-membre/activate.php?code_verification=$code_verification&email=$email&role=$role";
+                            $lien_activation = $url . "espace-membre/activate.php?code_verification=$code_verification&email=$email&role=$role";
                             $messages[] = 'Votre compte a bien été créé';
                             if ($role == 'admin') {
                                 $stmt = $conn->prepare("UPDATE code_admin SET valide = 0 WHERE code = ?");

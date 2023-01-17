@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;600&display=swap');
 
 .main-container{
-	height: calc(100vh - 100px);
+	height: calc(100vh);
 	display: flex;
 	flex-direction: column;
 }

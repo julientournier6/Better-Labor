@@ -9,14 +9,21 @@
     margin-bottom: 3px;
     display: block;
 }
-espace-admin-subtitle{
+.espace-admin-secondary-title{
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 40px;
+    margin-bottom: 8px;
+    display: block;
+}
+.espace-admin-subtitle{
     font-size: 20px;
     font-weight: 400;
     margin-top: 0;
     display: block;
     padding: 0px;
 }
-#recherche-text{
+.recherche-text{
     width: 250px;
 }
 .recherche-form{
