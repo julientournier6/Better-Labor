@@ -128,23 +128,24 @@
     margin-top: 10px;
     display: grid;
     column-gap: min(15%, 40px);
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
     align-content: left;
     justify-items: left;
     align-items: start;
-    width: 100%;
+    width: 30%;
     box-sizing: border-box;
 }
 .Data-section{
+    width: 5%;
+    height: 5%;
     margin: 3%;
     box-sizing: border-box;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .Section-title{
     margin-bottom: 1%;
-    margin-top: 1%;
-    width: 100%;
+    margin-top: 0%;
     font-weight: bold;
     text-align: start;
     font-size: 1.5em;
@@ -159,6 +160,5 @@
 }
 
 .chartBox{
-    width: 100%;
-    position: relative;
+    width: 100px;
 }

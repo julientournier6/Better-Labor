@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2023 at 03:02 PM
+-- Generation Time: Jan 17, 2023 at 01:22 PM
 -- Server version: 5.7.17
 -- PHP Version: 7.1.3
 
@@ -47,8 +47,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`ID`, `email`, `password`, `prenom`, `nom`, `created_at`, `updated_at`, `activated`, `code_verification`, `activation_expiry`, `statut`) VALUES
-(8, 'alexisvafiadis@gmail.com', '$2y$10$Y9YGTyhx23ECWzY2QuIccuSiju.vI70IrEqa5vbJ2f3mFAihKjlrC', 'Alexis', 'Vafiadis', '2022-12-16 14:15:29', '2022-12-16 14:15:29', 0, 'b1352f0cb8ae9e46', '2022-12-17 14:15:29', NULL),
-(7, 'flazebrawl@gmail.com', '$2y$10$cbxaSgjdu.DqKyCyBGphpuzlE0g93tfBIU/O.ph6fJ7zX60/DVWGm', 'Alexis', 'Vafiadis', '2022-12-16 09:29:37', '2022-12-16 09:29:37', 0, 'dae835d1300ae17e', '2022-12-17 09:29:37', NULL);
+(12, 'alexisvafiadis+2@gmail.com', '$2y$10$cP2JtsRJchhW1.KmFmtW8uV4dueF4IaI7oU3vFZmHcsFHjFd/ZXM2', 'Alexis', 'Vafiadis', '2023-01-12 12:01:03', '2023-01-12 12:01:03', 0, '66ee300ec5f6240c', '2023-01-13 12:01:03', NULL),
+(13, 'alexisvafiadis+2@gmail.com', '$2y$10$D03Av9A39dMLwlvN6mjNy.rQK2a/7U848RpQI3iRxxxRZmaNZc5PS', 'Alexis', 'Vafiadis', '2023-01-12 12:06:43', '2023-01-12 12:06:43', 0, '19eaa8c5bb2079e8', '2023-01-13 12:06:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -107,7 +107,8 @@ CREATE TABLE `chef` (
 --
 
 INSERT INTO `chef` (`ID`, `email`, `password`, `prenom`, `nom`, `created_at`, `updated_at`, `activated`, `code_verification`, `activation_expiry`, `statut`) VALUES
-(23, 'alexisvafiadis@gmail.com', '$2y$10$8V.exLWpJwLN8BxnSPXywOKdK2ERK/GuKQq.qrX9aQk2i3aoorFj2', 'Alexis', 'Vafiadis', '2022-12-16 14:12:36', '2022-12-16 14:12:36', 0, 'f10d62dd8bb32840', '2022-12-17 14:12:36', 0);
+(24, 'alexisvafiadis@gmail.com', '$2y$10$me5TfKduaPctXKyqT4qfeO1VGhlHa3Dtgdke8KQFz1Ga53xtD3HuW', 'Alexiszesazs', 'Vafiadisezseaz', '2023-01-10 09:24:03', '2023-01-10 09:24:03', 0, '38edf00c9c5d0cb9', '2023-01-11 09:24:03', 0),
+(27, 'alexisvafiadis+a@gmail.com', '$2y$10$mC3Hrm1iSG7kw3xS22q6u.IX/7cHLAQo00QVf4s6ZrJjrlKbLeRlS', 'Alexisa', 'Vafiadis', '2023-01-16 19:07:59', '2023-01-16 19:07:59', 0, '1b03553310d1d6e8', '2023-01-17 19:07:59', 0);
 
 -- --------------------------------------------------------
 
@@ -125,7 +126,7 @@ CREATE TABLE `code_admin` (
 --
 
 INSERT INTO `code_admin` (`code`, `valide`) VALUES
-('PDQ5695F2E36Z0M0P6L2', 1);
+('PDQ5695F2E36Z0M0P6L2', 0);
 
 -- --------------------------------------------------------
 
@@ -160,7 +161,7 @@ CREATE TABLE `question` (
 --
 
 INSERT INTO `question` (`ID`, `ID_categorie`, `position`, `sujet`, `reponse`) VALUES
-(14, 1, 1, 'Comment se connecter Ã  son compte?', 'AprÃ¨s avoir crÃ©Ã© votre compte, cliquez sur \"sign in\" en haut Ã  droite de la page.'),
+(14, 1, 1, 'Comment se connecter Ã  son compte', 'AprÃ¨s avoir crÃ©Ã© votre compte, cliquez sur \"sign in\" en haut Ã  droite de la page.'),
 (10, 2, 1, 'Comment gÃ©rer ses employÃ©s', 'Une rÃ©ponse');
 
 -- --------------------------------------------------------
@@ -171,6 +172,7 @@ INSERT INTO `question` (`ID`, `ID_categorie`, `position`, `sujet`, `reponse`) VA
 
 CREATE TABLE `utilisateur` (
   `ID` int(10) UNSIGNED NOT NULL,
+  `id_chef` int(11) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(200) NOT NULL,
   `genre` varchar(1) DEFAULT NULL,
@@ -181,9 +183,18 @@ CREATE TABLE `utilisateur` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `activated` tinyint(4) DEFAULT NULL,
-  `code_verification` varchar(15) NOT NULL,
   `statut` tinyint(4) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`ID`, `id_chef`, `email`, `password`, `genre`, `prenom`, `nom`, `telephone`, `date_naissance`, `created_at`, `updated_at`, `activated`, `statut`) VALUES
+(4, 24, 'alexisvafiadis+2@gmail.com', '$2y$10$31YlmcVfOyF7IDBmTlFLOusTxNEbmmdW8jrzY19AN3bEsK9Lq93Ze', '0', 'Big D', 'KE le booss', '0754832476', '1999-02-12', '2023-01-12 10:58:56', '2023-01-12 10:58:56', NULL, NULL),
+(3, 24, 'alexisvafiadis+1@gmail.com', '$2y$10$ztH7hJlfKTYx2Pk0jdbYDempGXIrEoQZweMuChkcydF11gaAT26Hi', '0', 'Alexis', 'Vafiadis', '0754832476', '1990-01-01', '2023-01-11 18:31:21', '2023-01-11 18:31:21', NULL, NULL),
+(10, 24, 'alexisvafiadis+3@gmail.com', '$2y$10$80CAjdrkOKfxWLURTDSTZO6TtFaRPJNEKgBkneNM345MTqZjbrfbm', '0', 'LÃ©oo', 'TOURON', '0754832476', '2001-11-01', '2023-01-12 14:07:08', '2023-01-12 14:07:08', NULL, NULL),
+(11, 24, 'alexisvafiadis+6@gmail.com', '$2y$10$F/jCtMhxh9p.0VPV4m.DmOLOQxP9Ggsgv3pBXuf7OvDNXihu0/W9O', '0', 'Alexiss', 'Vafiadis', '0754832476', '1990-01-01', '2023-01-16 17:57:57', '2023-01-16 17:57:57', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -245,7 +256,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `capteur`
 --
@@ -260,7 +271,7 @@ ALTER TABLE `categorie`
 -- AUTO_INCREMENT for table `chef`
 --
 ALTER TABLE `chef`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `mesure`
 --
@@ -275,7 +286,7 @@ ALTER TABLE `question`
 -- AUTO_INCREMENT for table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;COMMIT;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

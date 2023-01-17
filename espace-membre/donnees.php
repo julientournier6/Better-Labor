@@ -6,15 +6,27 @@
 
   <title>Mes données BetterSet</title>
 
-  <link rel="stylesheet" href="faq.css">
-  <link rel="stylesheet" href="donnees_og.css">
+  <link rel="stylesheet" href="../faq.css">
+  <link rel="stylesheet" href="donnees.css">
+  <link rel="stylesheet" href="../espace-admin/espace-admin.css">
   <script src="donnees.js"></script>
-  <script src="tools.js"></script>
+  <script src="../tools.js"></script>
 </head>
+<?php
+session_start();
+if (!isset($_SESSION['loggedin'])) {
+  header('Location: ../espace-membre/connexion.php');
+  exit();
+}
+include('../nav-from-parent/nav.php');
+include('../database/config.php');
+include('../database/tools.php');
+include('../espace-' . $_SESSION['role'] . '/sidebar.php');
+?>
 
-<body class="background">
+<body>
 
-    <div class="Page">
+    <div class="main-content Page">
 
         <div class="top">
 
@@ -37,7 +49,7 @@
                     Supprimer le compte
                 </button>
             </div>
-        </div>
+          </div>
 
         <div class="Data-header">
             <h2 class="Data-title">
@@ -63,12 +75,7 @@
                 <h2 class="Section-title">
                 Fréquence cardiaque (BPM)
                 </h2>
-                <img src="../images/information.png" alt="[Info]" class="image-info">
-                <style>
-                  .chartBox{
-                    width: 700px;
-                  }
-                </style>
+                <!-- <img src="images/information.png" alt="[Info]" class="image-info"> -->
                 <div class="chartBox">
                   <canvas id="myChart"></canvas>
                 </div>
@@ -113,7 +120,7 @@
                 <h2 class="Section-title">
                 Résultats des capteurs de sueur
                 </h2>
-                <img src="../images/information.png" alt="[Info]" class="image-info">
+                <!-- <img src="images/information.png" alt="[Info]" class="image-info"> -->
                 <div class="chartBox">
                   <canvas id="sueurChart"></canvas>
                 </div>
@@ -133,6 +140,7 @@
                     const sueurconfig = {
                       type: 'bar',
                       data : sueurdata,
+                      responsive: true,
                       options: {
                         scales: {
                           y: {
@@ -158,7 +166,7 @@
                 <h2 class="Section-title">
                 Résultats du capteur de monoxyde de carbone
                 </h2>
-                <img src="../images/information.png" alt="[Info]" class="image-info">
+                <!-- <img src="images/information.png" alt="[Info]" class="image-info"> -->
                 <div class="chartBox">
                   <canvas id="gazChart"></canvas>
                 </div>
@@ -200,8 +208,8 @@
             <div class="Data-section">
                 <h2 class="Section-title">
                 Résultats des sonomètres
-                </h2>
-                <img src="../images/information.png" alt="[Info]" class="image-info">
+                </h2> 
+                <!-- <img src="images/information.png" alt="[Info]" class="image-info"> -->
                 <div class="chartBox">
                   <canvas id="sonChart"></canvas>
                 </div>
@@ -241,6 +249,12 @@
             </div>
         </div>
     </div>
+<!--Les 2 </div> qui suivent servent à fermer les div écrites dans sidebar.php  -->
+</div>
+<?php
+make_footer(false);
+?>
+</div>
 </body>
 
 <script>
@@ -249,4 +263,4 @@ addEvent("Modify-Account", modifyAccount)
 addEvent("Delete-Account", deleteAccount)
 </script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="chart.js"></script>
+<script src="../chart.js"></script>
