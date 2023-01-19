@@ -149,8 +149,11 @@ ADMIN_FORM;
     $sujet = "Insérez une question.";
     $reponse = "Insérez une réponse.";
     if ($sujet && $reponse) {
-      $sql = "SELECT MAX(position) AS max_position FROM question WHERE ID_categorie = '$id_categorie'";
-      $result = $this->conn->query($sql);
+      //On utilise une requête préparée car l'id catégorie vient de la valeur d'un élément html (peut être modifié)
+      $stmt = $this->conn->prepare("SELECT MAX(position) AS max_position FROM question WHERE ID_categorie = ?");
+      $stmt->bind_param("s", $id_categorie);
+      $stmt->execute();
+      $result = $stmt->get_result();
       $result_row = $result->fetch_array();
       $position = $result_row["max_position"] + 1;
       $sql = "INSERT INTO question (ID_categorie, position, sujet, reponse) VALUES ('$id_categorie', '$position', '$sujet','$reponse')";
@@ -191,13 +194,13 @@ ADMIN_FORM;
   {
     $id = $p["id"];
     $name = $this->conn->real_escape_string($p["nom"]);
-    $messages = array();
-    $sql = "UPDATE categorie SET nom = '$name' WHERE ID = '$id'";
-    $query_update = $this->conn->query($sql);
     if (!$name) {
       return;
     }
-    if ($query_update) {
+    $messages = array();
+    $stmt = $this->conn->prepare("UPDATE categorie SET nom = ? WHERE ID = ?");
+    $stmt->bind_param("ss", $name, $id);
+    if ($stmt->execute()) {
       array_push($messages, "La catégorie a bien été modifiée");
     } else {
       array_push($messages, "Désolé, la catégorie n'a pas pu être modifiée");
@@ -208,13 +211,13 @@ ADMIN_FORM;
     $id = $p["id"];
     $sujet = $this->conn->real_escape_string($p["sujet"]);
     $reponse = $this->conn->real_escape_string($p["reponse"]);
-    $messages = array();
-    $sql = "UPDATE question SET sujet = '$sujet', reponse = '$reponse' WHERE ID = '$id'";
-    $query_update = $this->conn->query($sql);
     if (!$sujet || !$reponse) {
       return;
     }
-    if ($query_update) {
+    $messages = array();
+    $stmt = $this->conn->prepare("UPDATE question SET sujet = ?, reponse = ? WHERE ID = ?");
+    $stmt->bind_param("sss", $sujet, $reponse, $id);
+    if ($stmt->execute()) {
       array_push($messages, "La catégorie a bien été modifiée");
     } else {
       array_push($messages, "Désolé, la catégorie n'a pas pu être modifiée");
@@ -223,10 +226,10 @@ ADMIN_FORM;
 
   public function deleteCategory($id)
   {
-    $sql = "DELETE FROM categorie WHERE ID = '$id'";
-    $q = $this->conn->query($sql);
+    $stmt = $this->conn->prepare("DELETE FROM categorie WHERE ID = ?");
+    $stmt->bind_param("s", $id);
     $messages = array();
-    if ($q) {
+    if ($stmt->execute()) {
       array_push($messages, "La catégorie a bien été supprimée");
     } else {
       array_push($messages, "Désolé, la catégorie n a pas pu être supprimée");
@@ -234,10 +237,10 @@ ADMIN_FORM;
   }
   public function deleteQuestion($id)
   {
-    $sql = "DELETE FROM question WHERE ID = '$id'";
-    $q = $this->conn->query($sql);
+    $stmt = $this->conn->prepare("DELETE FROM question WHERE ID = ?");
+    $stmt->bind_param("s", $id);
     $messages = array();
-    if ($q) {
+    if ($stmt->execute()) {
       array_push($messages, "La question a bien été supprimée");
     } else {
       array_push($messages, "Désolé, la question n'a pas pu être supprimée");
