@@ -39,7 +39,7 @@ function fetch_data($conn, $tableName, $columns){
          $stmt->bind_param('ssssss', $text, $text, $text, $text, $dateminstr, $datemaxstr);
       }
    }
-   else if (isset($_GET['text-chef']) && $tableName = "chef") {
+   else if (isset($_GET['text-chef']) && $tableName == "chef") {
       $text = $_GET['text-chef'];
       $text = "%" . $text . "%";
       $query = "SELECT $columnName FROM $tableName 

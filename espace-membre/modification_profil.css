@@ -31,6 +31,9 @@
     margin-top: 30px;
     background-color: #ED7474;
 }
+.modification button:hover{
+    filter: saturate(190%);
+}
 
 .modification .inputbox{
     margin-top: 40px;

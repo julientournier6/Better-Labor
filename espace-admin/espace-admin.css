@@ -25,6 +25,7 @@
 }
 .recherche-text{
     width: 250px;
+    flex-shrink: 1.1;
 }
 .recherche-form{
     margin-bottom: 14px;
@@ -45,6 +46,7 @@
 .recherche-select{
     height: 30px;
     width: 100px;
+    flex-shrink: 0.7;
 }
 .recherche-select select{
     width: 100%;

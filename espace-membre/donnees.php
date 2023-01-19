@@ -33,7 +33,7 @@ else {
   if (isset($_GET["id"])) {
     $id = $_GET["id"];
     if ($_SESSION["role"] == "chef") {
-      $chef_id = $_SESSION["ID"];	
+      $id_chef = $_SESSION["ID"];	
       $stmt = $conn->prepare("SELECT * FROM utilisateur WHERE ID = ? AND id_chef = ?");
       $stmt->bind_param('ss', $id, $id_chef);
     }
@@ -42,7 +42,7 @@ else {
       $stmt->bind_param('s', $id);
     }
     if (!$stmt->execute()) {
-      redirect_role($_SESSION["role"], "indexx.php");
+      redirect_role($_SESSION["role"], "index.php");
     }
     $result = $stmt->get_result();
     if ($result->num_rows == 1) {
@@ -50,7 +50,7 @@ else {
       $edit_request = "own=0&id=" . $id;
     }
     else {
-      redirect_role($_SESSION["role"], "index.php");
+      redirect_role($_SESSION["role"], "indexx.php");
     }
   }
   else {

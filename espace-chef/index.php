@@ -128,9 +128,9 @@ if (isset($_GET["error"]) && $_GET["error"] == "communication") {
                     Ajouter des employés
                 </button>
             
-                <button class="AjoutSlot2 bouton-important">
+                <!-- <button class="AjoutSlot2 bouton-important">
                     Ajouter des slots 
-                </button>
+                </button> -->
             </div>
     </div>
 </div>

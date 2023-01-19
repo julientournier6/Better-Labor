@@ -75,6 +75,10 @@ i.ico {
   display: inline;
   cursor: pointer;
 }
+.bouton-important:hover{
+  filter: saturate(200%);
+}
+
 .text{
   line-height: 1.6;
   font-size: 15px;

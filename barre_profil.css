@@ -45,7 +45,6 @@ nav a{
     text-decoration: none;
     line-height: 100px;
     font-size: 20px;
-
 }
 
 nav ul li a:hover{
@@ -77,7 +76,6 @@ nav ul ul li a{
     width: 150px;
     line-height: 60px;
     z-index: 999;
-    
 }
 
 .checkbtn{
@@ -90,7 +88,6 @@ nav ul ul li a{
     
 
 }
-
 #check{
     display: none;
 }

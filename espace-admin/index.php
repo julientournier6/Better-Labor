@@ -128,7 +128,7 @@ $fetchData = fetch_data($conn, $tableName, $columns);
 
 <?php
 $messages = array();
-$tableName="utilisateur";
+$tableName = "utilisateur";
 $columns= ['ID', 'email','nom','prenom','date_naissance','statut'];
 $fetchData2 = fetch_data($conn, $tableName, $columns);
 ?>
@@ -162,6 +162,7 @@ $fetchData2 = fetch_data($conn, $tableName, $columns);
                         <th>Nom</th>
                         <th>Prénom</th>
                         <th>Email</th>
+                        <th>Date de naissance</th>
                         <th>Statut</th>
                     </tr>
                 </thead>
@@ -175,6 +176,7 @@ $fetchData2 = fetch_data($conn, $tableName, $columns);
                         <td><?php echo $data['nom']; ?></td>
                         <td><?php echo $data['prenom']; ?></td>
                         <td><?php echo $data['email']; ?></td>
+                        <td><?php echo $data['date_naissance']; ?></td>
                         <td><?php 
                         if ($data['statut'] == 0) {
                             echo '<img class ="tailleCercle" src = "../images/résultat-vert.png">';
