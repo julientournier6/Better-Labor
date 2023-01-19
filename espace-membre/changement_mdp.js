@@ -1,8 +1,6 @@
 var password = document.getElementById("password")
   , confirm_password = document.getElementById("confirmpassword");
 
-enableSubmitButton();
-
 function validatePassword() {
   if (password.value == null || password.value.length < 6) {
     password.setCustomValidity("Veuillez entrer un mot de passe de plus de 6 caractères");
@@ -23,14 +21,6 @@ function validatePassword() {
 
 password.onchange = validatePassword;
 confirm_password.onkeyup = validatePassword;
-
-function enableSubmitButton() {
-  document.getElementById('submitButton').disabled = false;
-}
-
-function disableSubmitButton() {
-  document.getElementById('submitButton').disabled = true;
-}
 
 function validateSignupForm() {
   if (!validatePassword()) {

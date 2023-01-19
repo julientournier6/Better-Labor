@@ -8,6 +8,8 @@
     <link rel="icon" href="./ico image.ico" type="image/x-icon">
     <title>Modification de profil</title>
 </head>
+<script src="donnees.js"></script>
+<script src="../tools.js"></script>
 <body>
 <?php
 session_start();
@@ -31,16 +33,18 @@ if (isset($_GET["own"])) {
     //si own == 1 on veut modifier son propre profil, sinon celui d'un autre
     if ($own == 1) {
             $row = $_SESSION;
-            $table = $_SESSION["role"];
+            $role = $_SESSION["role"];
+            $delete_request = "own=$own";
         }
     else {
         if ($_SESSION["role"] != "admin") {
             header('Location: ../espace-membre/modification_profil_gestionnaire.php?own=1');
             exit();
         }
-        $table = "chef";
+        $role = "chef";
         $id = $_GET["id"];
-        $stmt = $conn->prepare("SELECT * FROM $table WHERE ID = ?");
+        $delete_request = "own=$own&role=$role&id=$id";
+        $stmt = $conn->prepare("SELECT * FROM $role WHERE ID = ?");
         $stmt->bind_param('s', $id);
         if (!$stmt->execute()) {
             header('Location: ../espace-admin/index.php?error=communication');
@@ -50,7 +54,7 @@ if (isset($_GET["own"])) {
             $result = $stmt->get_result();
             if ($result->num_rows == 1) {
                 $row = $result->fetch_array();
-                $row['role'] = $table;
+                $row['role'] = $role;
             }
             else {
                 header('Location: ../espace-admin/index.php?error=notfound');
@@ -73,7 +77,7 @@ if (isset($_POST['modification-profil'])) {
             $row = $_SESSION;
         }
         else {
-            $stmt = $conn->prepare("SELECT * FROM $table WHERE ID = ?");
+            $stmt = $conn->prepare("SELECT * FROM $role WHERE ID = ?");
             $stmt->bind_param('s', $id);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -101,7 +105,7 @@ include('../espace-' . $_SESSION['role'] . '/sidebar.php');
         </h1>
         <h4>
         <?php
-        if ($table == 'chef') {
+        if ($role == 'chef') {
             echo "Chef de chantier";
         }
         else {
@@ -150,7 +154,8 @@ include('../espace-' . $_SESSION['role'] . '/sidebar.php');
         </div>
         
         <br>
-        <button type="submit" name="modification-profil"><b>Modifier le profil</b></button> 
+        <button type="submit" name="modification-profil" class="submit"><b>Modifier le profil</b></button> 
+        <button type="button" id="<?php echo $delete_request ?>" class="delete-account"><b>Supprimer le compte</b></button> 
     </form>
 <!--Les 2 </div> qui suivent servent à fermer les div écrites dans sidebar.php  -->
 </div>
@@ -158,5 +163,9 @@ include('../espace-' . $_SESSION['role'] . '/sidebar.php');
 make_footer(false);
 ?>
 </div>
+
+<script>
+addEvent("delete-account", deleteAccount)
+</script>
 </body>
 </html>

@@ -5,7 +5,7 @@
     margin: 0px auto;
     margin-top: 40px;
     margin-bottom: 20px;
-    padding: 30px 70px;   
+    padding: 30px 70px;
 }
 
 .modification *{
@@ -22,16 +22,14 @@
     outline: none;
     border: none;
     cursor: pointer;
-    background-color: #A697E8;
     margin-top: 30px;
-    
 }
-
-.modification a {
-    margin-bottom: 400px;
-    text-decoration: none;
-    color: black;
-    
+.modification .submit{
+    background-color: #A697E8;
+}
+.modification .delete-account{
+    margin-top: 30px;
+    background-color: #ED7474;
 }
 
 .modification .inputbox{

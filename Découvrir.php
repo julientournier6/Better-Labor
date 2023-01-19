@@ -17,7 +17,7 @@
 <?php
 include("nav.php");
 ?>
-    <div class = "title">
+    <div class = "display title">
         <h1>
             Better Set 1, LA révolution dans le BTP 
         </h1>

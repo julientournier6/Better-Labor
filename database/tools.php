@@ -1,4 +1,5 @@
 <?php
+//Fichier pour le système de connexion avec des fonctions outils et les fonctions d'inscription / connexion
 function connect($row, $role) {
     //Fonction qui doit être appelée à la fin du processus du connexion (définit les variables de session)
     $_SESSION['loggedin'] = 1;
@@ -7,6 +8,11 @@ function connect($row, $role) {
     $_SESSION['prenom'] = $row->prenom;
     $_SESSION['nom'] = $row->nom;
     $_SESSION['role'] = $role;
+    if ($role == 'utilisateur') {
+        $_SESSION['genre'] = $row->genre;
+        $_SESSION['date_naissance'] = $row->date_naissance;
+        $_SESSION['telephone'] = $row->telephone;
+    }
 }
 
 function redirect_role($role, $page) {
@@ -71,6 +77,18 @@ function sign_up($conn, $role) {
                     $errors[] = "Nous sommes désolés, cette adresse email est déjà utilisée.";
                     return array($errors, $messages);
                 }
+                else {
+                    //Comme l'interface de connexion est la même pour les chefs et employés, on vérifie l'autre table également
+                    if ($role == 'utilisateur' && count_rows_where($conn, 'chef', "email", $email) > 0) {
+                        $errors[] = "Nous sommes désolés, cette adresse email est déjà utilisée.";
+                        return array($errors, $messages);
+                    }
+                    
+                    if ($role == 'chef' && (count_rows_where($conn, 'utilisateur', "email", $email) > 0)) {
+                        $errors[] = "Nous sommes désolés, cette adresse email est déjà utilisée.";
+                        return array($errors, $messages);
+                    }
+                }
                 //On prépare les statements SQL en fonction du rôle et donc des inputs donnés:
                 if ($role == 'utilisateur') {
                     $telephone = $conn->real_escape_string(strip_tags($_POST['telephone'], ENT_QUOTES));
@@ -121,10 +139,7 @@ function sign_up($conn, $role) {
                     if ($result->num_rows == 1) {
                         $result_row = $result->fetch_object();
                         if ($role == 'admin' || $role == 'chef') {
-                            //On veut déterminer l'adresse de base du serveur pour pouvoir envoyer un lien d'activation
-                            //car l'adresse n'est pas la même pour tout le monde
-                            $url = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];//on prend d'abord l'adresse actuelle
-                            $url = explode("espace", $url)[0];//on enlève la partie en trop"
+                            $url = get_base_url();
                             //On remplace le + par son équivalent pour les requêtes GET
                             $email = str_replace("+", "%2B", $email);
                             $lien_activation = $url . "espace-membre/activate.php?code_verification=$code_verification&email=$email&role=$role";
@@ -179,6 +194,7 @@ function sign_in($conn, $admin) {
         if (in_array("Ce mail ne correspond à aucun compte.", $errors)) {
             return specific_sign_in($conn, "utilisateur");
         }
+        return (array($errors, $messages));
     }
 }
 function specific_sign_in($conn, $role) {
@@ -220,6 +236,14 @@ function specific_sign_in($conn, $role) {
     return array($errors, $messages);
 }
 
+//On veut déterminer l'adresse de base du serveur pour pouvoir envoyer un lien d'activation
+//car l'adresse n'est pas la même pour tout le monde
+function get_base_url() {
+
+    $url = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];//on prend d'abord l'adresse actuelle
+    $url = explode("espace", $url)[0];//on enlève la partie en trop"
+    return $url;
+}
 function show_sidebar($role) {
     include('../espace-' . $role . '/sidebar.php');
 }

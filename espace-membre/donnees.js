@@ -7,19 +7,14 @@ function buttonClick(){
     this.style.background = '#DFD9F9';
 }
 
-function modifyAccount() {
-
+function editAccount() {
+  request = this.id;
+  window.location.href = "../espace-membre/modification_profil.php?" + request;
 }
 
 function deleteAccount() {
-    if (confirm("Voulez-vous vraiment supprimer ce compte?")) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("txtHint").innerHTML = this.responseText;
-          }
-        };
-        xmlhttp.open("GET","supprimer_compte.php?q="+str,true);
-        xmlhttp.send();
-    }
+  request = this.id
+  if (confirm("Voulez-vous vraiment supprimer ce compte? \nL'action est irréversible.")) {
+    window.location.href = "../database/suppression_compte.php?" + request;
+  }
 }

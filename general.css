@@ -20,9 +20,11 @@ i.ico {
     background: #fafafa;
     border: 1px solid #ccc;
     font-size: 1em;
-    width: 60%;
+    max-width: 370px;
     margin: auto;
     margin-top: 2%;
+    text-align: center;
+    align-content: center;
   }
   
   .info {
@@ -51,17 +53,8 @@ i.ico {
     text-decoration: none;
     display: block;
     color: black;
-    margin-top: 1.5%;
-    margin-bottom: 1.5%;
-}
-.link{
-	padding: 4px 4px;
-	text-align: center;
-	text-decoration: none;
-	display: block;
-	color: black;
-  margin-top: 4%;
-  margin-bottom: 0%;
+    margin-top: 15px;
+    margin-bottom: 0%;
 }
 .big-margin{
   margin-bottom: 5%;

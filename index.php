@@ -16,7 +16,11 @@
 <body>
 <?php
 include("nav.php");
+if (isset($_GET["message"]) && $_GET["message"] == "deleted") {
+    echo "<script type='text/javascript'>alert('Le compte a bien été supprimé!');</script>";
+}
 ?>
+
 <div class="headline">
     <div class="headline-text display">
         <h1 class="display headline-title">Pour le bien-être des ouvriers</h1>
@@ -90,6 +94,7 @@ include("nav.php");
         <div class = "section_3_p1">
             <p1 class="text"> Pour plus d'informations, nous vous invitons à cliquer sur l'onglet Découvrir. </p1>
         </div>
+        <br class="big-margin">
     </div>
 <?php
 make_footer(false);

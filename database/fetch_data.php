@@ -51,6 +51,7 @@ function fetch_data($conn, $tableName, $columns){
    else {
       $query = "SELECT $columnName FROM $tableName";
       if ($tableName == "utilisateur" && $_SESSION["role"] == "chef") {
+         $id_chef = $_SESSION['ID'];
          $query = $query . " WHERE id_chef = $id_chef";
       }
       $query = $query . " ORDER BY id DESC";

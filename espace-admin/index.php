@@ -41,6 +41,10 @@ if (isset($_GET["message"]) && $_GET["message"] == "activated") {
     echo('<div class="bar success">
     <i class="ico">&#10004;</i>' . "Votre compte a bien été activé! " . '</div>');
 }
+if (isset($_GET["message"]) && $_GET["message"] == "deleted") {
+    echo('<div class="bar success">
+    <i class="ico">&#10004;</i>' . "Le compte a bien été supprimé!" . '</div>');
+}
 if (isset($_GET["error"]) && $_GET["error"] == "notfound") {
     echo('<div class="bar error">
     <i class="ico">&#9747;</i>' . "Le compte n'a pas été trouvé, nous sommes désolés. " . '</div>');

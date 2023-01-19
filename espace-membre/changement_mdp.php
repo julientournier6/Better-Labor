@@ -3,10 +3,8 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-
   <title>Changement de mot de passe</title>
-
-  <link rel="stylesheet" href="changement_mdp.css">
+  <link rel="stylesheet" href="formulaire_general.css">
   <link rel="stylesheet" href="../general.css">
   
 </head>
@@ -40,7 +38,7 @@ if(isset($_POST["changement_mdp"])) {
             $errors[] = "Les mots de passe ne correspondent pas";
         } else {
             $password = password_hash($new_password, PASSWORD_DEFAULT);
-            $id = $_SESSION["id"];
+            $id = $_SESSION["ID"];
             $role = $_SESSION["role"];
             $sql = "UPDATE $role SET password = '$password' WHERE ID = '$id'";
             $query_update_password = $conn->query($sql);
@@ -52,14 +50,15 @@ if(isset($_POST["changement_mdp"])) {
         }
     }
 }
+
 ?>
 <div class="main-content maindiv-formulaire">
     <div class="div-formulaire">
       <form action="" method="post" id="changement_mdp">
         
-        <img src="../images/Logo.png" id="signupLogo"/>
+        <img src="../images/Logo.png" id="logo-formulaire"/>
         
-        <h2 class="formTitle">
+        <h2 class="titre-formulaire">
           <?php
           if (isset($_GET["reinitialisation"])) {
             echo "Reinitialisation de mot de passe";
@@ -86,21 +85,22 @@ if(isset($_POST["changement_mdp"])) {
 
         ?>
         
-      <div class="inputDiv">
-        <label class="inputLabel" for="password">Nouveau mot de passe</label>
+      <div class="div-input">
+        <label class="label-input" for="password">Nouveau mot de passe</label>
         <input type="password" id="password" name="password" required>
       </div>
         
-      <div class="inputDiv">
-        <label class="inputLabel" for="confirmpassword">Confirmer le mot de passe</label>
+      <div class="div-input">
+        <label class="label-input" for="confirmpassword">Confirmer le mot de passe</label>
         <input type="password" id="confirmpassword" name="confirmpassword">
       </div>
       
-      <div class="buttonWrapper">
-        <button name="changement_mdp" type="submit" id="submitButton" onclick="return validateSignupForm();" class="submitButton pure-button pure-button-primary">
+      <div class="div-button">
+        <button name="changement_mdp" type="submit" onclick="return validateSignupForm();" class="submit-button">
           <span>Continuer</span>
         </button>
       </div>
+
       <a class="link" href="index.php">Retour au profil</a>
         
     </form>

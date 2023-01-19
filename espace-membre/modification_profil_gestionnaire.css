@@ -20,9 +20,15 @@
     margin-left: 30%;
     outline: none;
     border: none;
-    background-color: #A697E8;
     margin-top: 55px;
     cursor: pointer;
+}
+.modification .submit{
+    background-color: #A697E8;
+}
+.modification .delete-account{
+    margin-top: 30px;
+    background-color: #ED7474;
 }
 
 .modification a {

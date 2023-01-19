@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Mes données BetterSet</title>
+  <title>Données BetterSet</title>
 
   <link rel="stylesheet" href="../faq.css">
   <link rel="stylesheet" href="donnees.css">
@@ -18,9 +18,47 @@ if (!isset($_SESSION['loggedin'])) {
   header('Location: ../espace-membre/connexion.php');
   exit();
 }
-include('../nav-from-parent/nav.php');
+
 include('../database/config.php');
 include('../database/tools.php');
+
+$errors = array();
+$messages = array();
+
+if ($_SESSION["role"] == "utilisateur") {
+  $row = $_SESSION;
+  $edit_request = "own=1";
+}
+else {
+  if (isset($_GET["id"])) {
+    $id = $_GET["id"];
+    if ($_SESSION["role"] == "chef") {
+      $chef_id = $_SESSION["ID"];	
+      $stmt = $conn->prepare("SELECT * FROM utilisateur WHERE ID = ? AND id_chef = ?");
+      $stmt->bind_param('ss', $id, $id_chef);
+    }
+    else {
+      $stmt = $conn->prepare("SELECT * FROM utilisateur WHERE ID = ?");
+      $stmt->bind_param('s', $id);
+    }
+    if (!$stmt->execute()) {
+      redirect_role($_SESSION["role"], "indexx.php");
+    }
+    $result = $stmt->get_result();
+    if ($result->num_rows == 1) {
+      $row = $result->fetch_array();
+      $edit_request = "own=0&id=" . $id;
+    }
+    else {
+      redirect_role($_SESSION["role"], "index.php");
+    }
+  }
+  else {
+    redirect_role($_SESSION["role"], "index.php");
+  }
+}
+
+include('../nav-from-parent/nav.php');
 include('../espace-' . $_SESSION['role'] . '/sidebar.php');
 ?>
 
@@ -32,40 +70,54 @@ include('../espace-' . $_SESSION['role'] . '/sidebar.php');
 
             <div class="Identité">
                 <p class="Nom">
-                    Nom/Prénom Employé
+                  <?php echo $row["nom"] . " " . $row["prenom"]; ?>
                 </p>
                 <!--Vérifier le genre de la personne, afficher l'icone correspondante-->
-                <img class="genre" src="../images/female_icon.png" alt="Femme">
+                <?php 
+                if ($row["genre"] == 0) {
+                  $src = "../images/male_icon.png";
+                }
+                else {
+                  $src = "../images/female_icon.png";
+                }
+                ?>
+                <img class="genre" src="<?php echo $src; ?>" alt="Genre">
                 <p class="Sub-info">
-                    Age
+                    <?php 
+                    $dateOfBirth = $row["date_naissance"];
+                    $today = date("Y-m-d");
+                    $diff = date_diff(date_create($dateOfBirth), date_create($today));
+                    echo 'Age : '.$diff->format('%y');
+                    ?>
                 </p>
             </div>
 
             <div class="Account-buttons">
-                <button class="Modify-Account">
+                <button id="<?php echo $edit_request;?>" class="Modify-Account">
                     Modifier le compte
                 </button>
-                <button class="Delete-Account">
+                <button id="<?php echo $edit_request . "&role=utilisateur" ?>" class="Delete-Account">
                     Supprimer le compte
                 </button>
             </div>
           </div>
 
-        <div class="Data-header">
+        
             <h2 class="Data-title">
                 Données du BetterSet
             </h2>
-            <div class="Duration-buttons">
-                <button class="Duration-button Left-Button">Jour</button>
-                <button class="Duration-button">Semaine</button>
-                <button class="Duration-button">Mois</button>
-                <button class="Duration-button Right-Button">Année</button>
-            </div>
+            <div class="Data-header">
+              <div class="Duration-buttons">
+                  <button class="Duration-button Left-Button">Jour</button>
+                  <button class="Duration-button">Semaine</button>
+                  <button class="Duration-button">Mois</button>
+                  <button class="Duration-button Right-Button">Année</button>
+              </div>
 
-            <div class="Calendar">
-                <img class="Calendar-image" src="../images/calendrier.png" alt="calendrier">
+              <div class="Calendar">
+                  <img class="Calendar-image" src="../images/calendrier.png" alt="calendrier">
+              </div>
             </div>
-        </div>
 
 
         <div class="Data">
@@ -76,7 +128,7 @@ include('../espace-' . $_SESSION['role'] . '/sidebar.php');
                 Fréquence cardiaque (BPM)
                 </h2>
                 <!-- <img src="images/information.png" alt="[Info]" class="image-info"> -->
-                <div class="chartBox">
+                <div class="chartBox particular">
                   <canvas id="myChart"></canvas>
                 </div>
                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -102,8 +154,10 @@ include('../espace-' . $_SESSION['role'] . '/sidebar.php');
                             suggestedMin: 60,
                             suggestedMax: 120
                           }
-                        }
-                      }
+                        },
+                        responsive: true,
+                        maintainAspectRatio: false,
+                      },
                     };
 
                     const myChart = new Chart(
@@ -140,14 +194,15 @@ include('../espace-' . $_SESSION['role'] . '/sidebar.php');
                     const sueurconfig = {
                       type: 'bar',
                       data : sueurdata,
-                      responsive: true,
                       options: {
                         scales: {
                           y: {
                             suggestedMin: 0,
                             suggestedMax: 1
                           }
-                        }
+                        },
+                        responsive: true,
+                        maintainAspectRatio: false,
                       }
                     };
 
@@ -191,7 +246,9 @@ include('../espace-' . $_SESSION['role'] . '/sidebar.php');
                             suggestedMin: 30,
                             suggestedMax: 230
                           }
-                        }
+                        },
+                        responsive: true,
+                        maintainAspectRatio: false,
                       }
                     };
 
@@ -235,7 +292,9 @@ include('../espace-' . $_SESSION['role'] . '/sidebar.php');
                             suggestedMin: 30,
                             suggestedMax: 130
                           }
-                        }
+                        },
+                        responsive: true,
+                        maintainAspectRatio: false,
                       }
                     };
 
@@ -259,7 +318,7 @@ make_footer(false);
 
 <script>
 addEvent("Duration-button", buttonClick)
-addEvent("Modify-Account", modifyAccount)
+addEvent("Modify-Account", editAccount)
 addEvent("Delete-Account", deleteAccount)
 </script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
