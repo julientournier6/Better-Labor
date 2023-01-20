@@ -50,9 +50,9 @@ else {
 }
 //On éxécute la suppression puis on redirige de manière appropriée
 if ($stmt->execute()) {
-  if ($own) {
-    redirect("../index.php?message=deleted");
+  if ($own == 1) {
     session_destroy();
+    redirect("../index.php?message=deleted");
   }
   else {
     redirect_role($_SESSION["role"], "index.php?message=deleted");

@@ -1,26 +1,18 @@
-input[type=radio]{
-  width : 7%;
-  border : 14%;
-  margin: auto;
-  margin-right: 0;
-}
-
-.inputs p{
-  font-size : 90%;
-}
-
 .radio{
   padding-top : 5%;
   width : 50%;
   display : flex;
   align-items: center;
   padding-left: 15%;
+  font-size: 15px!important;
+}
+.radio input[type=radio] {
+  width : 7%;
+  border : 14%;
+  margin: auto;
+  margin-right: 0;
 }
 
 .radio p{
-  font-size: 90%;
   margin-left: 2%;
-}
-.log-container{
-  width: max(35%, 400px);
 }

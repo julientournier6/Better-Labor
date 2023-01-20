@@ -8,9 +8,14 @@ function fetch_data($conn, $tableName, $columns){
       $msg= "Le nom de la table est vide";
    }else{
    $columnName = implode(", ", $columns);
-   if (isset($_GET['text']) && $tableName == "utilisateur") {
+   if (isset($_GET['text']) && $tableName == "utilisateur" && isset($_GET['agemin']) && isset($_GET['agemax'])) {
       $text = $_GET['text'];
       $text = "%" . $text . "%";
+
+      if (!is_numeric($_GET["agemin"]) || !is_numeric($_GET["agemax"]) ) {
+            return "La tranche d'âge saisie est invalide";
+      }
+
       $agemin = $_GET['agemin'];
       $agemax = $_GET['agemax'];
       

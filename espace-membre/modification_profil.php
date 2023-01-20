@@ -9,6 +9,9 @@
     <link rel="icon" href="./ico image.ico" type="image/x-icon">
     <title>Modification de profil</title>
 </head>
+<script src="donnees.js"></script>
+<script src="../tools.js"></script>
+
 <body>
 <?php
 session_start();
@@ -162,5 +165,10 @@ HEREDOC;
 make_footer(false);
 ?>
 </div>
+
+<script>
+addEvent("delete-account", deleteAccount)
+</script>
+
 </body>
 </html>

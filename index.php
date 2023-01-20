@@ -12,14 +12,13 @@
     <title>Better Labor</title>
 </head>
 
-
-<body>
 <?php
 include("nav.php");
 if (isset($_GET["message"]) && $_GET["message"] == "deleted") {
     echo "<script type='text/javascript'>alert('Le compte a bien été supprimé!');</script>";
 }
 ?>
+<body>
 
 <div class="headline">
     <div class="headline-text display">

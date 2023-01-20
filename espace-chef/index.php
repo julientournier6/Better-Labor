@@ -166,8 +166,7 @@ noUiSlider.create(slider, {
     step: 1,
 });
 
-const el = document.getElementById('recherche-submit');
-el.onclick = function(){ 
+function submitForm() {
     var slider = document.getElementById('slider');
     var numbers = slider.noUiSlider.get(true);
     agemin = numbers[0];
@@ -177,10 +176,11 @@ el.onclick = function(){
     input_agemax.value = agemax;
     document.getElementById("recherche-form").submit();
 }
+const el = document.getElementById('recherche-submit');
+el.onclick = submitForm;
+
 const el_genre = document.getElementById('auto-submit');
-el_genre.onclick = function() {
-    document.getElementById("recherche-form").submit();
-}
+el_genre.onchange = submitForm;
 ;
 
 addEvent('row', rowClick);
