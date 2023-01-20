@@ -119,11 +119,11 @@ $fetchData = fetch_data($conn, $tableName, $columns);
             <p class = "nombreEmploye">
                 <?php echo count_rows($conn, "chef"); ?> chefs
             </p>
-            <div class="boutons_employes">
+            <!-- <div class="boutons_employes">
                 <button class="AjoutEmployés bouton-important">
                     Ajouter un chef
                 </button>
-            </div>
+            </div> -->
         </div>
 
 <?php
@@ -203,11 +203,11 @@ $fetchData2 = fetch_data($conn, $tableName, $columns);
             <p class = "nombreEmploye">
                 <?php echo count_rows($conn, "utilisateur"); ?> utilisateurs
             </p>
-            <div class="boutons_employes">
+            <!-- <div class="boutons_employes">
                 <button class="AjoutEmployés bouton-important">
                     Ajouter un utilisateur
                 </button>
-            </div>
+            </div> -->
         </div>
     </div>
 <!--Les 2 </div> qui suivent servent à fermer les div écrites dans sidebar.php  -->
