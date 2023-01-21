@@ -3,15 +3,13 @@
 <html lang="fr">
 <head>
 
-  <title>Formulaire de contact</title>
+  <title>Formulaire de contact Better Labor</title>
   <meta charset="utf-8">
 
   <link rel="stylesheet" href="contact.css">
   <link rel="stylesheet" href="general.css">
   
 </head>
-
-<body>
 <?php
 session_start();
 if (isset($_SESSION['loggedin'])) {
@@ -43,7 +41,6 @@ if(isset($_POST["contact"])) {
         $sujet = "Demande commerciale";
     }
     $demande = nl2br($_POST['demande']);
-    echo $demande;
     $sql = "SELECT * FROM admin";
     $result = $conn->query($sql);
     if ($result != false && $result->num_rows > 0) {
@@ -64,6 +61,7 @@ if(isset($_POST["contact"])) {
     }
 }
 ?>
+<body>
 <div class="mainDiv">
     <div class="cardStyle">
       <form action="" method="post" id="contact">

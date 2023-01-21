@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Tableau de bord FAQ</title>
+  <title>Gestion de la FAQ</title>
 
   <link rel="stylesheet" href="../faq.css">
   <link rel="stylesheet" href="../general.css">

@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../faq.css">
   <link rel="stylesheet" href="donnees.css">
   <link rel="stylesheet" href="../espace-admin/espace-admin.css">
+  <link rel="stylesheet" href="../espace-membre/espace-membre.css">
   <script src="donnees.js"></script>
   <script src="../tools.js"></script>
 </head>
@@ -69,10 +70,13 @@ include('../espace-' . $_SESSION['role'] . '/sidebar.php');
         <div class="top">
 
             <div class="Identité">
+                <?php 
+                if ($row['badge'] != 0) {
+                    echo '<img class="badge" src="../images/badge-' . $row['badge'] . '.png">';
+                }?>
                 <p class="Nom">
                   <?php echo $row["nom"] . " " . $row["prenom"]; ?>
                 </p>
-                <!--Vérifier le genre de la personne, afficher l'icone correspondante-->
                 <?php 
                 if ($row["genre"] == 0) {
                   $src = "../images/male_icon.png";
@@ -322,4 +326,4 @@ addEvent("Modify-Account", editAccount)
 addEvent("Delete-Account", deleteAccount)
 </script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="../chart.js"></script>
+<script src="chart.js"></script>

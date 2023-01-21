@@ -13,6 +13,9 @@ function connect($row, $role) {
         $_SESSION['date_naissance'] = $row->date_naissance;
         $_SESSION['telephone'] = $row->telephone;
     }
+    if ($role == 'utilisateur' || $role == 'chef') {
+        $_SESSION['badge'] = $row->badge;
+    }
 }
 
 function redirect_role($role, $page) {
@@ -103,7 +106,7 @@ function sign_up($conn, $role) {
                     $genre = $_POST['genre'];
                     $stmt = $conn->prepare("INSERT INTO $role (email, id_chef, password, prenom, nom, telephone, date_naissance, genre)
                     VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
-                    $stmt->bind_param('ssssssss', $email, $_SESSION['id'], $password_hash, $prenom, $nom, $telephone, $date_naissance, $genre);
+                    $stmt->bind_param('ssssssss', $email, $_SESSION['ID'], $password_hash, $prenom, $nom, $telephone, $date_naissance, $genre);
                 }
                 else if ($role == 'admin') {
                     $code_admin = $conn->real_escape_string(strip_tags($_POST['code'], ENT_QUOTES));
@@ -164,6 +167,7 @@ function sign_up($conn, $role) {
                                 '<br>Mot de passe : ' . $password . 
                                 '<br><br>Veuillez cliquer <a href="' . $lien . '">ici</a> pour vous connecter. 
                                 <br>Vous pouvez ensuite changer votre mot de passe.')) {
+                                $messages[] = "Un mail a été envoyé à l'employé avec son mot de passe.";
                             }
                             else {
                                 $errors[] = "Le mail de création de compte n'a pas pu être envoyé à votre employé.";

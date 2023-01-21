@@ -6,7 +6,6 @@
   <title>Changement de mot de passe</title>
   <link rel="stylesheet" href="formulaire_general.css">
   <link rel="stylesheet" href="../general.css">
-  
 </head>
 <body>
 <?php
@@ -15,10 +14,9 @@ if (!isset($_SESSION['loggedin'])) {
   header('Location: ../espace-membre/connexion.php');
   exit();
 }
-include('../nav-from-parent/nav.php');
+
 include('../database/config.php');
 include('../database/tools.php');
-include('../espace-' . $_SESSION['role'] . '/sidebar.php');
 
 $new_password = $confirmpassword = "";
 $messages = array();
@@ -51,6 +49,8 @@ if(isset($_POST["changement_mdp"])) {
     }
 }
 
+include('../nav-from-parent/nav.php');
+include('../espace-' . $_SESSION['role'] . '/sidebar.php');
 ?>
 <div class="main-content maindiv-formulaire">
     <div class="div-formulaire">

@@ -11,13 +11,14 @@ list($errors, $messages) = sign_up($conn, "chef");
     <meta charset="UTF-8">
     <link rel = "stylesheet" href = "../espace-membre/formulaire_general.css"/>
     <link rel = "stylesheet" href = "../general.css"/>
-    <title>Inscription à l'espace chef Better Labor</title>
+    <title>Inscription à l'espace chef</title>
 </head>
 
-<body>
 <?php
 include("../nav-from-parent/nav.php");
 ?>
+
+<body>
 <div class="main-content maindiv-formulaire">
     <div class="div-formulaire no-padding">
         <form action="" method="post" id="inscription">

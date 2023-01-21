@@ -20,6 +20,9 @@
 	list-style: none;
 	text-decoration: none;
 }
+.margin-top{
+	bottom: 5px;
+}
 
 .hover_collapse .sidebar{
 	width: 70px;
@@ -76,4 +79,30 @@ html, body{
 	padding: 0;
 	box-sizing: border-box;
 	display: inline-block;
+}
+
+@media (max-width: 870px){
+	.wrapper{
+		width: 0px;
+		display: none;
+		margin: 0;
+		padding: 0;
+	}
+	.hover_collapse{
+		width: 0px;
+		display: none;
+		margin: 0;
+		padding: 0;
+	}
+	.sidebar{
+		width: 0px;
+		display: none;
+		margin: 0;
+		padding: 0;
+	}
+	.main-content{
+		overflow-x: visible!important;
+		overflow-y: visible!important;
+		overflow-wrap: visible!important;
+	}
 }

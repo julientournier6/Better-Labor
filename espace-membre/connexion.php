@@ -12,11 +12,11 @@ include("../database/config.php");
 include("../database/tools.php");
 
 list($errors, $messages) = sign_in($conn, false);
-?>
-<body>
-<?php
+
 include('../nav-from-parent/nav.php');
 ?>
+<body>
+
 <div class="main-content maindiv-formulaire">
     <div class="div-formulaire no-padding">
         <form action="" method="post" id="connexion">

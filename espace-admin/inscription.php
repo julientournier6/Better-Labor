@@ -11,7 +11,7 @@ list($errors, $messages) = sign_up($conn, "admin");
     <meta charset="UTF-8">
     <link rel = "stylesheet" href = "../espace-membre/formulaire_general.css"/>
     <link rel = "stylesheet" href = "../general.css"/>
-    <title>Inscription administrateur Better Labor</title>
+    <title>Inscription administrateur</title>
 </head>
 <body>
 <?php

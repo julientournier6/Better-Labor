@@ -3,6 +3,12 @@
     margin-left: 8%;
     margin-top: 2%;
 }
+@media (max-width: 870px){
+    .espace-admin{
+    width: 95%;
+    margin-left: 0;
+    }
+}
 .espace-admin-title{
     font-size: 26px;
     font-weight: 600;

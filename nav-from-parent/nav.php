@@ -1,7 +1,12 @@
 <html lang="fr">
 <head>
     <title>Better Labor</title>
+    <meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="noindex, nofollow">  
     <link rel="stylesheet" href="../footer.css" type="text/css">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
 </head>
 <?php
 if (session_status() == PHP_SESSION_NONE) {
@@ -11,7 +16,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == 1) {
     include('barre profil.php');
 }
 else {
-    include('barre acceuil.php');
+    include('barre accueil.php');
 }
 function make_footer($pushed) {
     if ($pushed) {

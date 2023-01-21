@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Better Labor</title>
-        
-    </head>
 
 <div class = "footer">
     <div class = "section_help">   

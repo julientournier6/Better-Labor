@@ -1,16 +1,3 @@
-<?php
-session_start();
-include('../database/config.php');
-include('../database/tools.php');
-$email = "";
-$errors = array();
-$messages = array();
-
-//Vérification du formulaire :
-include('../database/reinitialisation_mdp.php');
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -22,10 +9,23 @@ include('../database/reinitialisation_mdp.php');
   <link rel="stylesheet" href="../general.css">
 
 </head>
-<body>
+
 <?php
+session_start();
+include('../database/config.php');
+include('../database/tools.php');
+$email = "";
+$errors = array();
+$messages = array();
+
+//Vérification du formulaire :
+include('../database/reinitialisation_mdp.php');
+
 include('../nav-from-parent/nav.php');
 ?>
+
+<body>
+
 <div class="maindiv-formulaire">
     <div class="div-formulaire no-padding">
       <form action="" method="post" name="resetpassword" id="resetpassword">
@@ -77,8 +77,11 @@ include('../nav-from-parent/nav.php');
     </div>
   </div>
   <script src="reinitialisation_mdp.js"></script>
+<!--Les 2 </div> qui suivent servent à fermer les div écrites dans sidebar.php  -->
+</div>
 <?php
 make_footer(false);
 ?>
+</div>
 </body>
 </html>

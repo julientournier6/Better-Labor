@@ -3,3 +3,16 @@
     margin-left: 8%;
     margin-top: 2%;
 }
+.badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    vertical-align: top;
+    border: none;
+    outline: none;
+  }
+
+.inline-block{
+    display: inline-block;
+    padding-top: 6px;
+}

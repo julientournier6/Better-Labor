@@ -14,6 +14,7 @@ body{
     position: fixed;
     top: 0;
 }
+
 .container nav{
     height: 100px;
 }
@@ -92,7 +93,7 @@ nav ul ul li a{
     display: none;
 }
 
-@media (max-width: 1180px){
+@media (max-width: 1194px){
     nav ul li a{
         font-size: 20px;
         padding: 0 30px;  
@@ -106,16 +107,16 @@ nav ul ul li a{
     }
 }
 
-@media (max-width: 1006px){
+@media (max-width: 1018px){
     nav ul li a{
         font-size: 17px;
         padding: 0 20px;  
     }
 }
 
-@media (max-width: 858px){
+@media (max-width: 870px){
     .checkbtn{
-        display: block;
+        display: block!important;
         margin-right: 40px;
 
     }
@@ -142,13 +143,12 @@ nav ul ul li a{
 
     nav li{
         display: block;
-        
     }
 
     nav a{
         
         line-height: 100px;
-        
+            
     }
     nav ul ul{
         position: static;

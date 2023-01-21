@@ -9,7 +9,7 @@
     <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel = "stylesheet" href = "index.css">
     <link rel = "stylesheet" href = "general.css">
-    <title>Better Labor</title>
+    <title>Accueil Better Labor</title>
 </head>
 
 <?php

@@ -11,7 +11,7 @@ list($errors, $messages) = sign_in($conn, true);
     <meta charset="UTF-8">
     <link rel = "stylesheet" href = "../espace-membre/formulaire_general.css"/>
     <link rel = "stylesheet" href = "../general.css"/>
-    <title>Connexion administrateur Better Labor</title>
+    <title>Connexion administrateur</title>
 </head>
 <body>
 

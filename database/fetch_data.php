@@ -27,8 +27,7 @@ function fetch_data($conn, $tableName, $columns){
       WHERE (CONCAT(prenom, ' ', nom) LIKE ? OR CONCAT(nom, ' ', prenom) LIKE ? OR email LIKE ? OR telephone LIKE ?)
       AND date_naissance >= ? AND date_naissance <= ?";
       $genre = $_GET['genre'];
-      if ($genre == 1 || $genre == 2) {
-         
+      if (is_numeric($_GET["genre"]) && ($genre == 1 || $genre == 0)) {
          $query = $query . " AND genre = '$genre'";
       }
       if ($_SESSION["role"] == "chef") {

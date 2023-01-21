@@ -4,11 +4,17 @@
     margin-left: 0%;
     max-height: 800px;
 }
+@media (max-width: 870px){
+    .conteneur{
+        width: 100%;
+        overflow: visible;
+    }
+}
 .conteneur-tableau{
     display: flex;
     justify-content: center;
     width: 100%;
-    overflow-x: auto;
+    overflow-x: visible!important;
 }
 
   
@@ -22,12 +28,26 @@ table
     align-self: center;
     width: 100%;
 }
+@media (max-width: 870px){
+    table{
+    font-size: 0.5rem;
+}
+}
 td, th 
 {
     border: 1px solid rgb(190,190,190);
-    padding: 1px 15px;
+    padding: 1px 16px;
     height: 5em;
     white-space: nowrap;
+}
+@media (max-width: 870px){
+    td, th 
+{
+    border: 1px solid rgb(190,190,190);
+    padding: 1px 8px;
+    height: 5em;
+    white-space: nowrap;
+}
 }
   
   th 

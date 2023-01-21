@@ -27,13 +27,19 @@ else if (isset($_SESSION['role'])) {
 	}
 } 
 ?>
-<html>
-<body>
 
 <?php
 include('../nav-from-parent/nav.php');
 include('sidebar.php');
+
+$messages = array();
+include("../database/fetch_data.php");
+$tableName="chef";
+$columns= ['ID', 'email','nom','prenom','statut'];
+$fetchData = fetch_data($conn, $tableName, $columns);
 ?>
+
+<body>
 
 <div class="main-content espace-admin">
 <?php
@@ -57,13 +63,6 @@ if (isset($_GET["error"]) && $_GET["error"] == "communication") {
     <p class="espace-admin-title">Espace Administrateur</p>
     <p class="espace-admin-subtitle">Bienvenue <?php echo htmlentities(trim($_SESSION['prenom']) . " " .  $_SESSION['nom']); ?> !</p>
     <p class="espace-admin-secondary-title">Gestion des chefs de chantier</p>
-<?php
-$messages = array();
-include("../database/fetch_data.php");
-$tableName="chef";
-$columns= ['ID', 'email','nom','prenom','statut'];
-$fetchData = fetch_data($conn, $tableName, $columns);
-?>
 
 <!-- Tableau pour les chefs de chantier -->
     <div class ="conteneur">
@@ -142,7 +141,7 @@ $fetchData2 = fetch_data($conn, $tableName, $columns);
                 <input class="recherche-element recherche-text" type = "text" name = "text" placeholder = "Nom, prénom, email ou téléphone" value="<?php if (isset($_GET['text'])) {echo $_GET['text'];}?>">
                 <div class="recherche-select">
                     <select name="genre" id="auto-submit">
-                        <option value="none">Genre</option>
+                        <option value="none" <?php if (isset($_GET['genre']) && $_GET['genre'] == 0) {echo "selected";}?> >Genre</option>
                         <option value="0" <?php if (isset($_GET['genre']) && $_GET['genre'] == 0) {echo "selected";}?>>Homme</option>
                         <option value="1" <?php if (isset($_GET['genre']) && $_GET['genre'] == 1) {echo "selected";}?>>Femme</option>
                     </select>

@@ -1,16 +1,11 @@
 <!doctype html>
 <html>
 <head>
-  	<meta charset="UTF-8">
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet"  href="../general.css">
     <link rel="stylesheet"  href="../espace-membre/sidebar.css" media="screen">
-  	<title>Espace Membre</title>
-	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </head>
-</html>
+
+<body>
 <div class="main-container">
 <div class="content">
 <div class="wrapper hover_collapse">
@@ -34,6 +29,12 @@
 				<a href="../espace-membre/changement_mdp.php">
 					<span class="icon2"><img src="../images/password-page.svg" class="img"></span>
 					<span class="text">Mot de passe</span>
+				</a>
+			</li>
+			<li>
+				<a href="../espace-membre/quiz.php">
+					<span class="icon"><img src="../images/quiz.png" class="img"></span>
+					<span class="text">Quiz</span>
 				</a>
 			</li>
 			<li>
@@ -73,3 +74,5 @@ li_items.forEach((li_item)=>{
 })
 
 </script>
+</body>
+</html>

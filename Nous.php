@@ -3,6 +3,7 @@
 <html lang="fr">
 
 <head>
+    <title>Equipe Better Labor</title>
     <link rel ="stylesheet" href = "Nous.css"/>
     <link rel ="stylesheet" href = "general.css"/>
 </head>

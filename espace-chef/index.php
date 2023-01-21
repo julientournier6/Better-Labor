@@ -8,9 +8,9 @@
     <link rel="stylesheet"  href="../general.css">
 	<link rel ="stylesheet" href = "../tableau.css"/>
 	<link rel="stylesheet"  href="../espace-admin/espace-admin.css">
+    <link rel="stylesheet"  href="../espace-membre/espace-membre.css">
     <link rel="stylesheet"  href="../libraries/nouislider.css">
-  	<title>Espace Membre Better Labor</title>
-	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  	<title>Espace Chef Better Labor</title>
 </head>
 
 <?php
@@ -27,14 +27,7 @@ else if (isset($_SESSION['role'])) {
 		header('Location:: ../espace-utilisateur');
 	}
 }
-?>
-<body>
-<?php
-include('../nav-from-parent/nav.php');
-include('sidebar.php');
-?>
 
-<?php
 $messages = array();
 include("../database/fetch_data.php");
 include('../database/tools.php');
@@ -42,7 +35,13 @@ include("../database/config.php");
 $tableName="utilisateur";
 $columns= ['ID', 'email','nom','prenom','date_naissance'];
 $fetchData = fetch_data($conn, $tableName, $columns);
+
+include('../nav-from-parent/nav.php');
+include('sidebar.php');
 ?>
+
+<body>
+
 <div class="main-content espace-admin">
 <?php
 if (isset($_GET["message"]) && $_GET["message"] == "activated") {
@@ -63,7 +62,12 @@ if (isset($_GET["error"]) && $_GET["error"] == "communication") {
 }
 ?>    
 	<p class="espace-admin-title">Espace Chef de chantier</p>
-	<p class="espace-admin-subtitle">Bienvenue <?php echo htmlentities(trim($_SESSION['prenom']) . " " .  $_SESSION['nom']); ?> !</p>
+    <?php 
+    if (isset($_SESSION['badge']) && $_SESSION['badge'] != 0) {
+        echo '<img class="badge" src="../images/badge-' . $_SESSION['badge'] . '.png">';
+    }?>
+	<p class="espace-admin-subtitle inline-block">Bienvenue <?php echo htmlentities(trim($_SESSION['prenom']) . " " .  $_SESSION['nom']); ?> !</p>
+
     <div class ="conteneur">
         <form method = "GET" action="" name="recherche" class="recherche-form" id="recherche-form">
             <a class="recherche-submit recherche-element" id="recherche-submit">
@@ -72,7 +76,7 @@ if (isset($_GET["error"]) && $_GET["error"] == "communication") {
             <input class="recherche-element recherche-text" type = "text" name = "text" placeholder = "Nom, prénom, email ou téléphone" value="<?php if (isset($_GET['text'])) {echo $_GET['text'];}?>">
             <div class="recherche-select">
                 <select name="genre" id="auto-submit">
-                    <option value="none">Genre</option>
+                    <option value="-1" <?php if (isset($_GET['genre']) && $_GET['genre'] == -1) {echo "selected";} ?>>Genre</option>
                     <option value="0" <?php if (isset($_GET['genre']) && $_GET['genre'] == 0) {echo "selected";}?>>Homme</option>
                     <option value="1" <?php if (isset($_GET['genre']) && $_GET['genre'] == 1) {echo "selected";}?>>Femme</option>
                 </select> 
@@ -181,7 +185,6 @@ el.onclick = submitForm;
 
 const el_genre = document.getElementById('auto-submit');
 el_genre.onchange = submitForm;
-;
 
 addEvent('row', rowClick);
 </script>

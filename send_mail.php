@@ -37,9 +37,12 @@ function sendmail($conn, $row, $subject, $body, $file = NULL, $admin = 0){
             ' . $body . '
             <br>Infinite Measures<br>Service Better Labor<br><a href="127.0.0.1/Better-Labor">Le site</a>';
             $mail->AltBody = 'Mail envoyé de la part de $row->email depuis notre site web :  
+            <br>
             Prenom :  $row->prenom
             Nom : $row->nom
             $body
+            <br>
+            <br>
             Infinite Measures
             Service Better Labor
             Le site : 127.0.0.1/Better-Labor';

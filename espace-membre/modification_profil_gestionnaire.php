@@ -5,12 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href = "modification_profil_gestionnaire.css"/>
-    <link rel="icon" href="./ico image.ico" type="image/x-icon">
     <title>Modification de profil</title>
 </head>
+
 <script src="donnees.js"></script>
 <script src="../tools.js"></script>
-<body>
 <?php
 session_start();
 if (!isset($_SESSION['loggedin'])) {
@@ -92,6 +91,8 @@ include('../nav-from-parent/nav.php');
 include('../espace-' . $_SESSION['role'] . '/sidebar.php');
 
 ?>
+
+<body>
 
     
 

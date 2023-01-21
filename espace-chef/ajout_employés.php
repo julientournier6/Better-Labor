@@ -29,16 +29,17 @@ else if (isset($_SESSION['role'])) {
 		header('Location:: ../espace-utilisateur');
 	}
 }
-?>
-<html>
-<body>
-<?php
-include('../nav-from-parent/nav.php');
-include('sidebar.php');
+
 include('../database/config.php');
 include('../database/tools.php');
 list($errors, $messages) = sign_up($conn, "utilisateur");
+
+include('../nav-from-parent/nav.php');
+include('sidebar.php');
 ?>
+
+<body>
+
 <body>
 <div class="main-content maindiv-formulaire no-margin-top">
     <div class="div-formulaire">
@@ -70,7 +71,7 @@ list($errors, $messages) = sign_up($conn, "utilisateur");
             </div>
             <div class="div-input">
                 <label for="date_naissance">Date de naissance</label>
-                <input type="date" placeholder="example@domaine.com" name="date_naissance" id="date_naissance" required>
+                <input type="date" placeholder="example@domaine.com" name="date_naissance" id="date_naissance" value="1990-01-01" required>
             </div>
             <div class="div-input">
                 <label for="email">Adresse e-mail</label>
