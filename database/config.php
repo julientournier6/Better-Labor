@@ -1,18 +1,12 @@
 <?php
-$herogu = true;
-if ($herogu) {
-  $hostName = "herogu.garageisep.com";
-  $userName = "MZdD21NaxX_betterlabo";
-  $pass = "IsFwuk8VfFuUP8vx";
-  $databaseName = "P9VdwiMT4I_betterlabo";
-}
-else {
-  $hostName = "localhost";
-  $userName = "root";
-  $pass = "";
-  $databaseName = "betterlabor";
-}
-$conn = new mysqli($hostName, $userName, $pass, $databaseName);
+
+$hostName = "localhost";
+$userName = "root";
+$pass = "";
+$databaseName = "betterlabor";
+
+// $conn = new mysqli($hostName, $userName, $pass, $databaseName);
+$conn = new mysqli($_ENV['MYSQL_HOST'], $_ENV['MYSQL_USER'], $_ENV['MYSQL_PASSWORD'], $_ENV['MYSQL_DATABASE']);
 if ($conn->connect_error) {
   die("La connexion a échoué : " . $conn->connect_error);
 }
