@@ -4,7 +4,7 @@ if ($herogu) {
   $hostName = "herogu.garageisep.com";
   $userName = "MZdD21NaxX_betterlabo";
   $pass = "IsFwuk8VfFuUP8vx";
-  $databaseName = "P9VdwiMT4I_betterlabor";
+  $databaseName = "P9VdwiMT4I_betterlabo";
 }
 else {
   $hostName = "localhost";
