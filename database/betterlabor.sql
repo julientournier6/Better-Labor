@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2023 at 01:22 PM
+-- Generation Time: Jan 21, 2023 at 01:19 AM
 -- Server version: 5.7.17
 -- PHP Version: 7.1.3
 
@@ -39,16 +39,16 @@ CREATE TABLE `admin` (
   `activated` tinyint(4) DEFAULT '0',
   `code_verification` varchar(50) NOT NULL,
   `activation_expiry` datetime NOT NULL,
-  `statut` tinyint(4) DEFAULT NULL
+  `statut` tinyint(4) DEFAULT NULL,
+  `badge` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`ID`, `email`, `password`, `prenom`, `nom`, `created_at`, `updated_at`, `activated`, `code_verification`, `activation_expiry`, `statut`) VALUES
-(12, 'alexisvafiadis+2@gmail.com', '$2y$10$cP2JtsRJchhW1.KmFmtW8uV4dueF4IaI7oU3vFZmHcsFHjFd/ZXM2', 'Alexis', 'Vafiadis', '2023-01-12 12:01:03', '2023-01-12 12:01:03', 0, '66ee300ec5f6240c', '2023-01-13 12:01:03', NULL),
-(13, 'alexisvafiadis+2@gmail.com', '$2y$10$D03Av9A39dMLwlvN6mjNy.rQK2a/7U848RpQI3iRxxxRZmaNZc5PS', 'Alexis', 'Vafiadis', '2023-01-12 12:06:43', '2023-01-12 12:06:43', 0, '19eaa8c5bb2079e8', '2023-01-13 12:06:43', NULL);
+INSERT INTO `admin` (`ID`, `email`, `password`, `prenom`, `nom`, `created_at`, `updated_at`, `activated`, `code_verification`, `activation_expiry`, `statut`, `badge`) VALUES
+(15, 'alexisvafiadis@gmail.com', '$2y$10$ZDv7NtqDFtgfAxpRp2pD8ehJtZ8pCMtj6DvqLxrg9wzPgMdpHgpQu', 'Alexis', 'Vafiadis', '2023-01-20 11:57:47', '2023-01-20 11:57:47', 0, 'c2e63b8368abbf54', '2023-01-21 11:57:47', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -70,7 +70,7 @@ CREATE TABLE `capteur` (
 
 CREATE TABLE `categorie` (
   `ID` int(11) NOT NULL,
-  `nom` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `nom` varchar(40) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `position` tinyint(4) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -80,7 +80,7 @@ CREATE TABLE `categorie` (
 
 INSERT INTO `categorie` (`ID`, `nom`, `position`) VALUES
 (1, 'Questions generales!', 1),
-(2, 'Question pour chef de chantier', 2);
+(2, 'Questions pour chef de chantier', 2);
 
 -- --------------------------------------------------------
 
@@ -99,16 +99,16 @@ CREATE TABLE `chef` (
   `activated` tinyint(4) DEFAULT '0',
   `code_verification` varchar(20) NOT NULL,
   `activation_expiry` datetime NOT NULL,
-  `statut` tinyint(4) DEFAULT '0'
+  `statut` tinyint(4) DEFAULT '0',
+  `badge` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `chef`
 --
 
-INSERT INTO `chef` (`ID`, `email`, `password`, `prenom`, `nom`, `created_at`, `updated_at`, `activated`, `code_verification`, `activation_expiry`, `statut`) VALUES
-(24, 'alexisvafiadis@gmail.com', '$2y$10$me5TfKduaPctXKyqT4qfeO1VGhlHa3Dtgdke8KQFz1Ga53xtD3HuW', 'Alexiszesazs', 'Vafiadisezseaz', '2023-01-10 09:24:03', '2023-01-10 09:24:03', 0, '38edf00c9c5d0cb9', '2023-01-11 09:24:03', 0),
-(27, 'alexisvafiadis+a@gmail.com', '$2y$10$mC3Hrm1iSG7kw3xS22q6u.IX/7cHLAQo00QVf4s6ZrJjrlKbLeRlS', 'Alexisa', 'Vafiadis', '2023-01-16 19:07:59', '2023-01-16 19:07:59', 0, '1b03553310d1d6e8', '2023-01-17 19:07:59', 0);
+INSERT INTO `chef` (`ID`, `email`, `password`, `prenom`, `nom`, `created_at`, `updated_at`, `activated`, `code_verification`, `activation_expiry`, `statut`, `badge`) VALUES
+(29, 'alexisvafiadis@gmail.com', '$2y$10$nJPQANhvnj3Xuj/lzuhhC.jcw7kP4klkqB2wZgX6VP/kxp.NVbTMW', 'Alexis', 'Vafiadis', '2023-01-20 13:05:34', '2023-01-20 13:05:34', 0, '9b07fe615e4429c7', '2023-01-21 13:05:34', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -126,7 +126,8 @@ CREATE TABLE `code_admin` (
 --
 
 INSERT INTO `code_admin` (`code`, `valide`) VALUES
-('PDQ5695F2E36Z0M0P6L2', 0);
+('PDQ5695F2E36Z0M0P6L2', 0),
+('PDQ5695F2E36Z0M0P6L3', 0);
 
 -- --------------------------------------------------------
 
@@ -161,8 +162,8 @@ CREATE TABLE `question` (
 --
 
 INSERT INTO `question` (`ID`, `ID_categorie`, `position`, `sujet`, `reponse`) VALUES
-(14, 1, 1, 'Comment se connecter Ã  son compte', 'AprÃ¨s avoir crÃ©Ã© votre compte, cliquez sur \"sign in\" en haut Ã  droite de la page.'),
-(10, 2, 1, 'Comment gÃ©rer ses employÃ©s', 'Une rÃ©ponse');
+(14, 1, 1, 'Comment se connecter Ã  son compte?', 'AprÃ¨s avoir crÃ©Ã© votre compte, cliquez sur \\\"sign in\\\" en haut Ã  droite de la page.'),
+(10, 2, 1, 'Comment gÃ©rer ses employÃ©s?', 'Une rÃ©ponse');
 
 -- --------------------------------------------------------
 
@@ -182,19 +183,19 @@ CREATE TABLE `utilisateur` (
   `date_naissance` date DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `activated` tinyint(4) DEFAULT NULL,
-  `statut` tinyint(4) DEFAULT NULL
+  `activated` tinyint(4) DEFAULT '0',
+  `statut` tinyint(4) DEFAULT '0',
+  `badge` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`ID`, `id_chef`, `email`, `password`, `genre`, `prenom`, `nom`, `telephone`, `date_naissance`, `created_at`, `updated_at`, `activated`, `statut`) VALUES
-(4, 24, 'alexisvafiadis+2@gmail.com', '$2y$10$31YlmcVfOyF7IDBmTlFLOusTxNEbmmdW8jrzY19AN3bEsK9Lq93Ze', '0', 'Big D', 'KE le booss', '0754832476', '1999-02-12', '2023-01-12 10:58:56', '2023-01-12 10:58:56', NULL, NULL),
-(3, 24, 'alexisvafiadis+1@gmail.com', '$2y$10$ztH7hJlfKTYx2Pk0jdbYDempGXIrEoQZweMuChkcydF11gaAT26Hi', '0', 'Alexis', 'Vafiadis', '0754832476', '1990-01-01', '2023-01-11 18:31:21', '2023-01-11 18:31:21', NULL, NULL),
-(10, 24, 'alexisvafiadis+3@gmail.com', '$2y$10$80CAjdrkOKfxWLURTDSTZO6TtFaRPJNEKgBkneNM345MTqZjbrfbm', '0', 'LÃ©oo', 'TOURON', '0754832476', '2001-11-01', '2023-01-12 14:07:08', '2023-01-12 14:07:08', NULL, NULL),
-(11, 24, 'alexisvafiadis+6@gmail.com', '$2y$10$F/jCtMhxh9p.0VPV4m.DmOLOQxP9Ggsgv3pBXuf7OvDNXihu0/W9O', '0', 'Alexiss', 'Vafiadis', '0754832476', '1990-01-01', '2023-01-16 17:57:57', '2023-01-16 17:57:57', NULL, NULL);
+INSERT INTO `utilisateur` (`ID`, `id_chef`, `email`, `password`, `genre`, `prenom`, `nom`, `telephone`, `date_naissance`, `created_at`, `updated_at`, `activated`, `statut`, `badge`) VALUES
+(13, 29, 'alexisvafiadis+2@gmail.com', '$2y$10$eggRv7x3JVXHVY0wgkElSe.hV.cLqSV.pE2ITFOXo38GAMppSHHNO', '0', 'Dylan', 'KE', '0754832476', '1990-01-01', '2023-01-20 14:30:16', '2023-01-20 14:30:16', 0, 0, 2),
+(12, 29, 'alexisvafiadis+1@gmail.com', '$2y$10$2ypAa2xiegGFOvhp9a99VeQn5pb3KoZiTFUjpFnAuWmxmeWvIxun2', '0', 'Alexis', 'Vafiadis', '0754832476', '2000-06-01', '2023-01-20 14:11:00', '2023-01-20 14:11:00', 0, 0, 0),
+(14, 29, 'alexisvafiadis+4@gmail.com', '$2y$10$aywQK6aNZxUM.XbOe/ROyeqxUYl1H1lh2odw3mxFiHzedjTZn4KiC', '1', 'Meishan', 'CHEN', '0754832476', '1990-01-01', '2023-01-20 14:30:43', '2023-01-20 14:30:43', 0, 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -256,7 +257,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `capteur`
 --
@@ -266,12 +267,12 @@ ALTER TABLE `capteur`
 -- AUTO_INCREMENT for table `categorie`
 --
 ALTER TABLE `categorie`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `chef`
 --
 ALTER TABLE `chef`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `mesure`
 --
@@ -281,12 +282,12 @@ ALTER TABLE `mesure`
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;COMMIT;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
