@@ -155,6 +155,7 @@ img.help{
     height: 37px;
     margin-top: 0.3em;
     width: 100%;
+    cursor: pointer;
 }
 
 /* Gestion FAQ */

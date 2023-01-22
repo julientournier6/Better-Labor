@@ -32,7 +32,7 @@ echo $obj->display_public();
           <p class="help-contact">
           Contactez-nous directement par mail à contact.betterlabor@gmail.com
           </p>
-          <button class="help-button">
+          <button onclick="location.href='contact.php';" class="help-button">
           J'ai besoin d'aide
           </button>
         </div>

@@ -52,7 +52,7 @@ td, th
   
   th 
 {
-    background-color: rgb(235,235,235);
+    background-color: rgb(232, 231, 231);
 }
 
   
@@ -100,13 +100,15 @@ td, th
 }
 .row{
     cursor: pointer;
+    background: rgb(244, 244, 244);
 }
 .row:hover{
-    background: rgb(235,235,235);
+    background: rgb(233, 233, 233);
 }
 .row-chef{
     cursor: pointer;
+    background: rgb(244, 244, 244);
 }
 .row-chef:hover{
-    background: rgb(235,235,235);
+    background: rgb(233, 233, 233);
 }

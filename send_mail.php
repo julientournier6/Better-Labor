@@ -19,7 +19,7 @@ function sendmail($conn, $row, $subject, $body, $file = NULL, $admin = 0){
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     $mail->Username = 'contact.betterlabor@gmail.com';
-    $mail->Password = 'agcfeudoeyqufidf';
+    $mail->Password = 'spczkrpbzgijjcyq';
     $mail->Port = 587;
     $mail->CharSet = 'UTF-8';
     $mail->setFrom('contact.betterlabor@gmail.com', 'Better Labor');
