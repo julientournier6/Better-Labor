@@ -20,7 +20,7 @@ function connect($row, $role) {
 
 function redirect_role($role, $page) {
     //Fonction outil qui permet de générer un lien vers l'espace correspondant au rôle de l'utilisateur
-    $root = dirname($_SERVER['PHP_SELF']);
+    $root = get_base_url();
     if ($role == "utilisateur") {
         $lien =  $root . '/espace-utilisateur/';
     }
