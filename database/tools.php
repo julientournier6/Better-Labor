@@ -249,7 +249,7 @@ function get_base_url() {
     else {
         $start = "http://";
     }
-    $url = $start. $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];//on prend d'abord l'adresse actuelle
+    $url = $start . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];//on prend d'abord l'adresse actuelle
     $url = explode("espace", $url)[0];//on enlève la partie en trop"
     return $url;
 }
