@@ -1,5 +1,5 @@
 <?php
-$herogu = false;
+$herogu = true;
 if ($herogu) {
   $hostName = "herogu.garageisep.com";
   $userName = "MZdD21NaxX_betterlabo";
