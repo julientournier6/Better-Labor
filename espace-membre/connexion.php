@@ -21,7 +21,7 @@ include('../nav-from-parent/nav.php');
     <div class="div-formulaire no-padding">
         <form action="" method="post" id="connexion">
         
-            <img src="../images/logo.png" id="grandlogo-formulaire"/>
+            <img src="../images/Logo.png" id="grandlogo-formulaire"/>
 
             <h2 class="titre-formulaire">Vos identifiants de connexion</h2>
                 
