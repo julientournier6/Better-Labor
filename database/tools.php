@@ -243,7 +243,7 @@ function specific_sign_in($conn, $role) {
 //On veut déterminer l'adresse de base du serveur pour pouvoir envoyer un lien d'activation
 //car l'adresse n'est pas la même pour tout le monde
 function get_base_url() {
-    $url = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];//on prend d'abord l'adresse actuelle
+    $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];//on prend d'abord l'adresse actuelle
     $url = explode("espace", $url)[0];//on enlève la partie en trop"
     return $url;
 }
