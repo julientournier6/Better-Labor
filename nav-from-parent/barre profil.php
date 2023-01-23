@@ -18,7 +18,7 @@
                 <li class="main"><a href="../Découvrir.php"><b>Decouvrir</b></a></li>
                 <li class="main"><a href="../#"><b>Devenir partenaire</b></a></li>
                 <li class="main"><a href="../Nous.php"><b>Nous</b></a></li>
-                <li class="main"><a href="../espace-membre"><b>Mon profil</b></a>
+                <li class="main"><a href="../espace-membre/index.php"><b>Mon profil</b></a>
                     <ul class="droplist">
                         <?php
                         if ($_SESSION['role'] == 'admin') {
