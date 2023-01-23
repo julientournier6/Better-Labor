@@ -80,7 +80,7 @@ include('../nav-from-parent/nav.php');
 <!--Les 2 </div> qui suivent servent à fermer les div écrites dans sidebar.php  -->
 </div>
 <?php
-make_footer(true);
+make_footer(false);
 ?>
 </div>
 </body>

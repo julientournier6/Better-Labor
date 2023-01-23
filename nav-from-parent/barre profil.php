@@ -32,7 +32,7 @@
                         }
                         else if ($_SESSION['role'] == 'chef') {
                             echo '
-                            <li><a href="../espace-chef/sindex.php">Mes employés</a></li>
+                            <li><a href="../espace-chef/index.php">Mes employés</a></li>
                             <li><a href="../espace-membre/modification_profil_gestionnaire.php?own=1">Mon compte</a></li>
                             <li><a href="../espace-membre/modification_mdp.php">Mot de passe</a></li>
                             <li><a href="../espace-membre/deconnexion.php">Se déconnecter</a></li>
@@ -42,7 +42,7 @@
                             echo '                            
                             <li><a href="../index.php">Mes employés</a></li>
                             <li><a href="../espace-membre/modification_profil_gestionnaire.php?own=1">Mon compte</a></li>
-                            <li><a href="../espace-membre/modification_mdp.php">Mot de passe</a></li>
+                            <li><a href="../espace-membre/changement_mdp.php">Mot de passe</a></li>
                             <li><a href="../espace-membre/deconnexion.php">Se déconnecter</a></li>
                             ';
                         }
