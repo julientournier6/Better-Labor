@@ -2,7 +2,7 @@
 
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <title>FAQ Better Labor</title>
   <link rel="stylesheet" href="faq.css">
   <link rel="stylesheet" href="general.css">

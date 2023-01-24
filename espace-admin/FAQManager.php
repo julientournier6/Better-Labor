@@ -6,6 +6,7 @@ class FAQManager
   public function connect($conn)
   {
     $this->conn = $conn;
+    header('Content-type: text/html; charset=UTF-8');
   }
 
   public function display_public()

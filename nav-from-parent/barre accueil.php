@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <link rel = "stylesheet" href = "../barre_accueil.css" title="no title"/>
 </head>
