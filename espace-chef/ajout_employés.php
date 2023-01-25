@@ -32,6 +32,7 @@ else if (isset($_SESSION['role'])) {
 
 include('../database/config.php');
 include('../database/tools.php');
+include("../database/inscription.php");
 list($errors, $messages) = sign_up($conn, "utilisateur");
 
 include('../nav-from-parent/nav.php');

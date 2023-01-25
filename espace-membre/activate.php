@@ -2,6 +2,7 @@
 session_start();
 include("../database/config.php");
 include("../database/tools.php");
+include("../database/connexion.php");
 
 //Page vers laquelle redirigent les liens d'activation de compte
 //Le lien d'activation est accompagné d'attributs GET qui donnent les informations nécessaires à l'activation

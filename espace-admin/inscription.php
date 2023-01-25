@@ -3,6 +3,7 @@ session_start();
 //on inclue le fichier qui contient nom_de_serveur, nom_bdd, login et password d'accès à la bdd mysql
 include("../database/config.php");
 include("../database/tools.php");
+include("../database/inscription.php");
 list($errors, $messages) = sign_up($conn, "admin");
 ?>
 <!DOCTYPE html>
@@ -16,6 +17,7 @@ list($errors, $messages) = sign_up($conn, "admin");
 <body>
 <?php
 include('../nav-from-parent/nav.php');
+
 ?>
 <div class="main-content maindiv-formulaire">
     <div class="div-formulaire no-padding">
