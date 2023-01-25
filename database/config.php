@@ -1,15 +1,15 @@
 <?php
 $herogu = true;
 if ($herogu) {
-    $hostname = $_ENV["MYSQL_HOST"];
-    $userName = $_ENV["MYSQL_USER"];
-    $pass = $_ENV["MYSQL_PASSWORD"];
-    $databaseName = ["MYSQL_DATABASE"];
+  // $hostname = $_ENV["MYSQL_HOST"];
+  // $userName = $_ENV["MYSQL_USER"];
+  // $pass = $_ENV["MYSQL_PASSWORD"];
+  // $databaseName = ["MYSQL_DATABASE"];
 
-  // $hostName = "herogu.garageisep.com";
-  // $userName = "MZdD21NaxX_betterlabo";
-  // $pass = "IsFwuk8VfFuUP8vx";
-  // $databaseName = "P9VdwiMT4I_betterlabo";
+    $hostName = "herogu.garageisep.com";
+    $userName = "MZdD21NaxX_betterlabo";
+    $pass = "IsFwuk8VfFuUP8vx";
+    $databaseName = "P9VdwiMT4I_betterlabo";
 }
 else {
   $hostName = "localhost";
