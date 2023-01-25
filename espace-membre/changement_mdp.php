@@ -105,6 +105,9 @@ include('../espace-' . $_SESSION['role'] . '/sidebar.php');
         
     </form>
     </div>
+    <br class="big-margin">
+    <br class="big-margin">
+    
   </div>
 
 <!--Les 2 </div> qui suivent servent à fermer les div écrites dans sidebar.php  -->

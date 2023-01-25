@@ -57,6 +57,10 @@ include('../nav-from-parent/nav.php');
         </form>
     </div>
 </div>
+<br class="big-margin">
+<br class="big-margin">
+<br class="big-margin">
+<br class="big-margin">
 <?php
 make_footer(false);
 ?>
