@@ -123,7 +123,7 @@ include('../espace-' . $_SESSION['role'] . '/sidebar.php');
               </div>
             </div>
 
-
+        <?php include("donnees-test.php"); ?>
         <div class="Data">
 
             <!--Fréquence Cardiaque-->
@@ -138,13 +138,22 @@ include('../espace-' . $_SESSION['role'] . '/sidebar.php');
                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
                   <script>
-
+                    // Get the hidden paragraph element
+                    var hiddenParagraph1 = document.getElementById('last-values');
+                    var hiddenParagraph2 = document.getElementById('last-times');
+                    
+                    // Split the values string into an array
+                    var valuesArray = hiddenParagraph1.textContent.split(',');
+                    var timesArray = hiddenParagraph2.textContent.split(',');
+                    
+                    // Output the values in the console
+                    //console.log(valuesArray);
                     // Fréquence Cardiaque
                     const data = {
-                      labels: ['8 heures', '10 heures', 'Midi', '14 heures', '16 heures', '18 heures'],
+                      labels: timesArray,
                         datasets: [{
                           label: 'Fréquence Cardiaque',
-                          data: [70, 94, 75, 86, 105, 85],
+                          data: valuesArray,
                           borderWidth: 4
                         }]
                     };
@@ -155,8 +164,8 @@ include('../espace-' . $_SESSION['role'] . '/sidebar.php');
                       options: {
                         scales: {
                           y: {
-                            suggestedMin: 60,
-                            suggestedMax: 120
+                            suggestedMin: 50,
+                            suggestedMax: 130
                           }
                         },
                         responsive: true,

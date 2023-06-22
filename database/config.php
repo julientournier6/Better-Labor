@@ -1,5 +1,5 @@
 <?php
-$herogu = true;
+$herogu = false;
 if ($herogu) {
   // $hostname = $_ENV["MYSQL_HOST"];
   // $userName = $_ENV["MYSQL_USER"];

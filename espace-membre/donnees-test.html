@@ -1,0 +1,51 @@
+<html>
+  <!-- <script type="module">
+    import mysql from 'mysql';
+  </script> -->
+
+    <script>
+  // const mysql = window.mysql;
+  const mysql = require('mysql')
+let herogu = false;
+let hostName, userName, pass, databaseName;
+
+if (herogu) {
+  // hostname = process.env.MYSQL_HOST;
+  // userName = process.env.MYSQL_USER;
+  // pass = process.env.MYSQL_PASSWORD;
+  // databaseName = process.env.MYSQL_DATABASE;
+
+  hostName = "herogu.garageisep.com";
+  userName = "MZdD21NaxX_betterlabo";
+  pass = "IsFwuk8VfFuUP8vx";
+  databaseName = "P9VdwiMT4I_betterlabo";
+} else {
+  hostName = "localhost";
+  userName = "root";
+  pass = "";
+  databaseName = "betterlabor";
+}
+
+
+var con = mysql.createConnection({
+  host: hostName,
+  user: userName,
+  password: pass,
+  database: databaseName
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+  
+  con.query("SELECT * FROM yourtable", function (err, result, fields) {
+    if (err) throw err;
+    for (var i = 0; i < result.length; i++) {
+      console.log(result[i]);
+    }
+  });
+
+});
+</script>
+
+</html>
